@@ -4,7 +4,7 @@ For this workshop we'll be using the IBM Cloud Shell. The IBM Cloud Shell is a c
 
 ### Step 1: Set up Terminal
 
-When using OpenShift on IBM Cloud no client side setup is required for this workshop. Instead we will use the IBM Cloud Shell (Beta) which comes with all necessary CLIs (command line tools).
+When using Kubernetes on IBM Cloud no client side setup is required for this workshop. Instead we will use the IBM Cloud Shell (Beta) which comes with all necessary CLIs (command line tools).
 
 In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. Make sure you select your own account in the account list at the top, then click on the IBM Cloud Shell icon.
 
@@ -16,7 +16,7 @@ This is what you should see:
 
 ![](../../images/cloud-shell.png)
 
-When using OpenShift locally, you need a local terminal and the following tools: 
+When using Kubernetes locally, you need a local terminal and the following tools: 
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [curl](https://curl.haxx.se/download.html)
@@ -31,13 +31,13 @@ In the IBM Cloud Shell execute the following command:
 
 ```
 $ git clone https://github.com/IBM/cloud-native-starter.git
-$ cd cloud-native-starter/reactive
+$ cd cloud-native-starter/security
 $ ROOT_FOLDER=$(pwd)  
 ```
 
 ![](../../images/cloud-shell-clone.png)
 
-### Step 3. Get Access to OpenShift
+### Step 3. Get Access to Kubernetes
 
 Open the [IBM Cloud Dashboard](https://cloud.ibm.com). In the row at the top switch from your **own** account to the **IBM account** given to you by the instructor from the pulldown in the uper right corner.
 
