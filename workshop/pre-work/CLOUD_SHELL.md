@@ -20,7 +20,8 @@ When using OpenShift locally, you need a local terminal and the following tools:
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [curl](https://curl.haxx.se/download.html)
-* [oc](https://docs.openshift.com/container-platform/4.3/welcome/index.html)
+* [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
+* [yarn](https://yarnpkg.com)
 * [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
 
