@@ -41,19 +41,23 @@ $ ROOT_FOLDER=$(pwd)
 
 Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud web console. Switch from your **own** account to provided  **IBM account**.
 
-The select 'Kubernetes' in the burger menu in the upper left corner followed by 'Clusters'.
+1. The select 'Kubernetes' in the burger menu in the upper left corner followed by 'Clusters'.
 
 ![](../../images/kubernetes-cluster-launch1.png)
 
-Click on your cluster.
+2. Click on your cluster.
 
 ![](../../images/kubernetes-cluster-launch2.png)
 
- Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands.
+ 3. Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands.
 
- Copy and paste the commands in your  IBM Cloud Shell terminal session.
+ 4. Copy and paste the commands in your open IBM Cloud Shell terminal session.
 
-_Note:_ To access the provided IBM Cloud Kubernetes Cluster and select after the login command `2` as the account for the current IBM Cloud Shell terminal session.
+ ![](../../images/cluster-access-commands.png)
+
+_Note:_ To access the provided IBM Cloud Kubernetes Cluster and select after the login command `2` as the account for the current IBM Cloud Shell terminal session. 
+
+Example:
 
 ```sh
 Select an account:
@@ -62,5 +66,18 @@ Select an account:
 Enter a number> 2
 ```
 
-![](../../images/cluster-access-commands.png)
+### Step 4. Create a environment variable `$CLUSTER_NAME`
 
+1. Enter the following command displays the name of your cluster, its ID, and a few other things.
+
+```sh
+ibmcloud ks cluster ls
+```
+
+2. Create an environment variable $CLUSTER_NAME that contains the name of your cluster.
+
+Example:
+
+```sh
+export CLUSTER_NAME=mycluster-ams03-b3c.4x16
+```
