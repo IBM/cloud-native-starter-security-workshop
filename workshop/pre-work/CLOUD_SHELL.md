@@ -53,7 +53,9 @@ Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud w
 
  4. Copy and paste the commands in your open IBM Cloud Shell terminal session.
 
- ![](../../images/cluster-access-commands.png)
+| IBM Cloud web console | IBM CLoud Shell  |
+| - | - |
+|![](../../images/cluster-access-commands.png)| ![](../../images/cloud-shell.png) |
 
 _Note:_ To access the provided IBM Cloud Kubernetes Cluster and select after the login command `2` as the account for the current IBM Cloud Shell terminal session. 
 
