@@ -22,7 +22,6 @@ When using Kubernetes locally, you need a local terminal and the following tools
 * [curl](https://curl.haxx.se/download.html)
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 * [yarn](https://yarnpkg.com)
-* [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
 
 ### Step 2: Get the Code
@@ -34,8 +33,6 @@ $ git clone https://github.com/IBM/cloud-native-starter.git
 $ cd cloud-native-starter/security
 $ ROOT_FOLDER=$(pwd)  
 ```
-
-![](../../images/cloud-shell-clone.png)
 
 ### Step 3. Get Access to Kubernetes
 
