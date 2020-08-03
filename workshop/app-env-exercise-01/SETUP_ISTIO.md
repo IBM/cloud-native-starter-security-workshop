@@ -15,7 +15,7 @@ Instead, in this lab we will install the Istio demo profile manually using `isti
 * Get the environment information `$CLUSTERIP`, `$MYCLUSTER` and `INGRESSURL`.
 **funktioniert nur im Lab (1 cluster)**
 ```sh
-  sh get-env.sh    
+  ./get-env.sh    
 ```
 
 * Save the needed environment variables in the `local.env` file
