@@ -9,9 +9,25 @@ When we install Istio on our pre-provisioned Kubernetes Clusters on IBM Cloud, t
 ```sh
 kubectl get svc -n istio-system | grep istio-ingressgateway
 ```
+Our Ingress gateway is in fact of type LoadBalancer, the second IP address of the example `149.***.131.***` is the external (public) IP address. This is the ingressIP `149.***.131.***` for the next command we will use.
 
-The output should look like this:
+Example:
 
 ```sh
 istio-ingressgateway   LoadBalancer  172.21.213.52  149.***.131.***   15020:31754/TCP,...
+```
+
+### Step 2: Create a DNS subdomain
+
+To create a DNS subdomain, a URL, for the Ingress gateway (= loadbalancer, nlb) use the following command:
+
+```sh
+ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip <ingressIP>
+```
+
+The new subdomain will have the form `[cluster name]-[globally unique hash]-[region]-containers.appdomain.cloud`. The output should look like this:
+
+```sh
+OK
+NLB hostname was created as harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
 ```
