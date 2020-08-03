@@ -24,7 +24,7 @@ Instructors will provide a URL to a web app. Enter your IBMid (the email you use
 
 ![](../../images/cluster-ibmaccount.png)
 
-Click on **Clusters** in the **Resource Summary** tile.
+* Click on **Clusters** in the **Resource Summary** tile.
 
 ![](../../images/cluster-dashboard.png)
 
