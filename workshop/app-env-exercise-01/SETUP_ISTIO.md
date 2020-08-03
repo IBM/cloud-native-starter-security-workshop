@@ -12,8 +12,8 @@ Instead, in this lab we will install the Istio demo profile manually using `isti
 ```sh
   cd $ROOT_FOLDER/IKS
 ```
-* Get the environment information
-****<<<funktioniert nur im Lab (1 cluster)>>>****
+* Get the environment information `$CLUSTERIP`, `$MYCLUSTER` and `INGRESSURL`.
+**funktioniert nur im Lab (1 cluster)**
 ```sh
   sh get-env.sh    
 ```
@@ -25,7 +25,7 @@ Instead, in this lab we will install the Istio demo profile manually using `isti
 
 ### Step 2: Setup Istio with an operator 
 
-The following commands do install the Istio operator, create a namespace for the Istio backplane, and start to install the Istio backplane.
+The following commands do install the Istio operator, create a namespace for the Istio backplane, and start to installation of the Istio backplane.
 
 * Operator
 ```sh
@@ -37,18 +37,18 @@ istioctl operator init
 kubectl create ns istio-system
 ```
 
-* Istio installation
+* Istio deployment
 ```sh
 kubectl apply -f istio.yaml
 ```
 
-### Step 2: Check the status of Istio installation
+### Step 3: Check the status of Istio deployment
 
 ```sh
 kubectl get pod -n istio-system
 ```
 
-When install completed the result should look like this:
+When deployment is completed the result should look like this:
 
 ```sh
 NAME                                    READY   STATUS    RESTARTS   AGE
@@ -60,3 +60,11 @@ NAME                                    READY   STATUS    RESTARTS   AGE
  kiali-696bb665-8rrhr                    1/1     Running   0          3m12s
  prometheus-564768879c-2r87j             2/2     Running   0          3m12s
 ```
+
+### Step 4: Setup telemetry
+
+We will be using the Kiali dashboard during this workshop. With `istioctl dashboard xxx` it is easy to access Kiali and the other telemetry services. Unfortunately, the required port-forwarding doesn't work in IBM Cloud Shell. We will now enable NodePorts for those services with a script/hack:
+
+```sh
+ ./telemetry.sh
+ ```
