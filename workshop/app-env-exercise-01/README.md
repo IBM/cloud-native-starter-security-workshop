@@ -9,4 +9,4 @@ In the following exercises we will:
 * We will secure the Istio Ingress gateway with HTTPS using a certificate that is automatically generated.
 * Install Keycloak within the Istio Service Mesh.
 
-[Start with the Exercise 1: Setup Istio](exercise-01/SETUP_ISTIO.md)
+[Start with the Exercise 1: Setup Istio](SETUP_ISTIO.md)
