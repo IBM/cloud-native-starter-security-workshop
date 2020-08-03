@@ -2,26 +2,29 @@
 
 For this workshop we'll be using the IBM Cloud Shell. The IBM Cloud Shell is a cloud-based shell workspace that you can access through your browser. It's preconfigured with the full IBM Cloud CLI and other 3rd party CLIs like OpenShift's `oc`, Helm's `helm` and Kubernetes' `kubectl`.
 
-### Step 1: Set up Terminal
+### Step 1: Set up the terminal session
 
 When using Kubernetes on IBM Cloud no client side setup is required for this workshop. Instead we will use the IBM Cloud Shell (Beta) which comes with all necessary CLIs (command line tools).
 
 In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. Make sure you select your own account in the account list at the top, then click on the IBM Cloud Shell icon.
 
+That opens a new browser tab with your IBM Cloud Shell session. 
+
 ![](../../images/cloud-shell-launch.png)
 
 Note: Your workspace includes 500 MB of temporary storage. This session will close after an hour of inactivity. If you don't have any active sessions for an hour or you reach the 30-hour weekly usage limit, your workspace data is removed.
 
-This is what you should see:
+You should see you personal ID as `Current account: [User]'s Account'`:
 
 ![](../../images/cloud-shell.png)
 
-When using Kubernetes locally, you need a local terminal and the following tools: 
+When you using Kubernetes locally for that example, you need a local terminal and the following tools: 
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [curl](https://curl.haxx.se/download.html)
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 * [yarn](https://yarnpkg.com)
+* [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
 
 ### Step 2: Get the Code
@@ -36,7 +39,7 @@ $ ROOT_FOLDER=$(pwd)
 
 ### Step 3. Get Access to Kubernetes
 
-Open the [IBM Cloud Dashboard](https://cloud.ibm.com). In the row at the top switch from your **own** account to the **IBM account** given to you by the instructor from the pulldown in the uper right corner.
+Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud web console. Switch from your **own** account to provided  **IBM account**.
 
 The select 'Kubernetes' in the burger menu in the upper left corner followed by 'Clusters'.
 
@@ -46,23 +49,18 @@ Click on your cluster.
 
 ![](../../images/kubernetes-cluster-launch2.png)
 
-Open the OpenShift web console.
+ Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands.
 
-![Open the OpenShift web console](../../images/openshift-console-launch3.png)
+ Copy and paste the commands in your  IBM Cloud Shell terminal session.
 
-From the dropdown menu in the upper right of the page, click 'Copy Login Command'. 
+_Note:_ To access the provided IBM Cloud Kubernetes Cluster and select after the login command `2` as the account for the current IBM Cloud Shell terminal session.
 
-![](../../images/openshift-login1.png)
-
-Click on 'Display Token', then copy and paste the command 'Log in with this token' into your terminal in the IBM Cloud Shell.
-
-![](../../images/openshift-login2.png)
-
-Login to OpenShift in IBM Cloud Shell
-
-```
-$ oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
+```sh
+Select an account:
+1. Thomas Südbröcker's Account (641XXXXXXXXe) <-> 123456
+2. Provided IBM account's Account (cf4dXXXXXe) <-> 234567
+Enter a number> 2
 ```
 
-![](../../images/openshift-login3.png)
+![](../../images/cluster-access-commands.png)
 
