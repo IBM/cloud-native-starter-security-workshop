@@ -41,9 +41,9 @@ $ ROOT_FOLDER=$(pwd)
 
 Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud web console. Switch from your **own** account to provided  **IBM account**.
 
-* The select 'Kubernetes' in the burger menu in the upper left corner followed by 'Clusters'.
+* Switch back to the  **1840867-IBM** account by clicking on the account selection drop down in the top navigation bar.
 
-![](../../images/kubernetes-cluster-launch1.png)
+![](../../images/cluster-ibmaccount.png)
 
 * Click on your cluster.
 
