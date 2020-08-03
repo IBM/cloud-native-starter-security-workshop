@@ -38,13 +38,13 @@ $ ROOT_FOLDER=$(pwd)
 
 Open the [IBM Cloud Dashboard](https://cloud.ibm.com). In the row at the top switch from your **own** account to the **IBM account** given to you by the instructor from the pulldown in the uper right corner.
 
-The select 'OpenShift' in the burger menu in the upper left corner followed by 'Clusters'.
+The select 'Kubernetes' in the burger menu in the upper left corner followed by 'Clusters'.
 
-![](../../images/openshift-console-launch1.png)
+![](../../images/kubernetes-cluster-launch1.png)
 
 Click on your cluster.
 
-![](../../images/openshift-console-launch2.png)
+![](../../images/kubernetes-cluster-launch2.png)
 
 Open the OpenShift web console.
 
