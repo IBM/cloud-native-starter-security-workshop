@@ -19,15 +19,26 @@ istio-ingressgateway   LoadBalancer  172.21.213.52  149.***.131.***   15020:3175
 
 ### Step 2: Create a DNS subdomain
 
-To create a DNS subdomain, a URL, for the Ingress gateway (= loadbalancer, nlb) use the following command:
+To create a DNS subdomain, a URL, for the Ingress gateway (= loadbalancer, nlb) for the next commanduse the following command:
 
 ```sh
+echo $MYCLUSTER
 ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip <ingressIP>
 ```
+
+_Note:_ Remember the <ingressIP>=`149.***.131.***`
 
 The new subdomain will have the form `[cluster name]-[globally unique hash]-[region]-containers.appdomain.cloud`. The output should look like this:
 
 ```sh
 OK
 NLB hostname was created as harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
+```
+
+### Step 3: Save Ingress URL
+
+To reuse the Ingress URL later we create a environment variable  `INGRESSURL.
+
+```sh
+export INGRESSURL=harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
 ```
