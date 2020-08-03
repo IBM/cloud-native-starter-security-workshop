@@ -15,7 +15,8 @@
 * [Overview](app-env-exercise-01/README.md)
 * [Exercise 1: Setup Istio](app-env-exercise-01/SETUP_ISTIO.md)
 * [Exercise 2: Expose Istio Ingress gateway](app-env-exercise-01/SETUP_ISTIO_INGRESS.md)
-* [Exercise 3: Setup Keycloak](app-env-exercise-01/SETUP_KEYCLOAK.md)
+* [Exercise 3: Expose the gateway via DNS with TLS enabled](app-env-exercise-01/SETUP_ISTIO_INGRESS_TLS.md)
+* [Exercise 4: Setup Keycloak](app-env-exercise-01/SETUP_KEYCLOAK.md)
 
 ### Run the sample Application in the IBM Cloud Shell 
 
