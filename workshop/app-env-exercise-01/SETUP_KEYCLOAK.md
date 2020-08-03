@@ -1,6 +1,6 @@
 # Setup Keycloak
 
-More details about the installation basics of Keycloak you get here [Keycloak - Guide - Keycloak on Kubernetes](https://www.keycloak.org/getting-started/getting-started-kube)
+More details about installation basics of Keycloak you get here [Keycloak - Guide - Keycloak on Kubernetes](https://www.keycloak.org/getting-started/getting-started-kube)
 
 We have Istio installed and we using the Istio Ingress to access Keycloak externally. The original `keycloak.yaml` is modified and the `NodePort` is removed. 
 
@@ -24,7 +24,7 @@ Get the Keycloak URL and open the URL in your browser:
 echo "https://"$INGRESSURL"/auth"
 ```
 
-### Step 4: Logon to Keycloak and configure
+### Step 4: Logon to Keycloak and configure the realm
 
 Click on 'Administration Console'. Login In with username 'admin' and password 'admin'.
 

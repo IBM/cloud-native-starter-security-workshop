@@ -6,7 +6,10 @@ Istio installed via the add-on is a managed service and it creates a production 
 
 Instead, in this lab we will install the Istio demo profile manually using `istioctl` and its standalone operator. `istioctl is available in IBM Cloud Shell, when I wrote these instructions it was at version 1.5.4 which means we will install Istio 1.5.4.
 
+
 ### Step 1: Get the cluster name, cluster ip@ and save it in the `local.env` file.
+
+**DRAFT Unsicher ob dies verwendet wird /DRAFT**
 
 * Change to the IKS folder
 ```sh
@@ -63,8 +66,11 @@ NAME                                    READY   STATUS    RESTARTS   AGE
 
 ### Step 4: Setup telemetry
 
+**DRAFT Das Ersetzen des Services für NodePort funktioniert mit Kiali nicht mehr ... wird wieder überschrieben. Muss ich was überlegen ... /DRAFT**
+
 We will be using the Kiali dashboard during this workshop. With `istioctl dashboard xxx` it is easy to access Kiali and the other telemetry services. Unfortunately, the required port-forwarding doesn't work in IBM Cloud Shell. We will now enable NodePorts for those services with a script/hack:
 
 ```sh
  ./telemetry.sh
  ```
+

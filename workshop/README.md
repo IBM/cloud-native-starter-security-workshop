@@ -48,14 +48,12 @@ The introductory page of the workshop is broken down into the following sections
 
 ### Agenda
 
-These are the labs of this workshop, go through all of them in sequence, start with `Pre work:
+These are the labs of this workshop, go through all of them in sequence, start with `Pre work`:
 
 |   |   |
 | - | - |
 | [Pre work](pre-work/README.md) |  |
 | [Exercise 1](exercise-01/README.md) | TBD |
-
-
 
 ### Compatibility
 
@@ -66,12 +64,13 @@ This workshop has been tested on the following platforms:
 
 ### Technology Used
 
+* [Microservices architecture](https://en.wikipedia.org/wiki/Microservices)
+* [KEYCLOAK](https://www.keycloak.org)
 * [Jakarta EE](https://jakarta.ee/)
 * [MicroProfile](https://microprofile.io/)
-* [Quarkus](https://quarkus.io/)
-* [PostgresSQL](https://www.postgresql.org/)
-* [Kubernetes](https://kubernetes.io/)
-* [Microservices architecture](https://en.wikipedia.org/wiki/Microservices)
+* [Quarkus](https://quarkus.io/ingress
+* [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+* [Istio](https://https://istio.io)
 * [Vue.js](https://vuejs.org/)
 
 ### Credits

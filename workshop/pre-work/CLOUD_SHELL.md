@@ -81,5 +81,5 @@ ibmcloud ks cluster ls
 Example:
 
 ```sh
-export CLUSTER_NAME=mycluster-ams03-b3c.4x16
+export MYCLUSTER=mycluster-ams03-b3c.4x16
 ```

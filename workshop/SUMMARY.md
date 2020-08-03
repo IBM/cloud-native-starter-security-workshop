@@ -13,8 +13,9 @@
 ### Setup the application environment
 
 * [Overview](app-env-exercise-01/README.md)
-* [Exercise 1 - Setup Istio](app-env-exercise-01/SETUP_ISTIO.md)
-* [Exercise 2 - Setup Keycloak](app-env-exercise-01/SETUP_KEYCLOAK.md)
+* [Setup Istio](app-env-exercise-01/SETUP_ISTIO.md)
+* [Expose Istio Ingress gateway](app-env-exercise-01/SETUP_ISTIO_INGRESS.md)
+* [Setup Keycloak](app-env-exercise-01/SETUP_KEYCLOAK.md)
 
 ### Run the sample Application in the IBM Cloud Shell 
 
