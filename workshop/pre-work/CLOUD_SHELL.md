@@ -49,9 +49,9 @@ Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud w
 
 ![](../../images/kubernetes-cluster-launch2.png)
 
- 3. Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands.
+3. Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands.
 
- 4. Copy and paste the commands in your open IBM Cloud Shell terminal session.
+4. Copy and paste the commands in your open IBM Cloud Shell terminal session.
 
 | IBM Cloud web console | IBM CLoud Shell  |
 | - | - |
