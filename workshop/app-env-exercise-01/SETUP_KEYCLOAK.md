@@ -34,20 +34,19 @@ echo "https://"$INGRESSURL"/auth"
 
 ![](../../images/keycloak-configure-02.png)
 
-Configuration:
+### Step 5: Create realm
 
-Move your mouse pointer over 'Master' in the upper left corner and click the blue 'Add realm' button.
+For the workshop we need our pre-configured realm, we will create the realm using a bash script.
 
-**DRAFT Wir müssen uns überlegen, wo die JSON file herkommt, im Zweifel aus der Cloud Shell runterladen oder per wget aus unserem Github Repo ... /DRAFT**
+```sh
+cd $ROOT/IKS
+./keycloak-create-realm.sh
+```
 
-In the 'Add realm' dialog click 'Select file', open the 'quarkus-realm.json' file, then click 'Create'.
-
-You should see a message pop up: "Success! Realm created"
+### Step 6: Verify the newly created realm
 
 Try to create an access token, this requires the $INGRESSURL environment variable to be set:
 
 ```sh
-curl -sk --data "username=alice&password=alice&grant_type=password&client_id=frontend" \
-        https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  \
-        | jq ".access_token" | sed 's|"||g'
+curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p'
 ```
