@@ -29,10 +29,13 @@ The following architecture diagrams do explain the complete flow the sample appl
 
 ### Objectives
 
-After you complete this workshop, you'll understand the following reactive functionality:
+After you complete this workshop, you'll understand the following security functionality:
 
+Application Security
 * ...
 * ...
+
+Application Security provided by the platform
 * ...
 * ...
 
@@ -50,12 +53,12 @@ The introductory page of the workshop is broken down into the following sections
 
 ### Agenda
 
-These are the labs of this workshop, go through all of them in sequence, start with `Pre work`:
+These are the labs of this workshop, go through all of them in sequence, start with `Setup the IBM Cloud Environment`:
 
 |   |   |
 | - | - |
-| [Pre work](pre-work/README.md) |  |
-| [Exercise 1](exercise-01/README.md) | TBD |
+| [Setup the IBM Cloud Environment](pre-work/README.md) | TBD |
+| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md) | TBD |
 
 ### Compatibility
 
@@ -70,7 +73,7 @@ This workshop has been tested on the following platforms:
 * [KEYCLOAK](https://www.keycloak.org)
 * [Jakarta EE](https://jakarta.ee/)
 * [MicroProfile](https://microprofile.io/)
-* [Quarkus](https://quarkus.io/ingress
+* [Quarkus](https://quarkus.io/ingress)
 * [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 * [Istio](https://https://istio.io)
 * [Vue.js](https://vuejs.org/)

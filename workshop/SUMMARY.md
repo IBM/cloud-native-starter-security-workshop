@@ -10,7 +10,7 @@
 * [Access the Cluster](pre-work/CLOUD_ACCOUNT.md)
 * [Access IBM Cloud Shell](pre-work/CLOUD_SHELL.md)
 
-### Setup the application environment
+### Setup the IBM Cloud application environment
 
 * [Overview](app-env-exercise-01/README.md)
 * [Exercise 1: Setup Istio](app-env-exercise-01/SETUP_ISTIO.md)
