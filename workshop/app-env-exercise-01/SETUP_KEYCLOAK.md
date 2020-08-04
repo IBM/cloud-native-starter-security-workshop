@@ -46,6 +46,8 @@ You should see a message pop up: "Success! Realm created"
 
 Try to create an access token, this requires the $INGRESSURL environment variable to be set:
 
+```sh
 curl -sk --data "username=alice&password=alice&grant_type=password&client_id=frontend" \
         https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  \
         | jq ".access_token" | sed 's|"||g'
+```
