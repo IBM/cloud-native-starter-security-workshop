@@ -26,7 +26,13 @@ echo "https://"$INGRESSURL"/auth"
 
 ### Step 4: Logon to Keycloak and configure the realm
 
-Click on 'Administration Console'. Login In with username 'admin' and password 'admin'.
+* Click on 'Administration Console'. 
+
+![](../../images/keycloak-configure-01.png)
+
+* Login In with username 'admin' and password 'admin'.
+
+![](../../images/keycloak-configure-02.png)
 
 Configuration:
 
