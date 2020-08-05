@@ -27,7 +27,7 @@ echo $MYCLUSTER
 ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip <ingressIP>
 ```
 
-_Note:_ Remember the <ingressIP>=`149.***.131.***`
+_Note:_ Remember the your "ingressIP"=`149.***.131.***`
 
 The new subdomain will have the form `[cluster name]-[globally unique hash]-[region]-containers.appdomain.cloud`. The output should look like this:
 
