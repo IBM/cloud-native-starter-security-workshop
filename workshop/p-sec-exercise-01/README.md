@@ -79,7 +79,7 @@ kubectl apply -f web-app.yaml
 
 * Select `Clients` and then `frontend` in Keycloak.
 
-![](../../images/cns-wrong-redirect-uri.png)
+![](../../images/cns-ajust-client-redirect.png)
 
 * Ajust the client frontend URLs and URIs `http://localhost:8080` with valid redirect you get with the command:
 
