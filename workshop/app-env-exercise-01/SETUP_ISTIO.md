@@ -4,7 +4,7 @@ Normally in a production size Kubernetes cluster on IBM Cloud we would install I
 
 Istio installed via the add-on is a managed service and it creates a production grade Istio instance and it requires a cluster with at least 3 worker nodes with 4 CPUs and 16 GB of memory which our lab Kubernetes cluster doesn't have.
 
-Instead, in this lab we will install the Istio demo profile manually using `istioctl` and its standalone operator. `istioctl is available in IBM Cloud Shell, when I wrote these instructions it was at version 1.5.4 which means we will install Istio 1.5.4.
+Instead, in this lab we will install the Istio demo profile manually using `istioctl` and its standalone operator. `istioctl` is available in IBM Cloud Shell, when we wrote these instructions it was at version 1.5.4 which means we will install Istio 1.5.4.
 
 
 ### Step 1: Get the cluster name, cluster ip@ and save it in the `local.env` file.
