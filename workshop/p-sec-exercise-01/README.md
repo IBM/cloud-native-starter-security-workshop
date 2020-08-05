@@ -104,4 +104,4 @@ Example:
 
 * Login in with `user: alice` and `password: alice`
 
-(../../images/cns-logon-keycloak.png)
+![](../../images/cns-logon-keycloak.png)
