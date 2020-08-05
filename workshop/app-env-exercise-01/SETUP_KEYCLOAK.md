@@ -36,13 +36,21 @@ echo "https://"$INGRESSURL"/auth"
 
 ### Step 5: Create realm
 
-For the workshop we need our pre-configured realm, we will create the realm using a bash script.
+For the workshop we need our pre-configured realm, we will create the realm using a bash script. 
 
 ```sh
 cd $ROOT/IKS
 ./keycloak-create-realm.sh
 ```
+Example output:
 
+```sh
+------------------------------------------------------------------------
+The realm is created.
+Open following link in your browser:
+https://harald-uebele-k8s-fra05-********************-0001/auth/admin/master/console/#/realms/quarkus
+------------------------------------------------------------------------
+```
 ### Step 6: Verify the newly created realm
 
 Try to create an access token, this requires the $INGRESSURL environment variable to be set:
@@ -50,3 +58,24 @@ Try to create an access token, this requires the $INGRESSURL environment variabl
 ```sh
 curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p'
 ```
+
+### (Optional) STEP 8: Verify the name `quarkus`of the imported realm
+
+
+![](../images/keycloak-config-3.png)
+
+### (Optional) STEP 9: Verify the imported realm settings
+
+![](../images/keycloak-config-4.png)
+
+## (Optional) Users and role mappings in existing realm
+
+### (Optional) STEP 1: Press `view all users`
+
+You should see following users: `admin`, `alice`, `jdoe`
+
+![](../images/keycloak-users.png)
+
+### (Optional) STEP 2: Verify the role mapping
+
+![](../images/keycloak-user.png)
