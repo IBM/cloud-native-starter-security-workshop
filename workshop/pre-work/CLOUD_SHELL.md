@@ -1,6 +1,6 @@
 # IBM Cloud Shell
 
-For this workshop we'll be using the IBM Cloud Shell. The IBM Cloud Shell is a cloud-based shell workspace that you can access through your browser. It's preconfigured with the full IBM Cloud CLI and other 3rd party CLIs like OpenShift's `oc`, Helm's `helm` and Kubernetes' `kubectl`.
+For this workshop we'll be using the IBM Cloud Shell. The IBM Cloud Shell is a cloud-based shell workspace that you can access through your browser. It's preconfigured with the full IBM Cloud CLI and other 3rd party CLIs like OpenShift's `oc`, Helm's `helm` and Kubernetes' `kubectl`. Here you find the list of installed [plug-ins](https://cloud.ibm.com/docs/cloud-shell?topic=cloud-shell-plugins-tools).
 
 ### Step 1: Setup the IBM Cloud Shell terminal session
 
