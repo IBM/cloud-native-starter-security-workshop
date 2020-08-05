@@ -35,6 +35,12 @@ data:
   QUARKUS_OIDC_AUTH_SERVER_URL: "https://harald-uebele-*****-0001.containers.appdomain.cloud/auth/realms/quarkus"
 ```
 
+* Apply the `configmap.yaml`
+
+```sh
+kubectl apply -f configmap.yaml
+```
+
 ### STEP 2: Now deploy the 3 services:
 
 * Deploy Articles Microservice
