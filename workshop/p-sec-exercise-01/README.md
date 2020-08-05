@@ -127,3 +127,7 @@ Example:
 * Login in with `user: alice` and `password: alice`
 
 ![](../../images/cns-logon-keycloak.png)
+
+* Now you see the entries of the articles
+
+![](../../images/cns-web-app.png)
