@@ -78,10 +78,15 @@ Enter a number> 2
 ibmcloud ks cluster ls
 ```
 
-* Create an environment variable $CLUSTER_NAME that contains the name of your cluster.
-
-Example:
+Example output:
 
 ```sh
-export MYCLUSTER=mycluster-ams03-b3c.4x16
+Name                               ID                     State      Created        Workers   Location    Version                   Resource Group Name   Provider   
+mycluster-ams03-b3c.4x16         bsk19dhd0efh3hp3b05g   normal     1 day ago      2         Dallas      1.17.9_1534               default               classic
+```
+
+* Create an environment variable $CLUSTER_NAME that contains the name of your cluster.
+
+```sh
+export MYCLUSTER=your_pre_provisioned_clustername
 ```
