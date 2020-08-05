@@ -11,7 +11,7 @@ In this exercise we will use precompiled container images that we uploaded to Do
 In directory IKS, modifify configmap.yaml and edit QUARKUS_OIDC_AUTH_SERVER_URL with your keycloak URL. It must end in /auth/realms/quarkus, enclosed in "".
 
 ```sh
-cd $ROOTFOLDER/IKS
+cd $ROOT_FOLDER/IKS
 nano configmap.yaml
 ```
 
@@ -20,21 +20,21 @@ nano configmap.yaml
 * Deploy Articles Microservice
 
 ```sh
-cd $ROOTFOLDER/articles-secure/deployment
+cd $ROOT_FOLDER/articles-secure/deployment
 kubectl apply -f articles.yaml
 ```
 
 * Deploy Web-API Microservice
 
 ```sh
-cd $ROOTFOLDER/web-api-secure/deployment
+cd $ROOT_FOLDER/web-api-secure/deployment
 kubectl apply -f web-api.yaml
 ```
 
 * Deploy Web-App [Vue.js](https://vuejs.org/) frontend application
 
 ```sh
-cd $ROOTFOLDER/web-app/deployment
+cd $ROOT_FOLDER/web-app/deployment
 kubectl apply -f web-app.yaml
 ```
 

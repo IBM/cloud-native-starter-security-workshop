@@ -7,6 +7,7 @@ The following procedures are platform specific and work with a "standard classic
 When we install Istio on our pre-provisioned Kubernetes Clusters on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer and is assigned a "floating" IP address through which it can be reached via the public Internet. You can determine this address with the following command:
 
 ```sh
+cd $ROOT_FOLDER/IKS
 kubectl get svc -n istio-system | grep istio-ingressgateway
 ```
 Our Ingress gateway is in fact of type LoadBalancer, the second IP address of the example `149.***.131.***` is the external (public) IP address.  We will use ingressIP `149.***.131.***`  in one of the next commands.

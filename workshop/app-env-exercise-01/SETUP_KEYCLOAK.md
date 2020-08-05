@@ -39,7 +39,7 @@ echo "https://"$INGRESSURL"/auth"
 For the workshop we need our pre-configured realm, we will create the realm using a bash script. 
 
 ```sh
-cd $ROOT/IKS
+cd $ROOT_FOLDER/IKS
 ./keycloak-create-realm.sh
 ```
 Example output:

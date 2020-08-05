@@ -11,6 +11,7 @@ The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the la
 ### Step 1: List the DNS subdomains
 
 ```sh
+cd $ROOT_FOLDER/IKS
 ibmcloud ks nlb-dns ls --cluster $MYCLUSTER
 ```
 
