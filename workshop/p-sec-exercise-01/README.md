@@ -43,6 +43,8 @@ kubectl apply -f web-app.yaml
 Login to Keycloak as admin, Clients: frontend Valid Redirect URIs: e.g. https://harald-uebele-fra05-162e406f043e20da9b0ef0731954a894-0001.eu-de.containers.appdomain.cloud/*
 Test:
 
+### STEP 4: Open the Cloud Native Starter application in your browser
+
 In the browser open the app with e.g. https://harald-uebele-fra05-162e406f043e20da9b0ef0731954a894-0001.eu-de.containers.appdomain.cloud
 
 Login in with user: alice, password: alice
