@@ -1,9 +1,17 @@
  # Secure ingress with TLS (HTTPS)
 
-Dur
-Question 1: Why can we access our application with TLS (https://...) ?
+|  | Question | Answer  |
+| - | - | - |
+| 1 | Why can we access our application with TLS (https://...) ? | We prepared this during the setup of the IBM Cloud Application Environment in exercise 3. We let IBM Cloud create a DNS entry and Let's Encrypt certificate
 
-Answer: We prepared this in Exercise 1, Step 3.
+We added this certificate to the Istio Ingress
+
+We added the DNS name (host) to the Istio Ingress Gateway definition
+
+We added it also to the VirtualService definition that configures the Gateway and here is our secret, look at IKS/istio-ingress-tls.|
+
+
+
 
 We let IBM Cloud create a DNS entry and Let's Encrypt certificate
 
