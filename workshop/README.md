@@ -29,17 +29,18 @@ The following architecture diagrams do explain the complete flow the sample appl
 
 ### Objectives
 
-After you complete this workshop, you'll understand the following security functionality:
+After you complete this workshop, you'll understand the following [application security](https://en.wikipedia.org/wiki/Application_security) related topics:
 
-Application Security
-* ...
-* ...
+**Application security provided by the platform**
+* TLS/HTTPS
+* MTLS
+* Istio authentication
 
-Application Security provided by the platform
-* ...
-* ...
+**Application security with Keycloak**
+* Authentication on the Web Fronted
+* Authorization for specific microservices in the Backend
 
-*The intention of this workshop is not to explain every aspect of security, but to explain core ... .*
+*The intention of this workshop is not to explain every aspect of application security, but to explain some core topics.*
 
 ### About this workshop
 
