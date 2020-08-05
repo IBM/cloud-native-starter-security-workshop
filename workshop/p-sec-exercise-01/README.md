@@ -130,4 +130,4 @@ Example:
 
 * Now you see the entries of the articles
 
-![](../../images/cns-web-app.png)
+![](../../images/cns-web-app-ui.png)
