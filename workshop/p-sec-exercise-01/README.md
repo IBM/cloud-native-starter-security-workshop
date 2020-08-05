@@ -58,7 +58,7 @@ cd $ROOT_FOLDER/web-app/deployment
 kubectl apply -f web-app.yaml
 ```
 
-### STEP 3: Adjust the Redirect URL in Keycloak:
+### STEP 3: Adjust the redirect, admin, web origins URLs in Keycloak:
 
 * Try to open the Cloud-Native-Starter application in a browser. Use the `$INGRESSURL` of your cluster, which is the URL to the frontend application `Web_APP` you deployed before.
 
@@ -71,12 +71,37 @@ kubectl apply -f web-app.yaml
 ![](../../images/cns-wrong-redirect-uri.png)
 
 
-* Login to Keycloak with `user: admin` and `password: admin` and ajust the Clients frontend Valid Redirect URIs: e.g. https://harald-uebele-fra05-162e406f043e20da9b0ef0731954a894-0001.eu-de.containers.appdomain.cloud/*
+* Open Keycloak in a browser and login to Keycloak with `user: admin` and `password: admin`. Get the right URL by display the URL with the following terminal command.
 
+```sh
+ echo https://$INGRESSURL/auth/admin/master/console/#/realms/quarkus
+```
+
+* Select `Clients` and then `frontend` in Keycloak.
+
+![](../../images/cns-wrong-redirect-uri.png)
+
+* Ajust the client frontend URLs and URIs `http://localhost:8080` with valid redirect you get with the command:
+
+```sh
+ echo https://$INGRESSURL
+```
+
+Example:
+
+| Before | Changed  |
+| - | - |
+|![](../../images/cns-ajust-client-redirect-02.png)| ![](../../images/cns-ajust-client-redirect-03.png) |
 
 
 ### STEP 4: Open the Cloud Native Starter application in your browser
 
-In the browser open the app with e.g. https://harald-uebele-fra05-162e406f043e20da9b0ef0731954a894-0001.eu-de.containers.appdomain.cloud
+* Use following URL:
 
-Login in with user: alice, password: alice
+```sh
+ echo https://$INGRESSURL
+```
+
+* Login in with `user: alice` and `password: alice`
+
+(../../images/cns-logon-keycloak.png)
