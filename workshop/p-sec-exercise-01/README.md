@@ -58,6 +58,22 @@ cd $ROOT_FOLDER/web-app/deployment
 kubectl apply -f web-app.yaml
 ```
 
+* Verify all pods are running
+
+```sh
+kubectl get pods
+```
+
+Example output:
+
+```sh
+NAME                        READY   STATUS                       RESTARTS   AGE
+articles-5df77c46b4-v7xcd   2/2     Running                0          3h35m
+keycloak-77cffb978-vjttk    2/2     Running                      0          44h
+web-api-5c9698b875-kz82k    2/2     Running                 0          3h35m
+web-app-659c4676d9-pw6f8    2/2     Running                      0          3h34m
+```
+
 ### STEP 3: Adjust the redirect, admin, web origins URLs in Keycloak:
 
 * Try to open the Cloud-Native-Starter application in a browser. Use the `$INGRESSURL` of your cluster, which is the URL to the frontend application `Web_APP` you deployed before.

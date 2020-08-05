@@ -26,7 +26,7 @@
 ### Apply platform security for the application
 
 * [Exercise 1 - Deploy microservices to Kubernetes](p-sec-exercise-01/README.md)
-* [Exercise 2 - Secure ingress with HTTPS](p-sec-exercise-02/README.md)
+* [Exercise 2 -Secure ingress with TLS (HTTPS)](p-sec-exercise-02/README.md)
 * [Exercise 3 - Switch MTLS to strict ](p-sec-exercise-03/README.md)
 * [Exercise 4 - Enforce Istio authentication)](exercise-01/README.md)
 
