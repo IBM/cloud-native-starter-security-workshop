@@ -10,9 +10,29 @@ In this exercise we will use precompiled container images that we uploaded to Do
 
 In directory IKS, modifify configmap.yaml and edit QUARKUS_OIDC_AUTH_SERVER_URL with your keycloak URL. It must end in /auth/realms/quarkus, enclosed in "".
 
+* Create the `QUARKUS_OIDC_AUTH_SERVER_URL` and copy the URL to insert it in the next step in the `configmap.yaml`
+
 ```sh
 cd $ROOT_FOLDER/IKS
+export QUARKUS_OIDC_AUTH_SERVER_URL="https://$INGRESSURL/auth/realms/quarkus"
+echo $QUARKUS_OIDC_AUTH_SERVER_URL
+```
+
+* Replace the URL in the `configmap.yaml`
+
+```sh
 nano configmap.yaml
+```
+
+Example:
+
+```sh
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: security-url-config
+data:
+  QUARKUS_OIDC_AUTH_SERVER_URL: "https://harald-uebele-*****-0001.containers.appdomain.cloud/auth/realms/quarkus"
 ```
 
 ### STEP 2: Now deploy the 3 services:
@@ -40,8 +60,20 @@ kubectl apply -f web-app.yaml
 
 ### STEP 3: Adjust the Redirect URL in Keycloak:
 
-Login to Keycloak as admin, Clients: frontend Valid Redirect URIs: e.g. https://harald-uebele-fra05-162e406f043e20da9b0ef0731954a894-0001.eu-de.containers.appdomain.cloud/*
-Test:
+* Try to open the Cloud-Native-Starter application in a browser. Use the `$INGRESSURL` of your cluster, which is the URL to the frontend application `Web_APP` you deployed before.
+
+```sh
+ echo https://$INGRESSURL
+```
+
+* You will see we need to configure the redirect in Keycloak
+
+![](../../images/cns-wrong-redirect-uri.png)
+
+
+* Login to Keycloak with `user: admin` and `password: admin` and ajust the Clients frontend Valid Redirect URIs: e.g. https://harald-uebele-fra05-162e406f043e20da9b0ef0731954a894-0001.eu-de.containers.appdomain.cloud/*
+
+
 
 ### STEP 4: Open the Cloud Native Starter application in your browser
 

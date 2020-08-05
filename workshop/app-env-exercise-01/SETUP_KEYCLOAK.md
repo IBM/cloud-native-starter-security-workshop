@@ -50,7 +50,7 @@ echo $INGRESSSECRET
 * Execute the bash script
 
 ```sh
-./keycloak-create-realm.sh
+sh keycloak-create-realm.sh
 ```
 Example output:
 
