@@ -9,7 +9,7 @@ When we install Istio on our pre-provisioned Kubernetes Clusters on IBM Cloud, t
 ```sh
 kubectl get svc -n istio-system | grep istio-ingressgateway
 ```
-Our Ingress gateway is in fact of type LoadBalancer, the second IP address of the example `149.***.131.***` is the external (public) IP address. This is the ingressIP `149.***.131.***` for the next command we will use.
+Our Ingress gateway is in fact of type LoadBalancer, the second IP address of the example `149.***.131.***` is the external (public) IP address.  We will use ingressIP `149.***.131.***`  in one of the next commands.
 
 Example:
 
