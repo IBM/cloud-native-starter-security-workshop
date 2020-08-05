@@ -61,12 +61,11 @@ curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client
 
 ### (Optional) STEP 8: Verify the name `quarkus`of the imported realm
 
-
-![](../images/keycloak-config-3.png)
+![](../../images/keycloak-config-3.png)
 
 ### (Optional) STEP 9: Verify the imported realm settings
 
-![](../images/keycloak-config-4.png)
+![](../../images/keycloak-config-4.png)
 
 ## (Optional) Users and role mappings in existing realm
 
@@ -74,8 +73,8 @@ curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client
 
 You should see following users: `admin`, `alice`, `jdoe`
 
-![](../images/keycloak-users.png)
+![](../../images/keycloak-users.png)
 
 ### (Optional) STEP 2: Verify the role mapping
 
-![](../images/keycloak-user.png)
+![](../../images/keycloak-user.png)
