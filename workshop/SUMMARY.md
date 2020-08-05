@@ -18,17 +18,17 @@
 * [Exercise 3: Expose the gateway via DNS with TLS enabled](app-env-exercise-01/SETUP_ISTIO_INGRESS_TLS.md)
 * [Exercise 4: Setup Keycloak](app-env-exercise-01/SETUP_KEYCLOAK.md)
 
-### Run the sample Application in the IBM Cloud Shell 
+### Platform security with TLS, MTLS and Istio for the application
 
-* [Exercise 1: Authentication](exercise-01/README.md) 
-* [Exercise 2: Authorization ](exercise-01/README.md)
+* [Exercise 1: Deploy microservices to Kubernetes](p-sec-exercise-01/README.md)
+* [Exercise 2: Secure ingress with TLS (HTTPS)](p-sec-exercise-02/README.md)
+* [Exercise 3: Switch MTLS to strict ](p-sec-exercise-03/README.md)
+* [Exercise 4: Enforce Istio authentication)](p-sec-exercise-04/README.md)
 
-### Apply platform security for the application
+### (Optional) Application security with Keycloak 
 
-* [Exercise 1 - Deploy microservices to Kubernetes](p-sec-exercise-01/README.md)
-* [Exercise 2 -Secure ingress with TLS (HTTPS)](p-sec-exercise-02/README.md)
-* [Exercise 3 - Switch MTLS to strict ](p-sec-exercise-03/README.md)
-* [Exercise 4 - Enforce Istio authentication)](exercise-01/README.md)
+* [(Optional) Exercise 1: Authentication](app-sec-exercise-01/README.md) 
+* [(Optional) Exercise 2: Authorization ](app-sec-exercise-02/README.md)
 
 ### Additional Resources
 
