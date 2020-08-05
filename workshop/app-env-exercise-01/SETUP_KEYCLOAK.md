@@ -67,14 +67,12 @@ curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client
 
 ![](../../images/keycloak-config-4.png)
 
-## (Optional) Users and role mappings in existing realm
-
-### (Optional) STEP 1: Press `view all users`
+### (Optional) STEP 10: Press `view all users`
 
 You should see following users: `admin`, `alice`, `jdoe`
 
 ![](../../images/keycloak-users.png)
 
-### (Optional) STEP 2: Verify the role mapping
+### (Optional) STEP 11: Verify the role mapping
 
 ![](../../images/keycloak-user.png)
