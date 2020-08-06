@@ -1,7 +1,8 @@
 # Application Authentication
 
-**THE SETUP ON IBM Cloud Shell does not work**
-**CAN NOT INSTALL NODE 14 IBM Cloud Shell**
+**The setup on IBM Cloud Shell does not work**
+
+**CAN'T INSTALL NODE 14 in IBM Cloud Shell**
 
 
 [Related blog post](http://heidloff.net/article/securing-vue-js-applications-keycloak/)
@@ -11,4 +12,6 @@
  
 ```sh
 cd $ROOT_FOLDER/web-app
+yarn install
+yarn serve
 ```

@@ -32,9 +32,9 @@ When you using Kubernetes locally for that example, you need a local terminal an
 In the IBM Cloud Shell execute the following command:
 
 ```
-$ git clone https://github.com/IBM/cloud-native-starter.git
-$ cd cloud-native-starter/security
-$ ROOT_FOLDER=$(pwd)  
+git clone https://github.com/IBM/cloud-native-starter.git
+cd cloud-native-starter/security
+ROOT_FOLDER=$(pwd)  
 ```
 
 ### Step 3. Get Access to Kubernetes
