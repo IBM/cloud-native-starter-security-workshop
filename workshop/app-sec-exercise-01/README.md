@@ -8,7 +8,11 @@
 [Related blog post](http://heidloff.net/article/securing-vue-js-applications-keycloak/)
 
 
-### STEP 1: Start the Web-APP in the IBM Cloud Shell
+### STEP 1: Set the URLs for Keycloak and the Web-API Microservice
+
+...
+
+### STEP 2: Start the Web-APP in the IBM Cloud Shell
  
 ```sh
 cd $ROOT_FOLDER/web-app

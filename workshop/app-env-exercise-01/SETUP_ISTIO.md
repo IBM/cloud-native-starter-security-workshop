@@ -6,6 +6,81 @@ Istio installed via the add-on is a managed service and it creates a production 
 
 Instead, in this lab we will install the Istio demo profile manually using `istioctl` and its standalone operator. `istioctl` is available in IBM Cloud Shell, when we wrote these instructions it was at version 1.5.4 which means we will install Istio 1.5.4.
 
+### Automated setup
+
+### Step 1: Execute following script
+
+```sh
+  cd $ROOT_FOLDER
+  sh $ROOT_FOLDER/IKS/istio-setup.sh
+```
+
+Example output:
+
+```sh
+...
+NAME                                    READY   STATUS    RESTARTS   AGE
+grafana-5cc7f86765-bx7cg                1/1     Running   0          7d21h
+istio-egressgateway-5c8f9897f7-bgvsb    1/1     Running   0          7d21h
+istio-ingressgateway-65dd885d75-mg7dh   1/1     Running   0          7d18h
+istio-tracing-8584b4d7f9-jnf2s          1/1     Running   0          7d21h
+istiod-7d6dff85dd-nb7v6                 1/1     Running   0          7d21h
+kiali-696bb665-wp2kv                    1/1     Running   0          7d21h
+prometheus-564768879c-x5q7c             2/2     Running   0          7d21h
+
+------------------------------------------------------------------------
+Check grafana
+Status: Running
+2020-08-11 13:44:30 Status: grafana is Ready
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Check istiod
+Status: Running
+2020-08-11 13:44:31 Status: istiod is Ready
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Check prometheus
+Status: Running
+2020-08-11 13:44:32 Status: prometheus is Ready
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Check istio-egressgateway
+Status: Running
+2020-08-11 13:44:32 Status: istio-egressgateway is Ready
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Check istio-ingressgateway
+Status: Running
+2020-08-11 13:44:33 Status: istio-ingressgateway is Ready
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Check istio-tracing
+Status: Running
+2020-08-11 13:44:34 Status: istio-tracing is Ready
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Replace telemetry config to expose nodeports
+------------------------------------------------------------------------
+service "grafana" deleted
+service "kiali" deleted
+service "prometheus" deleted
+service "jaeger-query" deleted
+error: the path "istio-tele-services.yaml" does not exist
+------------------------------------------------------------------------
+Label namespace 'default' for auto injection
+...
+
+```
+
+
+### Manual setup
+
+The following steps showing a the manual steps for the setup.
 
 ### Step 1: Get the cluster name, cluster ip@ and save it in the `local.env` file.
 
