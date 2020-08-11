@@ -55,7 +55,7 @@ Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud w
 
 * Copy and paste the commands in your open IBM Cloud Shell terminal session.
 
-| Tab - IBM Cloud web console | Tab - IBM CLoud Shell  |
+| Browser tab - IBM Cloud web console | Broswer tab - IBM CLoud Shell  |
 | - | - |
 |![](../../images/cluster-access-commands.png)| ![](../../images/cloud-shell.png) |
 

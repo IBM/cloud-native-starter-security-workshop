@@ -27,7 +27,7 @@ Cluster Name: harald-uebele
 
 ### Manual setup
 
-The following steps showing a the manual steps of the automated setup.
+The following steps showing the manual steps of the automated setup.
 
 ### Step 1: Get public IP
 
