@@ -70,7 +70,6 @@ service "grafana" deleted
 service "kiali" deleted
 service "prometheus" deleted
 service "jaeger-query" deleted
-error: the path "istio-tele-services.yaml" does not exist
 ------------------------------------------------------------------------
 Label namespace 'default' for auto injection
 ...
@@ -80,28 +79,9 @@ Label namespace 'default' for auto injection
 
 ### Manual setup
 
-The following steps showing a the manual steps for the setup.
+The following steps showing a the manual steps of the automated setup.
 
-### Step 1: Get the cluster name, cluster ip@ and save it in the `local.env` file.
-
-**DRAFT Unsicher ob dies verwendet wird /DRAFT**
-
-* Change to the IKS folder
-```sh
-  cd $ROOT_FOLDER/IKS
-```
-* Get the environment information `$CLUSTERIP`, `$MYCLUSTER` and `INGRESSURL`.
-**funktioniert nur im Lab (1 cluster)**
-```sh
-  ./get-env.sh    
-```
-
-* Save the needed environment variables in the `local.env` file
-```sh
-  source local.env
-```
-
-### Step 2: Setup Istio with an operator 
+### Step 1: Setup Istio with an operator 
 
 The following commands do install the Istio operator, create a namespace for the Istio backplane, and start to installation of the Istio backplane.
 
@@ -120,7 +100,7 @@ kubectl create ns istio-system
 kubectl apply -f istio.yaml
 ```
 
-### Step 3: Check the status of Istio deployment
+### Step 2: Check the status of Istio deployment
 
 ```sh
 kubectl get pod -n istio-system
@@ -139,7 +119,7 @@ NAME                                    READY   STATUS    RESTARTS   AGE
  prometheus-564768879c-2r87j             2/2     Running   0          3m12s
 ```
 
-### Step 4: Setup telemetry
+### Step 3: Setup telemetry
 
 **DRAFT Das Ersetzen des Services für NodePort funktioniert mit Kiali nicht mehr ... wird wieder überschrieben. Muss ich was überlegen ... /DRAFT**
 

@@ -1,30 +1,83 @@
- # Secure ingress with TLS (HTTPS)
+# Switch MTLS to strict
 
-We already have secured with TLS (HTTPS), here are some questions answered you maybe have.
----
-> ### **Question 1**: Why can we access our application with TLS (https://...) ?
-> ### **Answer:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3.
-> * We let IBM Cloud create a DNS entry and Let's Encrypt certificate
-> * We added this certificate to the Istio Ingress
-> * We added the DNS name (host) to the Istio Ingress Gateway definition
-> * We added it also to the VirtualService definition that configures the Gateway and here is our secret, look at [IKS/istio-ingress-tls.yaml](https://cloud-native-starter/blob/master/security/IKS/istio-ingress-tls.yaml):
->
->   The Gateway definition specifies HTTPS only and points to the location of the TLS certificates.
->    The VirtualService definition specifies 3 rules:
->    * If call the DNS entry / Ingress URL with '/auth' it will direct to keycloak.
->   * With '/articles' it will direct to the web-api
->   * Without an path it directs to the web-app itself.
----
-> ### **Question 2:** We use https in the browser but everything behind the Istio Ingress is http only, unencrypted?
-> ### **Answer:** 
-> That is the beauty of Istio! Yes, we make our requests via http which is most obvious with the web-app that is called on port 80.
->
->But Istio injects an Envy proxy into every pod in the default namespace automatically. We defined this in Exercise 1. **(?????WIRKLICH?????)***
->
-> There is also an Envoy proxy in the Istio Ingress pod. Communication between the Envoys is always encrypted, Istio uses mTLS. And all our requests flow through the proxies so even if the communication between e.g. web-api and articles is using http, the communication between the web-api pod and the articles pod is secure.
----
-> ### **Question 3:** Is this safe?
-> ### **Answer:** 
-> No, at least not not totally. By default, after installation, Istio uses mTLS in PERMISSIVE mode. This allows to test and gradually secure your microservices mesh.
+**TBD**
 
-Continue with the next section to see how to change that.
+### STEP 1: Create a access-token 
+
+```sh
+export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
+echo $access_token
+```
+
+### STEP 2: Get the NodePort of the Web-API Microservice
+
+```sh
+export nodeport=$(kubectl get svc web-api --ignore-not-found --output 'jsonpath={.spec.ports[*].nodePort}')
+echo $nodeport
+```
+
+### STEP 3: Get a external Worker IP of the Web-API Microservice
+
+```sh
+export workerip=$(ibmcloud ks workers --cluster $MYCLUSTER | awk '/Ready/ {print $2;exit;}')
+echo $workerip
+```
+
+### STEP 4: Use no TLS just `HTTP` to get the articles from the Web-API Microservice
+
+_Note:_ REMENBER a access-token is only 60 seconds valid ;-).
+
+```sh
+curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
+```
+
+Example output:
+
+```sh
+HTTP/1.1 200 OK
+cache-control: no-cache
+content-length: 1663
+content-type: application/json
+x-envoy-upstream-service-time: 60
+x-envoy-peer-metadata: CjgKDElOU1RBTkNF*****kaB3dlYi1hcGk=
+x-envoy-peer-metadata-id: sidecar~172.30.83.82~web-api-5c9698b875-sn9ck.default~default.svc.cluster.local
+date: Wed, 05 Aug 2020 14:15:57 GMT
+server: istio-envoy
+x-envoy-decorator-operation: web-api.default.svc.cluster.local:8081/*
+
+[{"authorBlog":"","authorTwitter":"","title":"Blue Cloud Mirror — (Don’t) Open The Doors!","url":"https://haralduebele.blog/2019/02/17/blue-cloud-mirror-dont-open-the-doors/"},{"authorBlog":"","authorTwitter":"","title":"Recent Java Updates from IBM","url":"http://heidloff.net/article/recent-java-updates-from-ibm"},******* "title":"Three awesome TensorFlow.js Models for Visual Recognition","url":"http://heidloff.net/article/tensorflowjs-visual-recognition"},{"authorBlog":"","authorTwitter":""]
+```
+
+### STEP 5: Set mTLS to strict in default namespace and for services
+
+Creates PeerAuthentication policy for default, and DestinationRules for web-api and articles.
+
+```sh
+cd ROOT_FOLDER/IKS
+kubectl apply -f mtls.yaml
+```
+
+### STEP 6: Create a new access-token and invoke the Web-API Microservice with `HTTP` again
+
+As you will see, you can no longer access the service, even if you know its NodePort and the external IP of a K8s worker node.
+
+* Create access-token
+
+```sh
+export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
+echo $access_token
+```
+
+* Invoke Web-API Microservice
+
+```sh
+curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
+```
+
+Example output:
+
+```sh
+curl: (56) Recv failure: Connection reset by peer
+```
+
+Now everything is secure but there is another level of security that we can apply. Read on.
