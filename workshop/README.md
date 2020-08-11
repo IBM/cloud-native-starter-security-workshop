@@ -58,7 +58,10 @@ These are the labs of this workshop, go through all of them in sequence, start w
 
 |   |   |
 | - | - |
-| [Setup the IBM Cloud Environment](pre-work/README.md) | TBD |
+| [Setup the IBM Cloud Environment](pre-work/README.md) | This section does contain two major steps. |
+| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section does contain four exercises. |
+| [Platform security with MTLS](p-sec-exercise-01/README.md) | This section does contain two exercises. |
+| [(Optional) Application security with Keycloak ](app-sec-exercise-01/README.md) | This section does contain three exercises. |
 
 ### Compatibility
 

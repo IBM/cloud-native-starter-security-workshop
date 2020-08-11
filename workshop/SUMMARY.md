@@ -18,7 +18,7 @@
 * [Exercise 3: Expose the gateway via DNS with TLS enabled](app-env-exercise-01/SETUP_ISTIO_INGRESS_TLS.md)
 * [Exercise 4: Setup Keycloak](app-env-exercise-01/SETUP_KEYCLOAK.md)
 
-### Platform security with TLS, MTLS and Istio for the application
+### Platform security with MTLS 
 
 * [Exercise 1: Deploy microservices to Kubernetes](p-sec-exercise-01/README.md)
 * [Exercise 3: Switch MTLS to strict ](p-sec-exercise-02/README.md)
