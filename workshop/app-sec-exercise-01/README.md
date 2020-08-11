@@ -1,4 +1,4 @@
-# Setup the application and microservices
+# Setup the web-application and microservices locally
 
 To run these optional exercises you need to ensure you have installed the following tools on you local machine and you can run them in your terminal sessions.
 
@@ -6,7 +6,6 @@ To run these optional exercises you need to ensure you have installed the follow
 * [yarn](https://yarnpkg.com)
 * [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
-
 
 ### Step 1: Clone the project to your local machine
 

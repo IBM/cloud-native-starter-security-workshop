@@ -25,7 +25,7 @@
 
 ### (Optional) Application security with Keycloak 
 
-* [(Optional) Exercise 1: Setup the application and microservices locally](app-sec-exercise-01/README.md)
+* [(Optional) Exercise 1: Setup the web-application and Microservices locally](app-sec-exercise-01/README.md)
 * [(Optional) Exercise 2: Understand the source code of Authentication](app-sec-exercise-01/APPLICATION_AUTHENTICATION.md) 
 * [(Optional) Exercise 3: Understand the source code of Authorization ](app-sec-exercise-01/APPLICATION_AUTHORIZATION.md)
 
