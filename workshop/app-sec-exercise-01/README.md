@@ -1,4 +1,4 @@
-# Application Authentication
+# Setup the application and microservices
 
 To run these optional exercises you need to ensure you have installed the following tools on you local machine and you can run them in your terminal sessions.
 
@@ -6,8 +6,6 @@ To run these optional exercises you need to ensure you have installed the follow
 * [yarn](https://yarnpkg.com)
 * [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
-
-[Related blog post](http://heidloff.net/article/securing-vue-js-applications-keycloak/)
 
 
 ### Step 1: Clone the project to your local machine
