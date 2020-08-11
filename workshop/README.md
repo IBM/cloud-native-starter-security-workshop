@@ -15,10 +15,11 @@ The workshop uses a sample application to demonstrate security functionality. Th
 
 ### Architecture
 
-The following architecture diagrams do explain the complete flow the sample application.
+The following architecture diagram show sample application which contains a web application, which invokes an API microservice and that one invokes a second microservice. 
 
+To see the results in the web application, users need to be authenticated and they need to have the role ‘user’. Here is the architecture.
 
-<kbd><img src="../images/" /></kbd>
+<kbd><img src="../images/architecture-diagram.png" /></kbd>
 
 
 ### Estimated time and level
@@ -34,13 +35,12 @@ After you complete this workshop, you'll understand the following [application s
 **Application security provided by the platform**
 * TLS/HTTPS
 * MTLS
-* Istio authentication
 
 **Application security with Keycloak**
 * Authentication on the Web Fronted
 * Authorization for specific microservices in the Backend
 
-*The intention of this workshop is not to explain every aspect of application security, but to explain some core topics.*
+*The intention of this workshop is not to explain every aspect of application security.*
 
 ### About this workshop
 
@@ -59,7 +59,6 @@ These are the labs of this workshop, go through all of them in sequence, start w
 |   |   |
 | - | - |
 | [Setup the IBM Cloud Environment](pre-work/README.md) | TBD |
-| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md) | TBD |
 
 ### Compatibility
 
