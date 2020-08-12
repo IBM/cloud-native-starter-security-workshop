@@ -1,14 +1,14 @@
 # Deploy microservices to Kubernetes
 
-You have compiled all three pieces of our sample app, articles-secure, web-api-secure, and web-app, when you ran and tested locally.
+You have compiled all three pieces of our  when you ran and tested locally.
 
-In this exercise we will use precompiled container images that we uploaded to Docker Hub.
+In this exercise we will use precompiled container images for our sample application: articles-secure, web-api-secure, and web-app. These container images are uploaded to [Docker Hub](https://hub.docker.com/u/haraldu).
 
 > We cannot set the OIDC provider (keycloak) in application.properties without recompiling the code. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map. 
 
 ### STEP 1: Change `configmap.yaml`entry
 
-In directory IKS, modifify configmap.yaml and edit QUARKUS_OIDC_AUTH_SERVER_URL with your keycloak URL. It must end in /auth/realms/quarkus, enclosed in "".
+In directory IKS, modifify configmap.yaml and edit `QUARKUS_OIDC_AUTH_SERVER_URL` with your keycloak URL. It must end in `/auth/realms/quarkus, enclosed in "".
 
 * Create the `QUARKUS_OIDC_AUTH_SERVER_URL` and copy the URL to insert it in the next step in the `configmap.yaml`
 
