@@ -25,7 +25,7 @@ When you using Kubernetes locally for that example, you need a local terminal an
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 * [yarn](https://yarnpkg.com)
 * [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
-* [Node.js]((https://nodejs.org/en/))
+* [Node.js](https://nodejs.org/en/)
 * Java 9 or higher
 
 ### Step 2: Get the Code
