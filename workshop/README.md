@@ -17,10 +17,14 @@ The workshop uses a sample application to demonstrate security functionality. Th
 
 The following architecture diagram show sample application which contains a web application, which invokes an API microservice and that one invokes a second microservice. 
 
-To see the results in the web application, users need to be authenticated and they need to have the role ‘user’. Here is the architecture.
+To see the results in the web application, users need to be authenticated and they need to have the role `user`. In the picture below you see the architecture.
 
 <kbd><img src="../images/architecture-diagram.png" /></kbd>
 
+
+The following screenshot shows the web application:
+
+![](../images/architecture-web-app-screenshot.png)
 
 ### Estimated time and level
 
@@ -33,12 +37,12 @@ To see the results in the web application, users need to be authenticated and th
 After you complete this workshop, you'll understand the following [application security](https://en.wikipedia.org/wiki/Application_security) related topics:
 
 **Application security provided by the platform**
-* TLS/HTTPS
-* MTLS
+* [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)/[HTTPS](https://en.wikipedia.org/wiki/HTTPS)
+* [MTLS](https://en.wikipedia.org/wiki/Mutual_authentication)
 
 **Application security with Keycloak**
-* Authentication on the Web Fronted
-* Authorization for specific microservices in the Backend
+* [Authentication](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
+* [Authorization](https://en.wikipedia.org/wiki/Authorization) for specific microservices in the Backend
 
 *The intention of this workshop is not to explain every aspect of application security.*
 
@@ -58,7 +62,7 @@ These are the sections of this workshop, go through all of them in sequence, sta
 
 |   |   |
 | - | - |
-| [Setup the IBM Cloud Environment](pre-work/README.md) | This section does contain two major steps. |
+| [Setup the IBM Cloud Environment](pre-work/README.md) | This section does contain two exercises. |
 | [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section does contain four exercises. |
 | [Platform security with MTLS](p-sec-exercise-01/README.md) | This section does contain two exercises. |
 | [(Optional) Application security with Keycloak ](app-sec-exercise-01/README.md) | This section does contain three exercises. |

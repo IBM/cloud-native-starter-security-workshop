@@ -1,4 +1,4 @@
-# Application Authentication
+# Understand the source code for the frontend  Authentication
 
 There are several ways to use Keycloak from web applications. The easiest option is to use the official Keycloak JavaScript client library which is defined as dependency in package.json.
 
