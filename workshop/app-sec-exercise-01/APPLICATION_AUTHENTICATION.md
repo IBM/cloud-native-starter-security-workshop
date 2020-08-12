@@ -47,4 +47,6 @@ As you see in the image below  the `Vuex store` saves `access token`, `id token`
 
 ![](../../images/authentication-keycloak-vue.png)
 
+---
+
 [Related blog post](http://heidloff.net/article/securing-vue-js-applications-keycloak/)
