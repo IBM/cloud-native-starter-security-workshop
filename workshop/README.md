@@ -37,7 +37,7 @@ After you complete this workshop, you'll understand the following [application s
 
 **Application security provided by the platform**
 * [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)/[HTTPS](https://en.wikipedia.org/wiki/HTTPS)
-* [MTLS](https://en.wikipedia.org/wiki/Mutual_authentication)
+* [mTLS](https://en.wikipedia.org/wiki/Mutual_authentication)
 
 **Application security with Keycloak and Quarkus**
 * [Authentication with Keycloak](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
