@@ -27,7 +27,9 @@ TLS (HTTPS), here are some questions you maybe have:
 >    * If call the DNS entry / Ingress URL with '/auth' it will direct to keycloak.
 >   * With '/articles' it will direct to the web-api
 >   * Without an path it directs to the web-app itself.
+
 ---
+
 #### **Question 2:** We use https in the browser but everything behind the Istio Ingress is http only, unencrypted?
 #### **Answer:** 
 
@@ -36,13 +38,17 @@ TLS (HTTPS), here are some questions you maybe have:
 >But Istio injects an Envy proxy into every pod in the default namespace automatically. We defined this in Exercise 1. **(?????WIRKLICH?????)***
 >
 > There is also an Envoy proxy in the Istio Ingress pod. Communication between the Envoys is always encrypted, Istio uses mTLS. And all our requests flow through the proxies so even if the communication between e.g. web-api and articles is using http, the communication between the web-api pod and the articles pod is secure.
+
 ---
+
 #### **Question 3:** Is this safe?
 #### **Answer:** 
 
 > No, at least not not totally. By default, after installation, Istio uses mTLS in PERMISSIVE mode. This allows to test and gradually secure your microservices mesh.
 
-In the exercise ´Switch MTLS to strict` you will see how to change that.
+In the exercise Switch MTLS to strict` you will see how to change that.
+
+---
 
 ### Step 2: List the DNS subdomains
 
