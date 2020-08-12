@@ -1,6 +1,6 @@
 # Expose the Istio Ingress gateway via DNS with TLS enabled
 
-In the last exercise we created a DNS entry for the Ingress controller. But access to our resources was using unsecure HTTP on port 80. In this exercise  we enable secure HTTPS access on port 443.
+In the last exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) entry for the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). But access to our resources was using unsecure HTTP on port 80. In this exercise  we enable secure HTTPS access on port 443.
 
 The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls).
 
