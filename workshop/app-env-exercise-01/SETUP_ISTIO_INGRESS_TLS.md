@@ -8,11 +8,15 @@ There is also generic documentation about [Secure Gateways](https://istio.io/lat
 
 The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a `DNS subdomain` for it. This also automatically generates a `encrypt certificate for HTTPS/TLS traffic` and creates a Kubernetes secret containing this certificate. We need to pull the certificate from this secret, change its name, and create a new secret so that the Istio Ingress gateway can use it.
 
-With this secured with TLS (HTTPS), here are some questions you maybe have.
+
+### STEP 1: Answering questions you maybe have
+
+TLS (HTTPS), here are some questions you maybe have:
 
 ---
-> ### **Question 1**: Why can we access our application with TLS (https://...) ?
-> ### **Answer:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3.
+#### **Question 1**: Why can we access our application with TLS (https://...) ?
+#### **Answer:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3.
+
 > * We let IBM Cloud create a DNS entry and Let's Encrypt certificate
 > * We added this certificate to the Istio Ingress
 > * We added the DNS name (host) to the Istio Ingress Gateway definition
@@ -24,21 +28,23 @@ With this secured with TLS (HTTPS), here are some questions you maybe have.
 >   * With '/articles' it will direct to the web-api
 >   * Without an path it directs to the web-app itself.
 ---
-> ### **Question 2:** We use https in the browser but everything behind the Istio Ingress is http only, unencrypted?
-> ### **Answer:** 
+#### **Question 2:** We use https in the browser but everything behind the Istio Ingress is http only, unencrypted?
+#### **Answer:** 
+
 > That is the beauty of Istio! Yes, we make our requests via http which is most obvious with the web-app that is called on port 80.
 >
 >But Istio injects an Envy proxy into every pod in the default namespace automatically. We defined this in Exercise 1. **(?????WIRKLICH?????)***
 >
 > There is also an Envoy proxy in the Istio Ingress pod. Communication between the Envoys is always encrypted, Istio uses mTLS. And all our requests flow through the proxies so even if the communication between e.g. web-api and articles is using http, the communication between the web-api pod and the articles pod is secure.
 ---
-> ### **Question 3:** Is this safe?
-> ### **Answer:** 
+#### **Question 3:** Is this safe?
+#### **Answer:** 
+
 > No, at least not not totally. By default, after installation, Istio uses mTLS in PERMISSIVE mode. This allows to test and gradually secure your microservices mesh.
 
 In the exercise ´Switch MTLS to strict` you will see how to change that.
 
-### Step 1: List the DNS subdomains
+### Step 2: List the DNS subdomains
 
 ```sh
 cd $ROOT_FOLDER/IKS
@@ -53,7 +59,7 @@ harald-uebele-k8s-fra05-********************-0000.us-south.containers.appdomain.
 harald-uebele-k8s-fra05-********************-0001.us-south.containers.appdomain.cloud   169.48.97.62                None             created           harald-uebele-k8s-fra05-********************-0001   default
 ```
 
-### Step 2: Save Ingress secret
+### Step 3: Save Ingress secret
 
 You should see 2 entries, the first is for the Kubernetes Ingress that is created for you when the cluster is created. The second is the Istio Ingress subdomain you created in the last exercise. 
 
@@ -63,13 +69,13 @@ Copy the "SSL Cert Secret Name" (should end on -0001) and paste it into another 
 export INGRESSSECRET=harald-uebele-k8s-fra05-********************-0001
 ```
 
-### Step 3: Pull the secret and save it into a file 'mysecret.yaml'
+### Step 4: Pull the secret and save it into a file 'mysecret.yaml'
 
 ```sh
 kubectl get secret $INGRESSSECRET --namespace default --export -o yaml > mysecret.yaml
 ```
 
-### Step 4: Edit the 'mysecret.yaml'
+### Step 5: Edit the 'mysecret.yaml'
 
 The secret was created in the 'default' namespace. In order to use it with Istio, we want to modify the name and place it in the 'istio-system' namespace.
 
@@ -98,7 +104,7 @@ metadata:
 type: Opaque
 ```
 
-### Step 5: Load and activate the secret with these commands
+### Step 6: Load and activate the secret with these commands
 
 The last command deletes the Istio Ingress pod to force it to reload the newly created secret.
 
@@ -107,13 +113,13 @@ kubectl apply -f ./mysecret.yaml -n istio-system
 kubectl delete pod -n istio-system -l istio=ingressgateway
 ```
 
-### Step 6: Get the `$INGRESSURL` you obtained in the last exercise and copy or note the value.
+### Step 7: Get the `$INGRESSURL` you obtained in the last exercise and copy or note the value.
 
 ```sh
 echo $INGRESSURL
 ```
 
-### Step 7: Edit the file `istio-ingress-tls.yaml`
+### Step 8: Edit the file `istio-ingress-tls.yaml`
 
 Edit the file istio-ingress-tls.yaml in the istio directory. 
 
@@ -146,7 +152,7 @@ spec:
 ...
 ```
 
-### Step 8: Apply the change
+### Step 9: Apply the change
 
 This last step, replacing the wildcard host "*" with the correct DNS name, is not really necessary. But now you have a correct configuration that is secure.
 
