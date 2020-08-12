@@ -7,6 +7,12 @@ To run these optional exercises you need to ensure you have installed the follow
 * [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
 
+### Architecture 
+
+Here is the local architecture with the running Web-App and the two Microservices Web-API and Articles on the local machine in terminal session and Keycloak running on Kubernetes.
+
+![](../../images/architecture-local.png)
+
 ### Step 1: Clone the project to your local machine
 
 ```sh
