@@ -24,7 +24,7 @@ To see the results in the web application, users need to be authenticated and th
 
 The following screenshot shows the web application:
 
-![](../images/architecture-web-app-screenshot.png)
+<kbd><img src="../images/architecture-web-app-screenshot.png" /></kbd>
 
 ### Estimated time and level
 
