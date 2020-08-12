@@ -9,7 +9,7 @@ To run these optional exercises you need to ensure you have installed the follow
 
 ### Architecture 
 
-Here is the local architecture with the running Web-App and the two Microservices Web-API and Articles on the local machine in terminal session and Keycloak running on Kubernetes.
+Here is the local architecture with show that the Web-App and the two Microservices Web-API and Articles are running on the local machine in terminal sessions and Keycloak is running on Kubernetes on IBM Cloud.
 
 ![](../../images/architecture-local.png)
 
