@@ -103,18 +103,11 @@ web-app-659c4676d9-pw6f8    2/2     Running                      0          3h34
 
 ![](../../images/cns-ajust-client-redirect.png)
 
-* Ajust the client frontend URLs and URIs `http://localhost:8080` with valid redirect you get with the command:
+* Ajust the client frontend URIs `https://YOUR-URL:auth` with valid redirect URI you get with the command:
 
 ```sh
  echo https://$INGRESSURL
 ```
-
-Example:
-
-| Before | Changed  |
-| - | - |
-|![](../../images/cns-ajust-client-redirect-02.png)| ![](../../images/cns-ajust-client-redirect-03.png) |
-
 
 ### STEP 4: Open the Cloud Native Starter application in your browser
 
