@@ -86,10 +86,9 @@ let initOptions = {
 ### Step 5: Run the web-app in the first terminal on port 8080
 
 ```sh
-$ cd $ROOT_FOLDER/web-app
-$ yarn install
-$ yarn serve
-Step 11: Run web-api
+cd $ROOT_FOLDER/web-app
+yarn install
+yarn serve
 ```
 
 ### Step 6: Run the Microservice web-api-secure in the second terminal on port 8081
