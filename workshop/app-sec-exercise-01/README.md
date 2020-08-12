@@ -1,6 +1,6 @@
 # Setup the web-application and microservices locally
 
-To run these optional exercises you need to ensure you have installed the following tools on you local machine and you can run them in your terminal sessions.
+To run these optional exercises you need to ensure you have installed the following tools on your local machine and you can run them in your terminal sessions.
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [yarn](https://yarnpkg.com)
@@ -9,7 +9,7 @@ To run these optional exercises you need to ensure you have installed the follow
 
 ### Architecture 
 
-Here is the local architecture with show that the Web-App and the two Microservices Web-API and Articles are running on the local machine in terminal sessions and Keycloak is running on Kubernetes on IBM Cloud.
+Here is the local architecture whichs shows the Web-App and the two Microservices Web-API and Articles are running on your local machine in terminal sessions. Keycloak is running on Kubernetes on IBM Cloud.
 
 ![](../../images/architecture-local.png)
 
