@@ -74,7 +74,7 @@ resteasy.role.based.security=true
 
 ### Step 4: Configure web-app
 
-Now insert Keycloak URL in `main.js`.
+Now insert `Keycloak URL`/auth in `main.js`.
 
 ```sh
 cd $ROOT_FOLDER/web-app/src
@@ -84,12 +84,18 @@ nano main.js
 Example:
 
 ```JavaScript
-let initOptions = {
-  url: 'https://<KeycloakURL>/auth' , realm: 'quarkus', clientId: 'frontend', onLoad: 'login-required'
+if (currentHostname.indexOf('localhost') > -1) {
+  urls = {
+    api: 'http://localhost:8081/',
+    login: 'https://YOUR_URL/auth' // insert your http or https://<KeycloakURL>/auth
+  }
+  store.commit("setAPIAndLogin", urls);
 }
 ```
 
-### Step 5: Run the web-app in the first terminal on port 8080
+### Step 5: Run the web-app 
+
+Open a terminal and start the application on port 8080.
 
 ```sh
 cd $ROOT_FOLDER/web-app
@@ -97,14 +103,18 @@ yarn install
 yarn serve
 ```
 
-### Step 6: Run the Microservice web-api-secure in the second terminal on port 8081
+### Step 6: Run the web-api-secure Microservice 
+
+Open a second terminal and start the service on port 8081.
 
 ```sh
 $ cd $ROOT_FOLDER/web-api-secure
 $ mvn clean package quarkus:dev
 ```
 
-### Step 7: Run the Microservice articles-secure in the third terminal on port 8082
+### Step 7: Run the articles-secure Microservice 
+
+Open a third terminal and start the service on port 8082.
 
 ```sh
 $ cd security/articles-secure
