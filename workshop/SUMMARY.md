@@ -23,11 +23,11 @@
 * [Exercise 1: Deploy microservices to Kubernetes](p-sec-exercise-01/README.md)
 * [Exercise 3: Switch MTLS to strict ](p-sec-exercise-02/README.md)
 
-### (Optional) Application security with Keycloak 
+### Application security with Keycloak and Quarkus
 
 * [(Optional) Exercise 1: Setup the web-application and Microservices locally](app-sec-exercise-01/README.md)
-* [(Optional) Exercise 2: Understand the source code for the frontend  Authentication](app-sec-exercise-01/APPLICATION_AUTHENTICATION.md) 
-* [(Optional) Exercise 3: Understand the source code for the Mircoservice authorization ](app-sec-exercise-01/APPLICATION_AUTHORIZATION.md)
+* [Exercise 2: Authentication with Quarkus application](app-sec-exercise-01/APPLICATION_AUTHENTICATION.md) 
+* [Exercise 3: Authorization in Quarkus application ](app-sec-exercise-01/APPLICATION_AUTHORIZATION.md)
 
 ### Additional Resources
 

@@ -1,4 +1,4 @@
-# Switch MTLS to strict
+# Switch mTLS to strict
 
 **TBD**
 

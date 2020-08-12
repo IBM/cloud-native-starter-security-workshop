@@ -6,7 +6,7 @@ In this exercise we will use precompiled container images for our sample applica
 
 > We cannot set the OIDC provider (keycloak) in application.properties without recompiling the code. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map. 
 
-### STEP 1: Change `configmap.yaml`entry
+### STEP 1: Change `configmap.yaml` entry
 
 In directory IKS, modifify configmap.yaml and edit `QUARKUS_OIDC_AUTH_SERVER_URL` with your keycloak URL. It must end in `/auth/realms/quarkus, enclosed in "".
 
@@ -85,7 +85,7 @@ web-app-659c4676d9-pw6f8    2/2     Running                      0          3h34
 * Try to open the Cloud-Native-Starter application in a browser. Use the `$INGRESSURL` of your cluster, which is the URL to the frontend application `Web_APP` you deployed before.
 
 ```sh
- echo https://$INGRESSURL
+echo https://$INGRESSURL
 ```
 
 * You will see we need to configure the redirect in Keycloak
@@ -108,6 +108,10 @@ web-app-659c4676d9-pw6f8    2/2     Running                      0          3h34
 ```sh
  echo https://$INGRESSURL
 ```
+
+Replace the entries with your value.
+
+![](../../images/cns-ajust-client-redirect-02.png)
 
 ### STEP 4: Open the Cloud Native Starter application in your browser
 

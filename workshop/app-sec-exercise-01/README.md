@@ -1,10 +1,11 @@
-# Setup the web-application and microservices locally
+# Setup the web-application and Microservices locally
 
 To run these optional exercises you need to ensure you have installed the following tools on your local machine and you can run them in your terminal sessions.
 
-* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [yarn](https://yarnpkg.com)
-* [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
+* [git 2.24.1 or higher](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [yarn 1.22.4 or higher](https://yarnpkg.com)
+* [Node.js v14.6.0 or higher](https://nodejs.org/en/)
+* [Apache Maven 3.6.3](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 * Java 9 or higher
 
 ### Architecture 

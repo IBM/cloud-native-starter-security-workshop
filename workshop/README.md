@@ -5,7 +5,7 @@ xxx **UNDER CONSTRUCTION** xxx
 In this workshop you'll learn how get startet with Application Security from two perspectives.
 
 * Platform configurations 
-* Authentication and Authorization implementations
+* Authentication and Authorization implementation
 
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
 
@@ -15,8 +15,7 @@ The workshop uses a sample application to demonstrate security functionality. Th
 
 The following screenshot shows the web application, you have to logon to see the list of articles.
 
-<kbd><img src="../images/architecture-web-app-screenshot.png" /></kbd>
-
+<kbd><img src="../images/architecture-wep-app-screenshot.png"/></kbd>
 
 ### Architecture
 
@@ -24,7 +23,7 @@ The following architecture diagram shows the sample application which contains a
 
 To see the results in the web application, users need to be authenticated and they need to have the role `user`. In the picture below you see the architecture.
 
-<kbd><img src="../images/architecture-diagram.png" /></kbd>
+<kbd><img src="../images/architecture-diagram.png"/></kbd>
 
 ### Estimated time and level
 
@@ -40,9 +39,9 @@ After you complete this workshop, you'll understand the following [application s
 * [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)/[HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 * [MTLS](https://en.wikipedia.org/wiki/Mutual_authentication)
 
-**Application security with Keycloak**
-* [Authentication](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
-* [Authorization](https://en.wikipedia.org/wiki/Authorization) for specific Microservices in the Backend
+**Application security with Keycloak and Quarkus**
+* [Authentication with Keycloak](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
+* [Authorization in Quarkus](https://en.wikipedia.org/wiki/Authorization) for specific Microservices in the Backend
 
 *The intention of this workshop is not to explain every aspect of application security.*
 
@@ -64,8 +63,8 @@ These are the sections of this workshop, go through all of them in sequence, sta
 | - | - |
 | [Setup the IBM Cloud Environment](pre-work/README.md) | This section does contain two exercises. |
 | [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section does contain four exercises. |
-| [Platform security with MTLS](p-sec-exercise-01/README.md) | This section does contain two exercises. |
-| [(Optional) Application security with Keycloak ](app-sec-exercise-01/README.md) | This section does contain three exercises. |
+| [Platform security with mTLS](p-sec-exercise-01/README.md) | This section does contain two exercises. |
+| [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section does contain three exercises. |
 
 ### Compatibility
 
@@ -84,6 +83,10 @@ This workshop has been tested on the following platforms:
 * [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 * [Istio](https://https://istio.io)
 * [Vue.js](https://vuejs.org/)
+* [git 2.24.1 or higher](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [yarn 1.22.4 or higher](https://yarnpkg.com)
+* [Node.js v14.6.0 or higher](https://nodejs.org/en/)
+* [Apache Maven 3.6.3](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
 
 ### Credits
 
