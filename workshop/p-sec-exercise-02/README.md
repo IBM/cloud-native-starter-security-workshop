@@ -24,30 +24,30 @@ When Envoy proxies establish a connection, they exchange and validate certificat
 
 mTLS is enabled by default for the communication between Envoys **but it is enabled in permissive mode**. This means that a microservice outside of the Istio Service Mesh, one without a Envoy proxy, can communicate with a microservice within the Service Mesh. This allows you to bring your microservices into the Service Mesh and then gradually turn on and test security. 
 
-### STEP 1: Check permissive mode
+### STEP 1: Test permissive mode
 
-1. Create a access-token 
+#### 1. Create a access-token 
 
 ```sh
 export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
 echo $access_token
 ```
 
-2. Get the NodePort of the Web-API Microservice
+#### 2. Get the NodePort of the Web-API Microservice
 
 ```sh
 export nodeport=$(kubectl get svc web-api --ignore-not-found --output 'jsonpath={.spec.ports[*].nodePort}')
 echo $nodeport
 ```
 
-3. Get a external Worker IP of the Web-API Microservice
+#### 3. Get a external Worker IP of the Web-API Microservice
 
 ```sh
 export workerip=$(ibmcloud ks workers --cluster $MYCLUSTER | awk '/Ready/ {print $2;exit;}')
 echo $workerip
 ```
 
-4. Use no TLS just `HTTP` to get the articles from the Web-API Microservice
+#### 4. Use no TLS just `HTTP` to get the articles from the Web-API Microservice
 
 _Note:_ REMEMBER that an access-token is only valid for 60 seconds ;-).
 
@@ -79,14 +79,14 @@ We are going to change this in the next step.
 
 ### STEP 2: Set mTLS to strict in default namespace and for services
 
-1. The following command creates a PeerAuthentication policy for the 'default' namespace and DestinationRules for web-api and articles.
+#### 1. The following command creates a PeerAuthentication policy for the 'default' namespace and DestinationRules for web-api and articles.
 
 ```sh
 cd $ROOT_FOLDER/IKS
 kubectl apply -f mtls.yaml
 ```
 
-2. Create a new access-token and invoke the Web-API Microservice with `HTTP` again
+#### 2. Create a new access-token and invoke the Web-API Microservice with `HTTP` again
 
    As you will see, you can no longer access the service, even if you know its NodePort and the external IP of a K8s worker node.
 

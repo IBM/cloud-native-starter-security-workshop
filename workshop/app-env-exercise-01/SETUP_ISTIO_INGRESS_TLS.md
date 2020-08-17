@@ -8,7 +8,7 @@ The procedure we will use in this exercise is documented in the IBM Cloud docume
 
 There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
-The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a `DNS subdomain` for it. This also automatically generates a `encrypt certificate for HTTPS/TLS traffic` and creates a Kubernetes secret containing this certificate. The secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namepsace so that the Istio Ingress gateway can use it.
+The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS subdomain for it. This also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and creates a Kubernetes secret containing this certificate. But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
 
 
 ### Step 1: List the DNS subdomains
