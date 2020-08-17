@@ -1,10 +1,10 @@
 # Deploy microservices to Kubernetes
 
-You have compiled all three pieces of our  when you ran and tested locally.
+In a later exercise you will run the application locally.
 
-In this exercise we will use precompiled container images for our sample application: articles-secure, web-api-secure, and web-app. These container images are uploaded to [Docker Hub](https://hub.docker.com/u/haraldu).
+In this exercise we will run the application in your Kubernetes cluster using precompiled container images for our sample application: articles-secure, web-api-secure, and web-app. These container images have been uploaded to [Docker Hub](https://hub.docker.com/u/haraldu).
 
-> We cannot set the OIDC provider (keycloak) in application.properties without recompiling the code. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map. 
+When running locally, you will set the Keycloak URL as OpenID Connect (OIDC) provider in application.properties. When running on a Kubernetes cluster we cannot set the OIDC provider (keycloak) in application.properties without recompiling the code, building a new image, and loading this image in a Image repository that is accessible to your Kubernetes cluster. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map. 
 
 ### STEP 1: Change `configmap.yaml` entry
 

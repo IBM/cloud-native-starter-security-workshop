@@ -21,7 +21,7 @@
 ### Platform security with mTLS 
 
 * [Exercise 1: Deploy microservices to Kubernetes](p-sec-exercise-01/README.md)
-* [Exercise 3: Switch mTLS to strict ](p-sec-exercise-02/README.md)
+* [Exercise 2: Secure microservices with strict mTLS](p-sec-exercise-02/README.md)
 
 ### Application security with Keycloak and Quarkus
 
