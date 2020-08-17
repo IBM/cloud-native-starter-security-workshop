@@ -8,7 +8,7 @@ When using Kubernetes on IBM Cloud no client side setup is required for this wor
 
 In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. Make sure you select your own account in the account list at the top, then click on the IBM Cloud Shell icon.
 
-That opens a new browser tab with your IBM Cloud Shell session. 
+This opens a new browser tab with your IBM Cloud Shell session. 
 
 ![](../../images/cloud-shell-launch.png)
 
@@ -86,8 +86,18 @@ Name                               ID                     State      Created    
 mycluster-ams03-b3c.4x16         bsk19dhd0efh3hp3b05g   normal     1 day ago      2         Dallas      1.17.9_1534               default               classic
 ```
 
-* Create an environment variable $CLUSTER_NAME that contains the name of your cluster.
+* Create an environment variable $MYCLUSTER that contains the name of your cluster.
 
 ```sh
 export MYCLUSTER=your_pre_provisioned_clustername
 ```
+
+### Step 5. Get the Kubernetes environment
+
+* Enter the following command:
+
+```sh
+ibmcloud ks cluster config -c $MYCLUSTER
+```
+
+This retrieves the configuration of your cluster and makes it available to the `kubectl` command which will then target your cluster.

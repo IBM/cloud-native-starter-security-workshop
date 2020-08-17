@@ -9,7 +9,7 @@ In this workshop you'll learn how get startet with Application Security from two
 
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
 
-The workshop shows on a sample application how to leverage with Keycloak application security with authentication and authorization in Quarkus applications, and how to apply security provided by the platform with IBM Cloud.
+The workshop shows how to leverage application security with authentication and authorization via Keycloak on a sample Quarkus application, and how to apply security provided by the platform with IBM Cloud.
 
 The workshop uses a sample application to demonstrate security functionality. The sample application displays links to articles and author information.
 
@@ -19,7 +19,7 @@ The following screenshot shows the web application, you have to logon to see the
 
 ### Architecture
 
-The following architecture diagram shows the sample application which contains a web application, which invokes an API of the Web-API Microservice and that Microservice does invoke Articles microservice. 
+The following architecture diagram shows the sample application. It contains a web application which invokes a REST API of the Web-API microservice. The Web-API microservice invokes a REST API of the Articles microservice. 
 
 To see the results in the web application, users need to be authenticated and they need to have the role `user`. In the picture below you see the architecture.
 

@@ -1,6 +1,6 @@
 # Access the Cluster
 
-In this section, you will login to your own IBM Cloud account, and then get access to a IBM Cloud Lab account which contains pre-provisioned clusters. Each workshop attendee will be granted access to one cluster.
+In this section you will login to your own IBM Cloud account and then get access to an IBM Cloud Lab account which contains pre-provisioned clusters. Each workshop attendee will be granted access to one pre-provisioned cluster.
 
 ### Step 1: Setting up your IBM Cloud ID
 

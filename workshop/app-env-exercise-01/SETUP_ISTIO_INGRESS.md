@@ -10,7 +10,7 @@ The following procedures are platform specific and work with a **"standard class
 
 ```sh
   cd $ROOT_FOLDER
-  sh IKS/istio-setup-ingress-gateway.sh
+  bash IKS/istio-setup-ingress-gateway.sh
 ```
 
 Example output:
@@ -18,7 +18,7 @@ Example output:
 ```sh
 ...
 OK
-NLB hostname was created as tsuedbro-security-works-162e406f043e20da9b0ef0731954a894-0002.us-south.containers.appdomain.cloud
+NLB hostname was created as harald-uebele-k8s-fra05-***-0001.us-south.containers.appdomain.cloud
 ------------------------------------------------------------------------
 Ingress-URL: harald-uebele-k8s-fra05-***-0001.us-south.containers.appdomain.cloud
 Cluster Name: harald-uebele
@@ -47,7 +47,7 @@ istio-ingressgateway   LoadBalancer  172.21.213.52  149.***.131.***   15020:3175
 
 ### Step 2: Create a DNS subdomain
 
-To create a DNS subdomain, a URL, for the Ingress gateway (= loadbalancer, nlb) for the next commanduse the following command:
+To create a DNS subdomain, a URL, for the Ingress gateway (= loadbalancer, nlb) use the following command:
 
 ```sh
 echo $MYCLUSTER
@@ -61,12 +61,4 @@ The new subdomain will have the form `[cluster name]-[globally unique hash]-[reg
 ```sh
 OK
 NLB hostname was created as harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
-```
-
-### Step 3: Save Ingress URL
-
-To reuse the Ingress URL later we create a environment variable  `INGRESSURL.
-
-```sh
-export INGRESSURL=harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
 ```
