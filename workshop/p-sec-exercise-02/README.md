@@ -112,8 +112,13 @@ kubectl apply -f mtls.yaml
 Now everything is secure. 
 
 If you check the Cloud Native Starter frontend in the browser, nothing should have changed because it already used enrypted paths:
-* Access to the Web-App is through the Istio Ingress gateway using https
-* The Web-App is accessing the Keycloak server and the Web-API service using https
+* Access to the Web-App is through the Istio Ingress gateway using https (loading the JavaScript/Vue.js code into the browser)
+* The (external) Web-App is accessing the Keycloak server and the Web-API service using https
    * Those requests come in through the Istio Ingress gateway
    * Since the Istio Ingress gateway, Keycloak, and Web-API are all part of the service mesh, communication between them is already encrypted using mTLS
+* REST API calls from Web-API to Articles use mTLS   
 * Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS   
+
+This is the result of your work so far:
+
+![](../../images/IstioSecurityArchitecture.png)

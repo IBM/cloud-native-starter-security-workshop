@@ -8,7 +8,7 @@ The procedure we will use in this exercise is documented in the IBM Cloud docume
 
 There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
-The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS subdomain for it. This also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and creates a Kubernetes secret containing this certificate. But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
+The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. This also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and it creates a Kubernetes secret containing this certificate. But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
 
 
 ### Step 1: List the DNS subdomains
@@ -46,7 +46,7 @@ kubectl get secret $INGRESSSECRET --namespace default --export -o yaml > mysecre
 
 The secret was created in the 'default' namespace. In order to use it with Istio, we want to modify the name and place it in the 'istio-system' namespace.
 
-Open the mysecret.yaml file in an editor nano, change the value of the secret name from `name: harald-uebele-k8s-fra05-******-0001` to `istio-ingressgateway-certs` and save the file.
+Open the mysecret.yaml file in an editor, e.g. `nano`, change the value of the secret name from something like `name: harald-uebele-k8s-fra05-******-0001` to `name: istio-ingressgateway-certs` and save the file.
 
 ```sh
 nano mysecret.yaml
@@ -73,7 +73,7 @@ type: Opaque
 
 ### Step 5: Load and activate the secret with these commands
 
-The last command deletes the Istio Ingress pod to force it to reload the newly created secret.
+The second command deletes the Istio Ingress pod to force it to reload the newly created secret.
 
 ```sh
 kubectl apply -f ./mysecret.yaml -n istio-system
@@ -88,7 +88,7 @@ echo $INGRESSURL
 
 ### Step 7: Edit the file `istio-ingress-tls.yaml`
 
-Edit the file istio-ingress-tls.yaml in the istio directory. 
+Edit the file istio-ingress-tls.yaml: 
 
 ```sh
 nano istio-ingress-tls.yaml
@@ -121,9 +121,15 @@ spec:
 
 ### Step 8: Apply the change
 
-This last step, replacing the wildcard host "*" with the correct DNS name, is not really necessary. But now you have a correct configuration that is secure.
+This last step, replacing the wildcard host "*" with the correct DNS name, is not really necessary. The Ingress Gateway would work with the wildcard, too, but now you have a correct configuration that is more secure. And this is what this workshop is about, isn't it?
 
-`istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate stored in a Kubernetes secret. It also generates a VirtualService definition for this Gateway with routes to services that do not exist at the moment.
+`istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate stored in a Kubernetes secret. 
+
+It also generates a VirtualService definition for this Gateway with routes to services that do not exist at the moment. If you look at the definition, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
+* "https://INGRESSURL/auth" routes to the keycloak service on port 8080
+* "https//INGRESSURL/articles" routes to the web-api service on port 8081
+* "https://INGRESSURL", the root ('/') without a path, routes to the web-app on port 80, this is the service that delivers the Web-App frontend to the browser
+
 
 ```sh
 kubectl apply -f istio-ingress-tls.yaml
@@ -131,7 +137,7 @@ kubectl apply -f istio-ingress-tls.yaml
 
 _Note:_ There is a blog on the Istio page that describes how to [Direct encrypted traffic from IBM Cloud Kubernetes Service Ingress to Istio Ingress Gateway](https://istio.io/latest/blog/2020/alb-ingress-gateway-iks/). With this scenario you can have non-Istio secured services communicate with services secured by Istio, e.g. while you are migrating your application into Istio.
 
-This blog contains an important piece of information regarding the Let's Encrypt certificates used:
+This blog also contains an important piece of information regarding the Let's Encrypt certificates used:
 
 > The certificates provided by IKS expire every 90 days and are automatically renewed by IKS 37 days before they expire. You will have to recreate the secrets by rerunning the instructions of this section every time the secrets provided by IKS are updated. You may want to use scripts or operators to automate this and keep the secrets in sync.
 
@@ -174,5 +180,5 @@ Here are some questions you may have regarding TLS (HTTPS):
 
 > No, at least not not totally. By default, after installation, Istio uses mTLS in PERMISSIVE mode. This allows to test and gradually secure your microservices mesh.
 
-> In the later exercise `Switch MTLS to strict` you will see how to change that.
+> In the later exercise `Secure microservices with strict mTLS` you will see how to change that.
 
