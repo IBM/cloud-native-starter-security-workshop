@@ -4,7 +4,7 @@ For this workshop we'll be using the IBM Cloud Shell. The IBM Cloud Shell is a c
 
 ### Step 1: Setup the IBM Cloud Shell terminal session
 
-When using Kubernetes on IBM Cloud no client side setup is required for this workshop. Instead we will use the IBM Cloud Shell (Beta) which comes with all necessary CLIs (command line tools).
+When using Kubernetes on IBM Cloud no client side setup is required for this workshop. Instead we will use the IBM Cloud Shell which comes with all necessary CLIs (command line tools).
 
 In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. Make sure you select your own account in the account list at the top, then click on the IBM Cloud Shell icon.
 
@@ -54,26 +54,26 @@ Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud w
 
 ![](../../images/cluster-access-commands.png)
 
-* Copy and paste the commands in your open IBM Cloud Shell terminal session.
+* Now copy and paste all these commands in sequence in your open IBM Cloud Shell terminal session.
 
 | Browser tab - IBM Cloud web console | Broswer tab - IBM CLoud Shell  |
 | - | - |
 |![](../../images/cluster-access-commands.png)| ![](../../images/cloud-shell.png) |
 
-_Note:_ To access the provided IBM Cloud Kubernetes Cluster and select after the login command `2` as the account for the current IBM Cloud Shell terminal session. 
+_Note:_ To access the pre-provisioned IBM Cloud Kubernetes Cluster, select the correct account (1840867-Advowork) during login.
 
 Example:
 
 ```sh
 Select an account:
 1. Thomas Südbröcker's Account (641XXXXXXXXe) <-> 123456
-2. Provided IBM account's Account (cf4dXXXXXe) <-> 234567
+2. Advowork (e2bXXXXXXXX4) <-> 1840867
 Enter a number> 2
 ```
 
-### Step 4. Create a environment variable `$CLUSTER_NAME`
+### Step 4. Create an environment variable `$CLUSTER_NAME`
 
-* Enter the following command displays the name of your cluster, its ID, and a few other things.
+* Enter the following command to display the name of your cluster, its ID, and a few other things.
 
 ```sh
 ibmcloud ks cluster ls
@@ -91,13 +91,3 @@ mycluster-ams03-b3c.4x16         bsk19dhd0efh3hp3b05g   normal     1 day ago    
 ```sh
 export MYCLUSTER=your_pre_provisioned_clustername
 ```
-
-### Step 5. Get the Kubernetes environment
-
-* Enter the following command:
-
-```sh
-ibmcloud ks cluster config -c $MYCLUSTER
-```
-
-This retrieves the configuration of your cluster and makes it available to the `kubectl` command which will then target your cluster.

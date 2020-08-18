@@ -2,16 +2,16 @@
 
 xxx **UNDER CONSTRUCTION** xxx
 
-In this workshop you'll learn how get startet with Application Security from two perspectives.
+In this workshop you will learn how to get started with Application Security from two perspectives:
 
-* Platform configurations 
+* Platform security 
 * Authentication and Authorization implementation
 
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
 
-The workshop shows how to leverage application security with authentication and authorization via Keycloak on a sample Quarkus application, and how to apply security provided by the platform with IBM Cloud.
+The workshop shows how to leverage application security with authentication and authorization via Keycloak on a sample Quarkus application, and how to apply security provided by the platform with IBM Cloud and Istio.
 
-The workshop uses a sample application to demonstrate security functionality. The sample application displays links to articles and author information.
+The workshop uses a sample application to demonstrate security functionality. It displays links to articles and author information.
 
 The following screenshot shows the web application, you have to logon to see the list of articles.
 
@@ -61,17 +61,17 @@ These are the sections of this workshop, go through all of them in sequence, sta
 
 |   |   |
 | - | - |
-| [Setup the IBM Cloud Environment](pre-work/README.md) | This section does contain two exercises. |
-| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section does contain four exercises. |
-| [Platform security with mTLS](p-sec-exercise-01/README.md) | This section does contain two exercises. |
-| [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section does contain three exercises. |
+| [Setup the IBM Cloud Environment](pre-work/README.md) | This section has 2 exercises. |
+| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section has 4 exercises. |
+| [Platform security with mTLS](p-sec-exercise-01/README.md) | This section has 2 exercises. |
+| [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section has 3 exercises. |
 
 ### Compatibility
 
 This workshop has been tested on the following platforms:
 
-* **IBM Cloud Kubernetes Service**: version ...
-* **IBM Cloud Shell**: beta
+* **IBM Cloud Kubernetes Service**: Kubernetes Version 1.17, Istio Version 1.5
+* **IBM Cloud Shell**: Version 1.0.2
 
 ### Technology Used
 

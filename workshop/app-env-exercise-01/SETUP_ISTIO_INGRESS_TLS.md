@@ -2,13 +2,9 @@
 
 In the last exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) entry for the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). 
 
-In this exercise we enable secure HTTPS access via the Istio Ingress gateway on port 443.
+In this exercise we enable secure HTTPS access via the Istio Ingress gateway on port 443. The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls). There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
-The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls).
-
-There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
-
-The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. This also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and it creates a Kubernetes secret containing this certificate. But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
+The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and it creates a Kubernetes secret containing this certificate. But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
 
 
 ### Step 1: List the DNS subdomains
@@ -52,7 +48,7 @@ Open the mysecret.yaml file in an editor, e.g. `nano`, change the value of the s
 nano mysecret.yaml
 ```
 
-Your changed file should look similar to this example:
+Your changed file should look similar to this example, the changed line is line 12:
 
 ```yml
 apiVersion: v1
@@ -94,7 +90,7 @@ Edit the file istio-ingress-tls.yaml:
 nano istio-ingress-tls.yaml
 ```
 
-Replace the 2 occurances of wildcard "*", one in the Gateway, one in the VirtualService definition and save the file. 
+Replace the 2 occurances of wildcard "*", one in the Gateway definition, one in the VirtualService definition and save the file. 
 Watch out for the correct indents, this is YAML!
 
 ```yml
@@ -127,7 +123,7 @@ This last step, replacing the wildcard host "*" with the correct DNS name, is no
 
 It also generates a VirtualService definition for this Gateway with routes to services that do not exist at the moment. If you look at the definition, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
 * "https://INGRESSURL/auth" routes to the keycloak service on port 8080
-* "https//INGRESSURL/articles" routes to the web-api service on port 8081
+* "https://INGRESSURL/articles" routes to the web-api service on port 8081
 * "https://INGRESSURL", the root ('/') without a path, routes to the web-app on port 80, this is the service that delivers the Web-App frontend to the browser
 
 

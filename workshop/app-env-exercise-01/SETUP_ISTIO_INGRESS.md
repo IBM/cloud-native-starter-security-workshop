@@ -6,7 +6,7 @@ The following procedures are platform specific and work with a **"standard class
 
 When you install Istio on a Kubernetes Cluster on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer and is assigned a "floating" IP address through which it can be reached on the public Internet.
 
-In this section we will assign a DNS name to this IP address so that the Ingress Ingress can be accessed using a URL.
+In this section we will assign a DNS name to this IP address so that the Istio Ingress can be accessed using a URL.
 
 ### Automated setup
 
@@ -25,7 +25,7 @@ OK
 NLB hostname was created as harald-uebele-k8s-fra05-***-0001.us-south.containers.appdomain.cloud
 ------------------------------------------------------------------------
 Ingress-URL: harald-uebele-k8s-fra05-***-0001.us-south.containers.appdomain.cloud
-Cluster Name: harald-uebele
+Cluster Name: harald-uebele-k8s-fra05
 ...
 ```
 

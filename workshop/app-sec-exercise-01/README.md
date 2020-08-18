@@ -122,10 +122,14 @@ $ cd security/articles-secure
 $ mvn clean package quarkus:dev
 ```
 
-### Step 8: Open the Web-App on your local browser
+### Step 8: Open the Web-App in your browser
 
-```
-http://localhost:8080
-```
+Make sure you are in the IBM Cloud Shell session where the web-app is running (`yarn serve`), this should be 'Session 3'. 
+
+* In the title bar of the Cloud Shell, click on the "eye" icon
+
+* Select "Preview on port: 8080"
+
+This will show the application in a new browser tab.
 
 Log in with the test user: alice, alice
