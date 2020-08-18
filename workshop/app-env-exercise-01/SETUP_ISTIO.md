@@ -2,9 +2,9 @@
 
 Normally in a production size Kubernetes cluster on IBM Cloud we would install Istio as an Add-On. There are 5 Kubernetes add-ons available: Istio, Knative, Kubernetes Terminal, Diagnostic and Debug Tools, and Static Route. 
 
-Istio installed via the add-on is a managed service and it creates a production grade Istio instance and it requires a cluster with at least 3 worker nodes with 4 CPUs and 16 GB of memory which our lab Kubernetes cluster doesn't have.
+Istio installed via the add-on is a managed service. It creates a production grade Istio instance and it requires a cluster with at least 3 worker nodes with 4 CPUs and 16 GB of memory which our lab Kubernetes cluster doesn't have.
 
-Instead, in this lab we will install the Istio demo profile ourselves using `istioctl` and its standalone operator. `istioctl` is available in IBM Cloud Shell, when we wrote these instructions it was at version 1.5.4 which means we will install Istio 1.5.4.
+Instead, in this lab we will install the Istio demo profile ourselves using `istioctl` and the Istio standalone operator. `istioctl` is available in IBM Cloud Shell, when we wrote these instructions it was at version 1.5.4 which means we will install Istio 1.5.4.
 
 ### Automated setup
 
