@@ -119,7 +119,7 @@ spec:
 
 This last step, replacing the wildcard host "*" with the correct DNS name, is not really necessary. The Ingress Gateway would work with the wildcard, too, but now you have a correct configuration that is more secure. And this is what this workshop is about, isn't it?
 
-`istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate stored in a Kubernetes secret. 
+`istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate we stored in a Kubernetes secret before. 
 
 It also generates a VirtualService definition for this Gateway with routes to services that do not exist at the moment. If you look at the definition, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
 * "https://INGRESSURL/auth" routes to the keycloak service on port 8080

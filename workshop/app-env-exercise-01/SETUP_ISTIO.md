@@ -76,9 +76,9 @@ Label namespace 'default' for auto injection
 
 ```
 
-### Manual setup
+### FYI: Manual setup
 
-The following steps showing the manual steps of the automated setup.
+The following steps show the manual steps of the automated setup. This is just for your information, you don't need to run them!
 
 ### Step 1: Setup Istio with an operator 
 

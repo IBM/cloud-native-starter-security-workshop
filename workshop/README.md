@@ -7,7 +7,7 @@ In this workshop you will learn how to get started with Application Security fro
 * Platform security 
 * Authentication and Authorization implementation
 
-The workshop shows how to leverage application security with authentication and authorization via Keycloak on a sample Quarkus application, and how to apply security provided by the platform with IBM Cloud and Istio. It uses a sample application to demonstrate security functionality. Its purpose is to displays links to articles and author information.
+The workshop shows how to leverage application security with authentication and authorization via Keycloak based on a sample Quarkus application, and how to apply security provided by the platform with IBM Cloud and Istio. It uses a sample application to demonstrate security functionality. The application displays links to blog articles.
 
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
 
@@ -17,7 +17,7 @@ The following screenshot shows the web application, you have to logon to see the
 
 ### Architecture
 
-The following diagram shows the architecture of the sample application. There is a Web-App service that serves the Javascript/Vue.js code to the browser. The Web-App in the browser invokes a REST API of the Web-API microservice. The Web-API microservice in turn invokes a REST API of the Articles microservice. 
+The following diagram shows the architecture of the sample application. There is a Web-App service that serves the Javascript/Vue.js code to the browser. The Web-App code running in the browser invokes a REST API of the Web-API microservice. The Web-API microservice in turn invokes a REST API of the Articles microservice. 
 
 To see the results in the web application, users need to be authenticated and they need to have the role `user`. 
 
@@ -55,14 +55,14 @@ After you complete this workshop, you'll understand the following [application s
 
 ### Agenda
 
-These are the sections of this workshop, go through all of them in sequence, start with `Setup the IBM Cloud Environment` :
+These are the sections of this workshop, go through all of them in sequence, start with `1. Setup the IBM Cloud Environment` :
 
 |   |   |
 | - | - |
-| [Setup the IBM Cloud Environment](pre-work/README.md) | This section has 2 exercises. |
-| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section has 4 exercises. |
-| [Platform security with mTLS](p-sec-exercise-01/README.md) | This section has 2 exercises. |
-| [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section has 3 exercises. |
+| 1. [Setup the IBM Cloud Environment](pre-work/README.md) | This section has 2 exercises. |
+| 2. [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section has 4 exercises. |
+| 3. [Platform security with mTLS](p-sec-exercise-01/README.md) | This section has 2 exercises. |
+| 4. [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section has 3 exercises. |
 
 ### Compatibility
 
@@ -92,8 +92,14 @@ This workshop has been tested on the following platforms:
 * [Harald Uebele](https://twitter.com/Harald_U)
 * [Thomas Südbröcker](https://twitter.com/tsuedbroecker)
 
-### What`s next?
+### Additional resources
 
-The [blogs]() as well as the [presentation](images/) describe the functionality in more detail.
+Here are some blogs that describe how this project has been implemented:
+
+* [Setting up Keycloak in OpenShift](http://heidloff.net/article/setting-up-keycloak-openshift/)
+* [Security in Quarkus Applications via Keycloak](http://heidloff.net/article/security-quarkus-applications-keycloak/)
+* [Securing Vue.js Applications with Keycloak](http://heidloff.net/article/securing-vue-js-applications-keycloak/)
+
+The presentation that goes with this workshop is available [here](images/).
 
 
