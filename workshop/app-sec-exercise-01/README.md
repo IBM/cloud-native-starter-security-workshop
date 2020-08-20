@@ -109,8 +109,8 @@ yarn serve
 Open a second terminal and start the service on port 8081.
 
 ```sh
-$ cd $ROOT_FOLDER/web-api-secure
-$ mvn clean package quarkus:dev
+cd $ROOT_FOLDER/web-api-secure
+mvn clean package quarkus:dev
 ```
 
 ### Step 7: Run the articles-secure Microservice 
@@ -118,14 +118,16 @@ $ mvn clean package quarkus:dev
 Open a third terminal and start the service on port 8082.
 
 ```sh
-$ cd security/articles-secure
-$ mvn clean package quarkus:dev
+cd security/articles-secure
+mvn clean package quarkus:dev
 ```
 
-### Step 8: Open the Web-App on your local browser
+### Step 8: Open the Web-App in your local browser
 
-```
+Open the following URL in your browser:
+
+```sh
 http://localhost:8080
 ```
 
-Log in with the test user: alice, alice
+Log in with the test user: alice, password: alice

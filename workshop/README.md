@@ -2,16 +2,14 @@
 
 xxx **UNDER CONSTRUCTION** xxx
 
-In this workshop you'll learn how get startet with Application Security from two perspectives.
+In this workshop you will learn how to get started with Application Security from two perspectives:
 
-* Platform configurations 
+* Platform security 
 * Authentication and Authorization implementation
 
+The workshop shows how to leverage application security with authentication and authorization via Keycloak on a sample Quarkus application, and how to apply security provided by the platform with IBM Cloud and Istio. It uses a sample application to demonstrate security functionality. Its purpose is to displays links to articles and author information.
+
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
-
-The workshop shows on a sample application how to leverage with Keycloak application security with authentication and authorization in Quarkus applications, and how to apply security provided by the platform with IBM Cloud.
-
-The workshop uses a sample application to demonstrate security functionality. The sample application displays links to articles and author information.
 
 The following screenshot shows the web application, you have to logon to see the list of articles.
 
@@ -19,9 +17,9 @@ The following screenshot shows the web application, you have to logon to see the
 
 ### Architecture
 
-The following architecture diagram shows the sample application which contains a web application, which invokes an API of the Web-API Microservice and that Microservice does invoke Articles microservice. 
+The following diagram shows the architecture of the sample application. There is a Web-App service that serves the Javascript/Vue.js code to the browser. The Web-App in the browser invokes a REST API of the Web-API microservice. The Web-API microservice in turn invokes a REST API of the Articles microservice. 
 
-To see the results in the web application, users need to be authenticated and they need to have the role `user`. In the picture below you see the architecture.
+To see the results in the web application, users need to be authenticated and they need to have the role `user`. 
 
 <kbd><img src="../images/architecture-diagram.png"/></kbd>
 
@@ -43,17 +41,17 @@ After you complete this workshop, you'll understand the following [application s
 * [Authentication with Keycloak](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
 * [Authorization in Quarkus](https://en.wikipedia.org/wiki/Authorization) for specific Microservices in the backend
 
-*The intention of this workshop is not to explain every aspect of application security.*
+*The scope of this workshop is not to explain every aspect of application security.*
 
 ### About this workshop
 
-The introductory page of the workshop is broken down into the following sections:
+<!-- The introductory page of the workshop is broken down into the following sections:
 
 * [Agenda](#agenda)
 * [Compatibility](#compatibility)
 * [Technology Used](#technology-used)
 * [Credits](#credits)
-* [What`s next?](#whats-next?)
+* [What`s next?](#whats-next?) -->
 
 ### Agenda
 
@@ -61,17 +59,17 @@ These are the sections of this workshop, go through all of them in sequence, sta
 
 |   |   |
 | - | - |
-| [Setup the IBM Cloud Environment](pre-work/README.md) | This section does contain two exercises. |
-| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section does contain four exercises. |
-| [Platform security with mTLS](p-sec-exercise-01/README.md) | This section does contain two exercises. |
-| [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section does contain three exercises. |
+| [Setup the IBM Cloud Environment](pre-work/README.md) | This section has 2 exercises. |
+| [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)  | This section has 4 exercises. |
+| [Platform security with mTLS](p-sec-exercise-01/README.md) | This section has 2 exercises. |
+| [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) | This section has 3 exercises. |
 
 ### Compatibility
 
 This workshop has been tested on the following platforms:
 
-* **IBM Cloud Kubernetes Service**: version ...
-* **IBM Cloud Shell**: beta
+* **IBM Cloud Kubernetes Service**: Kubernetes Version 1.17, Istio Version 1.5 on IBM Cloud
+* **IBM Cloud Shell**: Version 1.0.2
 
 ### Technology Used
 

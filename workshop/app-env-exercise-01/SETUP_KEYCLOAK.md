@@ -1,8 +1,8 @@
 # Setup Keycloak
 
-More details about installation basics of Keycloak you get here [Keycloak - Guide - Keycloak on Kubernetes](https://www.keycloak.org/getting-started/getting-started-kube)
+These setup instractions are based on [Keycloak - Guide - Keycloak on Kubernetes](https://www.keycloak.org/getting-started/getting-started-kube).
 
-We have Istio installed and we using the Istio Ingress to access Keycloak externally. The original `keycloak.yaml` is modified and the `NodePort` is removed. 
+The instructions go into installing an Ingress for Keycloak. But we have Istio installed and we will be using the Istio Ingress to access Keycloak externally. The original `keycloak.yaml` is modified and the `NodePort` has been removed. 
 
 ### Step 1: Deploy Keycloak
 
@@ -24,7 +24,7 @@ Get the Keycloak URL and open the URL in your browser:
 echo "https://"$INGRESSURL"/auth"
 ```
 
-### Step 4: Logon to Keycloak and configure the realm
+### Step 4: Try to logon to Keycloak
 
 * Click on 'Administration Console'. 
 
@@ -50,7 +50,7 @@ echo $INGRESSSECRET
 * Execute the bash script
 
 ```sh
-sh keycloak-create-realm.sh
+bash keycloak-create-realm.sh
 ```
 Example output:
 
@@ -69,20 +69,20 @@ Try to create an access token, this requires the $INGRESSURL environment variabl
 curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p'
 ```
 
-### (Optional) STEP 8: Verify the name `quarkus`of the imported realm
+### (Optional) STEP 7: Verify the name `quarkus`of the imported realm
 
 ![](../../images/keycloak-config-3.png)
 
-### (Optional) STEP 9: Verify the imported realm settings
+### (Optional) STEP 8: Verify the imported realm settings
 
 ![](../../images/keycloak-config-4.png)
 
-### (Optional) STEP 10: Press `view all users`
+### (Optional) STEP 9: Press `view all users`
 
 You should see following users: `admin`, `alice`, `jdoe`
 
 ![](../../images/keycloak-users.png)
 
-### (Optional) STEP 11: Verify the role mapping
+### (Optional) STEP 10: Verify the role mapping
 
 ![](../../images/keycloak-user.png)
