@@ -12,7 +12,7 @@ This opens a new browser tab with your IBM Cloud Shell session.
 
 ![](../../images/cloud-shell-launch.png)
 
-Note: Your workspace includes 500 MB of temporary storage. This session will close after an hour of inactivity. If you don't have any active sessions for an hour or you reach the 30-hour weekly usage limit, your workspace data is removed.
+Note: Your workspace includes 500 MB of temporary storage. This session will close after an hour of inactivity. If you don't have any active sessions for an hour or you reach the 50-hour weekly usage limit, your workspace data is removed.
 
 You should see you personal ID as `Current account: [User]'s Account'`:
 
