@@ -26,7 +26,7 @@
 ### Application security with Keycloak and Quarkus
 
 * [(Optional) Exercise 1: Setup the web-application and Microservices locally](app-sec-exercise-01/README.md)
-* [Exercise 2: Authentication with Quarkus application](app-sec-exercise-01/APPLICATION_AUTHENTICATION.md) 
+* [Exercise 2: Authentication in Vue.js fronted application](app-sec-exercise-01/APPLICATION_AUTHENTICATION.md) 
 * [Exercise 3: Authorization in Quarkus application ](app-sec-exercise-01/APPLICATION_AUTHORIZATION.md)
 
 ### Additional Resources

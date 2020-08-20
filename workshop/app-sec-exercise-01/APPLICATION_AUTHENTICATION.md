@@ -1,4 +1,4 @@
-# Authentication with Quarkus application
+# Authentication in the Vue.js fronted
 
 There are several ways to use Keycloak from web applications. The easiest option is to use the official Keycloak JavaScript client library which is defined as dependency in package.json.
 

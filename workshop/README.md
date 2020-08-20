@@ -41,7 +41,7 @@ After you complete this workshop, you'll understand the following [application s
 
 **Application security with Keycloak and Quarkus**
 * [Authentication with Keycloak](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
-* [Authorization in Quarkus](https://en.wikipedia.org/wiki/Authorization) for specific Microservices in the Backend
+* [Authorization in Quarkus](https://en.wikipedia.org/wiki/Authorization) for specific Microservices in the backend
 
 *The intention of this workshop is not to explain every aspect of application security.*
 
