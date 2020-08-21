@@ -1,4 +1,4 @@
-## Workshop: Application Security
+## Workshop: Get started with security for your Java Microservices application
 
 As a developer you should ask yourself: *"How can I make my application (more) secure?"*
 
