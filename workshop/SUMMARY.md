@@ -31,7 +31,7 @@
 
 ### Additional Resources
 
-* [Blog posts related to security]()
+* [Blog posts related to security](BLOGS.md)
 * [Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter)
 
 

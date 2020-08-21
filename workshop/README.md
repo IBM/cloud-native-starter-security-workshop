@@ -94,11 +94,7 @@ This workshop has been tested on the following platforms:
 
 ### Additional resources
 
-Here are some blogs that describe how this project has been implemented:
-
-* [Setting up Keycloak in OpenShift](http://heidloff.net/article/setting-up-keycloak-openshift/)
-* [Security in Quarkus Applications via Keycloak](http://heidloff.net/article/security-quarkus-applications-keycloak/)
-* [Securing Vue.js Applications with Keycloak](http://heidloff.net/article/securing-vue-js-applications-keycloak/)
+[Here](BLOGS.md) are some blogs that describe how this project has been implemented-
 
 The presentation that goes with this workshop is available [here](images/).
 
