@@ -22,7 +22,7 @@ quarkus.http.cors=true
 resteasy.role.based.security=true
 ```
 
-Note the line `resteasy.role.based.security=true`. This setting is important, so that the Articles service can receive the Authorization header from the Web-API service. I couldn’t find this in the Quarkus documentation, but Phillip Krüger from the Quarkus team answered it today.
+Note the line `resteasy.role.based.security=true`. This setting is important, so that the Articles service can receive the Authorization header from the Web-API service. I couldn’t find this in the Quarkus documentation, but Phillip Krüger from the Quarkus team provided this information.
 
 Once you’ve configured your Quarkus application, implementing the endpoint is trivial. Here we use `@RolesAllowed`, but there are other annotations available, for example `@Authenticated`.
 
@@ -56,7 +56,7 @@ quarkus.http.cors=true
 org.eclipse.microprofile.rest.client.propagateHeaders=Authorization
 ```
 
-The last line is important again. This allows forwarding the authorization header with the JWT token without having to implement any code.
+The last line (6) is important again. This allows forwarding the authorization header with the JWT token without having to implement any code.
 
 ```Java
 private ArticlesService articlesService;
