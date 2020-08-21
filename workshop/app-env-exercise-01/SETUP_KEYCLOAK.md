@@ -4,6 +4,8 @@ These setup instractions are based on [Keycloak - Guide - Keycloak on Kubernetes
 
 The instructions go into installing an Ingress for Keycloak. But we have Istio installed and we will be using the Istio Ingress to access Keycloak externally. The original `keycloak.yaml` is modified and the `NodePort` has been removed. 
 
+Note: This is a "ephemeral" installation of Keycloak, there is no database used for persistance. Sufficient for a workshop but not suitable for production use!
+
 ### Step 1: Deploy Keycloak
 
 ```sh
