@@ -24,7 +24,7 @@ mTLS is enabled by default for the communication between Envoys **but it is enab
 
 ### TASK 1: Test permissive mode
 
-In this task we access the Web-API service using the service nodeport and unencrypted HTTP. This is only possible because Istio is still using mTLS in permissive mode. 
+In this task we access the Web-API service using the services nodeport, the IP address of a worker node, and unencrypted HTTP, effectively bypassing the Istio Ingress This is only possible because Istio is still using mTLS in permissive mode. 
 
 ### Step 1: Create a access-token
 
@@ -44,7 +44,7 @@ export nodeport=$(kubectl get svc web-api --ignore-not-found --output 'jsonpath=
 echo $nodeport
 ```
 
-### Step 3: Get a external Worker IP of the Web-API Microservice
+### Step 3: Get a external Worker IP address of the Web-API Microservice
 
 ```sh
 export workerip=$(ibmcloud ks workers --cluster $MYCLUSTER | awk '/Ready/ {print $2;exit;}')
@@ -78,7 +78,7 @@ x-envoy-decorator-operation: web-api.default.svc.cluster.local:8081/*
 ```
 As result of the last command you can see an HTTP status of 200 which means OK and the correct result, a list of blog articles as a JSON object. 
 
-We needed an access token (JWT) but were able to access the service using http only on port 80. Somebody with access to the cluster and the required skills could stage a man-in-the-middle attack and read the data because it is not encrypted.
+This is not totally unsecure since we needed an access token (JWT) to make the REST call but we were able to access the service using http only on port 80. Somebody with access to the cluster and the required skills could stage a man-in-the-middle attack and read the data because it is not encrypted.
 
 We are going to change this in the next step.
 
