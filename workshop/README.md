@@ -1,7 +1,5 @@
 ## Workshop: Application Security
 
-xxx **UNDER CONSTRUCTION** xxx
-
 In this workshop you will learn how to get started with Application Security from two perspectives:
 
 * Platform security 
