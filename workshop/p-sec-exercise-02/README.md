@@ -26,12 +26,18 @@ mTLS is enabled by default for the communication between Envoys **but it is enab
 
 ### TASK 1: Test permissive mode
 
-### Step 1: Create a access-token 
+In this task we access the Web-API service using the service nodeport and unencrypted HTTP. This is only possible because Istio is still using mTLS in permissive mode. 
+
+### Step 1: Create a access-token
+
+We need a JSON Web Token (JWT) to access the service:
 
 ```sh
 export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
 echo $access_token
 ```
+
+_Note:_ REMEMBER that an access-token is only valid for 60 seconds ;-). You need to be quick with the next steps otherwise the token will already be involid!
 
 ### Step 2: Get the NodePort of the Web-API Microservice
 
@@ -47,9 +53,10 @@ export workerip=$(ibmcloud ks workers --cluster $MYCLUSTER | awk '/Ready/ {print
 echo $workerip
 ```
 
+We now have an external IP address and port to access the Web-API service.
+
 ### Step 4: Use no TLS just `HTTP` to get the articles from the Web-API Microservice
 
-_Note:_ REMEMBER that an access-token is only valid for 60 seconds ;-).
 
 ```sh
 curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
@@ -72,6 +79,7 @@ x-envoy-decorator-operation: web-api.default.svc.cluster.local:8081/*
 [{"authorBlog":"","authorTwitter":"","title":"Blue Cloud Mirror — (Don’t) Open The Doors!","url":"https://haralduebele.blog/2019/02/17/blue-cloud-mirror-dont-open-the-doors/"},{"authorBlog":"","authorTwitter":"","title":"Recent Java Updates from IBM","url":"http://heidloff.net/article/recent-java-updates-from-ibm"},******* "title":"Three awesome TensorFlow.js Models for Visual Recognition","url":"http://heidloff.net/article/tensorflowjs-visual-recognition"},{"authorBlog":"","authorTwitter":""]
 ```
 As result of the last command you can see an HTTP status of 200 which means OK and the correct result, a list of blog articles as a JSON object. 
+
 We needed an access token (JWT) but were able to access the service using http only on port 80. Somebody with access to the cluster and the required skills could stage a man-in-the-middle attack and read the data because it is not encrypted.
 
 We are going to change this in the next step.
@@ -79,16 +87,18 @@ We are going to change this in the next step.
 
 ### TASK 2: Set mTLS to strict in default namespace and for services
 
-### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace and DestinationRules for web-api and articles.
+### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace and DestinationRules for Web-API and Articles.
 
 ```sh
 cd $ROOT_FOLDER/IKS
 kubectl apply -f mtls.yaml
 ```
 
+This enforces mTLS in the 'default' namespace and to access the Web-API and Articles services.
+
 ### Step 2: Create a new access-token and invoke the Web-API Microservice with `HTTP` again
 
-   As you will see, you can no longer access the service, even if you know its NodePort and the external IP of a K8s worker node.
+As you will see, you can no longer access the service, even if you know its NodePort and the external IP of a Kubernetess worker node.
 
 * Create access-token
 
@@ -117,7 +127,7 @@ If you check the Cloud Native Starter frontend in the browser, nothing should ha
    * Those requests come in through the Istio Ingress gateway
    * Since the Istio Ingress gateway, Keycloak, and Web-API are all part of the service mesh, communication between them is already encrypted using mTLS
 * REST API calls from Web-API to Articles use mTLS   
-* Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS   
+* Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.  
 
 This is the result of your work so far:
 
