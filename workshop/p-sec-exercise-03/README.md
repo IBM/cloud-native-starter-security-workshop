@@ -6,9 +6,9 @@ Besides authentication using mTLS, Istio can also provide authorization services
 * End-user to workload
 * Workload to workload
 
-The 'end-user to workload' authentication we handle in our example in the application code itself, you will learn about it in the last section of our workshop.
+The 'end-user to workload' authentication we handle in our example in the application code itself, you will learn about it in the last section of our workshop (Application security with Keycloak and Quarkus).
 
-Here we will learn how to apply authorization policies to further secure communication within the service mesh, workload to workload. In our example we will use [Kubernetes Service Accounts](https://v1-16.docs.kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) to perform the authorization.
+In this exercise we will learn how to apply authorization policies to further secure communication within the service mesh, workload to workload. In our example we will use [Kubernetes Service Accounts](https://v1-16.docs.kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) to perform the authorization.
 
 When you create a pod, if you do not specify a service account, it is automatically assigned the 'default' service account in the same namespace. You can check this for the 'articles' service:
 
@@ -65,7 +65,7 @@ kc get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
 ```
 Result:
 
-```sh
+```
 "serviceAccount": "articles",
 "serviceAccountName": "articles"
 ```
@@ -88,7 +88,7 @@ spec:
   action: ALLOW
 ```
 
-Istio documentation sspecifies: *If any allow policies are applied to a workload, access to that workload is denied by default, unless explicitly allowed by the rule in the policy.*
+Istio documentation specifies: *If any allow policies are applied to a workload, access to that workload is denied by default, unless explicitly allowed by the rule in the policy.*
 
 We have an "ALLOW" policy but no rule is specified which makes it effectively a "DENY ALL" rule.
 
@@ -126,7 +126,7 @@ spec:
         methods: ["GET", "POST"]    
 ```        
 
-It allows 'GET' and 'POST' access to the articles service to the service account (sa) 'web-api' in namespace (ns) 'default'. 
+It allows 'GET' and 'POST' access to the articles service for the service account (sa) 'web-api' in namespace (ns) 'default'. 
 
 Apply with:
 
