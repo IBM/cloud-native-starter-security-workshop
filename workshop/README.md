@@ -98,6 +98,6 @@ This workshop has been tested on the following platforms:
 
 [Here](BLOGS.md) are some blogs that describe how this project has been implemented-
 
-The presentation that goes with this workshop is available [here](images/).
+The presentation that goes with this workshop is available [here](images/App-Security-Final-V1-20200821.pdf).
 
 
