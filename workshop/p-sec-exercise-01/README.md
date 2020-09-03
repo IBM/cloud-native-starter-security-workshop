@@ -92,7 +92,6 @@ echo https://$INGRESSURL
 
 ![](../../images/cns-wrong-redirect-uri.png)
 
-
 * Open Keycloak in a browser and login to Keycloak with `user: admin` and `password: admin`. Get the right URL by display the URL with the following terminal command.
 
 ```sh
