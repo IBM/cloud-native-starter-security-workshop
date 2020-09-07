@@ -104,20 +104,20 @@ As you will see, you can no longer access the service, even if you know its Node
 * Create access-token
   
   ```sh
-    export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
-    echo $access_token
+   export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
+   echo $access_token
   ```
 
 * Invoke Web-API Microservice
   
   ```sh
-   curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
+  curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
   ```
   
    Example output:
   
   ```sh
-   curl: (56) Recv failure: Connection reset by peer
+  curl: (56) Recv failure: Connection reset by peer
   ```
 
 Now everything is secure. 
