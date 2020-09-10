@@ -2,18 +2,16 @@
 
 As a developer you should ask yourself: *"How can I make my application (more) secure?"*
 
-In this workshop we will show you with an example:
-* How to secure external access to a Kubernetes cluster with TLS on the IBM Cloud
-* How to secure communication between Microservices with Istio and mTLS
-* How to implement authorization and authentication with the Open Source Identity and Access Management system Keycloak and JSON Web Tokens (JWT)
-* With an example application based on our OpenSource project Cloud Native Starter, build with Quarkus and Microprofile
-
-You will learn how to get started with Application Security from two perspectives:
-
-* Platform security 
+In this workshop you will learn how to get started with Application Security from two perspectives:
+* Platform security
 * Authentication and Authorization implementation
 
-The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
+We will show you with an example application:
+* How to secure external access to a Kubernetes cluster with TLS
+* How to secure communication between Microservices with Istio and mTLS
+* How to implement authorization and authentication with the Open Source Identity and Access Management system Keycloak and JSON Web Tokens (JWT)
+
+The exercises are based on an example application based on our Open Source Github project [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/security), build with Quarkus and Microprofile
 
 The following screenshot shows the web application, you have to logon to see the list of articles.
 
