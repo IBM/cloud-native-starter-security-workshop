@@ -18,7 +18,7 @@ You should see you personal ID as `Current account: [User]'s Account'`:
 
 ![](../../images/cloud-shell.png)
 
-When you using Kubernetes locally for that example, you need a local terminal and the following tools: 
+If you want to perform this workshop locally on your own workstation, you need a local terminal and the following tools: 
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [curl](https://curl.haxx.se/download.html)
