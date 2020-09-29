@@ -4,7 +4,13 @@ In the last exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Nam
 
 In this exercise we enable secure HTTPS access via the Istio Ingress gateway on port 443. The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls). There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
-The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and it creates a Kubernetes secret containing this certificate. But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
+The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and it creates a Kubernetes secret containing this certificate. 
+
+![](../../images/NLB-DNS.png)
+
+But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
+
+![](../../images/Copy-Cert.png)
 
 
 ### Step 1: List the DNS subdomains
@@ -114,6 +120,11 @@ spec:
   gateways:
 ...
 ```
+
+This creates 2 Istio objects: Gateway and VirtualService, both in the `default` namespace. The Gateway definition basically allows to direct requests via HTTPS to services in the `default` namespace. The VirtualService definition maps specific paths/URIs to services in the namespace. We will create these service later in this exercise.
+
+![](../../images/Gateway+VirtualService.png)
+
 
 ### Step 8: Apply the change
 

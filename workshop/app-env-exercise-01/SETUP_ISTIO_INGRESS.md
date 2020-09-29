@@ -6,6 +6,8 @@ The following procedures are platform specific and work with a **"standard class
 
 When you install Istio on a Kubernetes Cluster on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer and is assigned a "floating" IP address through which it can be reached on the public Internet.
 
+![](../../images/Ingress-Loadbalancer.png)
+
 In this section we will assign a DNS name to this IP address so that the Istio Ingress can be accessed using a URL.
 
 ### Automated setup
@@ -65,4 +67,8 @@ OK
 NLB hostname was created as harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
 ```
 
-This will be the URL we will use later to access Keycloak and our sample application.
+This will be the URL we will use later to access Keycloak and our sample application. Copy the URL and paste it into an environment variable:
+
+```sh
+export INGRESSURL=harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
+```
