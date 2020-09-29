@@ -4,7 +4,11 @@ Istio uses *Mutual authentication with Transport Layer Security (mTLS)* to secur
 
 This exercise will cover only a part of the Istio security features. The Istio documentation has a lot more information.
 
-Istio provides each Envoy sidecar proxy with a strong (cryptographic) identity, in the form of a certificate. This identity is based on the microservice's service account and is independent of its specific network location, such as cluster or current IP address. This is called Secure naming. Envoys then use the certificates to identify each other and establish an authenticated and encrypted communication channel between them.
+Istio provides each Envoy sidecar proxy with a strong (cryptographic) identity, in the form of a certificate created by Istios own Certificate Authority (CA). 
+
+![](../../images/Istio-CA.png)
+
+This identity is based on the microservice's service account and is independent of its specific network location, such as cluster or current IP address. This is called Secure naming. Envoys then use the certificates to identify each other and establish an authenticated and encrypted communication channel between them.
 
 Istio is responsible for:
 
@@ -18,7 +22,9 @@ When an application microservice connects to another microservice, the communica
 
 * Mutually authenticated and encrypted connection between Envoy proxies.
 
-This includes the Istio Ingress for incoming and the Istio Egress for outgoing connections. Your Kubernetes cluster may/will have its own ingress but this ingress is not paired with an Envoy sidecar and therefore is not able to directly participate in secure and encrypted communications.
+This includes the Istio Ingress for incoming (and the Istio Egress for outgoing) connections. Your Kubernetes cluster may/will have its own ingress but this ingress is not paired with an Envoy sidecar and therefore is not able to directly participate in secure and encrypted communications.
+
+![](../../images/Istio-mTLS.png)
 
 mTLS is enabled by default for the communication between Envoys **but it is enabled in permissive mode**. This means that a microservice outside of the Istio Service Mesh, one without a Envoy proxy, can communicate with a microservice within the Service Mesh. This allows you to bring your microservices into the Service Mesh and then gradually turn on and test security. 
 
@@ -124,11 +130,11 @@ Now everything is secure.
 
 If you check the Cloud Native Starter frontend in the browser, nothing should have changed because it already used enrypted paths:
 
-* Access to the Web-App is through the Istio Ingress gateway using https (loading the JavaScript/Vue.js code into the browser)
-* The (external) Web-App is accessing the Keycloak server and the Web-API service using https
+* Access to the Web-App (service) is through the Istio Ingress gateway using https (loading the JavaScript/Vue.js code into the browser)
+* The (external) Web-App in the browser is accessing the Keycloak server and the Web-API service using https
   * Those requests come in through the Istio Ingress gateway
   * Since the Istio Ingress gateway, Keycloak, and Web-API are all part of the service mesh, communication between them is already encrypted using mTLS
-* REST API calls from Web-API to Articles use mTLS   
+* REST API calls from Web-API to Articles and from Web-API or Articles to Keycloak use mTLS   
 * Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.  
 
 This is the result of your work so far:

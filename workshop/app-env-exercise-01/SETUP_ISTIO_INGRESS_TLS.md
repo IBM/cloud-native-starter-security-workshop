@@ -1,6 +1,6 @@
 # Expose the Istio Ingress gateway via DNS with TLS enabled
 
-In the last exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) entry for the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). 
+In the previous exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) entry for the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). 
 
 In this exercise we enable secure HTTPS access via the Istio Ingress gateway on port 443. The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls). There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
@@ -121,9 +121,15 @@ spec:
 ...
 ```
 
-This creates 2 Istio objects: Gateway and VirtualService, both in the `default` namespace. The Gateway definition basically allows to direct requests via HTTPS to services in the `default` namespace. The VirtualService definition maps specific paths/URIs to services in the namespace. We will create these service later in this exercise.
+This creates 2 Istio objects: Gateway and VirtualService, both in the `default` namespace. The Gateway definition basically allows to direct requests via HTTPS to services in the `default` namespace. 
 
 ![](../../images/Gateway+VirtualService.png)
+
+The VirtualService definition for this Gateway uses matching rules to map specific paths/URIs to services that do not exist at the moment, we will create them later. If you look in the YAML file, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
+* "https://INGRESSURL/auth" routes to the Keycloak service on port 8080
+* "https://INGRESSURL/articles" routes to the Web-API service on port 8081
+* "https://INGRESSURL", the root ('/') without a path, routes to the Web-App on port 80, this is the service that delivers the frontend app to the browser
+
 
 
 ### Step 8: Apply the change
@@ -131,11 +137,6 @@ This creates 2 Istio objects: Gateway and VirtualService, both in the `default` 
 This last step, replacing the wildcard host "*" with the correct DNS name, is not really necessary. The Ingress Gateway would work with the wildcard, too, but now you have a correct configuration that is more secure. And this is what this workshop is about, isn't it?
 
 `istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate we stored in a Kubernetes secret before. 
-
-It also generates a VirtualService definition for this Gateway with routes to services that do not exist at the moment. If you look at the definition, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
-* "https://INGRESSURL/auth" routes to the keycloak service on port 8080
-* "https://INGRESSURL/articles" routes to the web-api service on port 8081
-* "https://INGRESSURL", the root ('/') without a path, routes to the web-app on port 80, this is the service that delivers the Web-App frontend to the browser
 
 
 ```sh
