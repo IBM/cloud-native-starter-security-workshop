@@ -6,7 +6,7 @@ In this exercise we will run the application in your Kubernetes cluster using pr
 
 When running locally, you will set the Keycloak URL as OpenID Connect (OIDC) provider in application.properties. When running on a Kubernetes cluster we cannot set the OIDC provider (keycloak) in application.properties without recompiling the code, building a new image, and loading this image in a Image repository that is accessible to your Kubernetes cluster. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map. 
 
-### STEP 1: Change `configmap.yaml` entry
+### STEP 1: Apply configmap
 
 This is our configmap definition:
 
