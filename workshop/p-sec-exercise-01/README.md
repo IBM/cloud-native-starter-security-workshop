@@ -8,23 +8,7 @@ When running locally, you will set the Keycloak URL as OpenID Connect (OIDC) pro
 
 ### STEP 1: Change `configmap.yaml` entry
 
-In directory IKS, modifify configmap.yaml and edit `QUARKUS_OIDC_AUTH_SERVER_URL` with your keycloak URL. It must end in `/auth/realms/quarkus, enclosed in "".
-
-* Create the `QUARKUS_OIDC_AUTH_SERVER_URL` and copy the URL to insert it in the next step in the `configmap.yaml`
-
-```sh
-cd $ROOT_FOLDER/IKS
-export QUARKUS_OIDC_AUTH_SERVER_URL="https://$INGRESSURL/auth/realms/quarkus"
-echo $QUARKUS_OIDC_AUTH_SERVER_URL
-```
-
-* Replace the URL in the `configmap.yaml`
-
-```sh
-nano configmap.yaml
-```
-
-Example:
+This is our configmap definition:
 
 ```sh
 kind: ConfigMap
@@ -32,8 +16,10 @@ apiVersion: v1
 metadata:
   name: security-url-config
 data:
-  QUARKUS_OIDC_AUTH_SERVER_URL: "https://harald-uebele-*****-0001.containers.appdomain.cloud/auth/realms/quarkus"
+  QUARKUS_OIDC_AUTH_SERVER_URL: "https//keycloak:8080/auth/realms/quarkus"
 ```
+
+Our Keycloak service runs in the same namespace as the rest of the application, so all we need is the name of the service (keycloak) and the port numer (8080).
 
 * Apply the `configmap.yaml`
 
