@@ -32,7 +32,7 @@ mTLS is enabled by default for the communication between Envoys **but it is enab
 
 In this task we access the Web-API service using the services nodeport, the IP address of a worker node, and unencrypted HTTP, effectively bypassing the Istio Ingress This is only possible because Istio is still using mTLS in permissive mode. 
 
-### Step 1: Create a access-token
+#### Step 1: Create a access-token
 
 We need a JSON Web Token (JWT) to access the service:
 
@@ -43,14 +43,14 @@ echo $access_token
 
 _Note:_ REMEMBER that an access-token is only valid for 60 seconds ;-). You need to be quick with the next steps otherwise the token will already be involid!
 
-### Step 2: Get the NodePort of the Web-API Microservice
+#### Step 2: Get the NodePort of the Web-API Microservice
 
 ```sh
 export nodeport=$(kubectl get svc web-api --ignore-not-found --output 'jsonpath={.spec.ports[*].nodePort}')
 echo $nodeport
 ```
 
-### Step 3: Get a external Worker IP address of the Web-API Microservice
+#### Step 3: Get a external Worker IP address of the Web-API Microservice
 
 ```sh
 export workerip=$(ibmcloud ks workers --cluster $MYCLUSTER | awk '/Ready/ {print $2;exit;}')
@@ -59,7 +59,7 @@ echo $workerip
 
 We now have an external IP address and port to access the Web-API service.
 
-### Step 4: Use no TLS just `HTTP` to get the articles from the Web-API Microservice
+#### Step 4: Use no TLS just `HTTP` to get the articles from the Web-API Microservice
 
 ```sh
 curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
@@ -94,7 +94,7 @@ By switching mTLS to strict mode it is impossible for external traffic to bypass
 
 This is the reason why we installed Keycloak into the default namespace: that way it is part of our service mesh and included in the mTLS "dance" automatically. In a real world example you would most likely use a different approach.
 
-### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace.
+#### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace.
 
 ```sh
 cd $ROOT_FOLDER/IKS
@@ -103,7 +103,7 @@ kubectl apply -f mtls.yaml
 
 This enforces mTLS in the 'default' namespace. So simple!
 
-### Step 2: Create a new access-token and invoke the Web-API Microservice with `HTTP` again
+#### Step 2: Create a new access-token and invoke the Web-API Microservice with `HTTP` again
 
 As you will see, you can no longer access the service, even if you know its NodePort and the external IP of a Kubernetess worker node.
 
