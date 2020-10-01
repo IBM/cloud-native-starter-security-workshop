@@ -16,7 +16,7 @@ apiVersion: v1
 metadata:
   name: security-url-config
 data:
-  QUARKUS_OIDC_AUTH_SERVER_URL: "https//keycloak:8080/auth/realms/quarkus"
+  QUARKUS_OIDC_AUTH_SERVER_URL: "http://keycloak:8080/auth/realms/quarkus"
 ```
 
 Our Keycloak service runs in the same namespace as the rest of the application, so all we need is the name of the service (keycloak) and the port numer (8080).
