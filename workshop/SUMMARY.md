@@ -24,7 +24,7 @@
 * [Exercise 2: Secure microservices using Authentication with mTLS](p-sec-exercise-02/README.md)
 * [(Optional) Exercise 3: Authorization with Istio](p-sec-exercise-03/README.md)
 
-### Application security with Keycloak and Quarkus
+### Authentication and Authorization with Keycloak and Quarkus
 
 * [(Optional) Exercise 1: Setup the web-application and Microservices locally](app-sec-exercise-01/README.md)
 * [Exercise 2: Authentication in Vue.js fronted application](app-sec-exercise-01/APPLICATION_AUTHENTICATION.md) 
