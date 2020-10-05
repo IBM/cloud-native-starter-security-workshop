@@ -2,6 +2,10 @@
 
 There are several ways to use Keycloak from web applications. The easiest option is to use the official Keycloak JavaScript client library which is defined as dependency in package.json.
 
+The shows the simplified architecture:
+
+![](../../images/architecture-auth.png)
+
 The Vue.js application triggers the authentication directly when the application is opened. See the file main.js:
 
 ```javascript
