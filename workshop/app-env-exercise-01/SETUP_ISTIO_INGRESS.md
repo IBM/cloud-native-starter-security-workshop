@@ -4,11 +4,11 @@ The following procedures are platform specific and work with a **"standard class
 
 >If you are using a VPC based or a free ("Lite") Kubernetes Cluster on the IBM Cloud or another Cloud provider or something like Minikube, the following sections will **not** work!
 
-When you install Istio on a Kubernetes Cluster on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer and is assigned a "floating" IP address through which it can be reached on the public Internet.
+When you install Istio on a Kubernetes Cluster on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer -- this is called a Network Load Balancer or NLB on IBM Cloud. A "floating" IP address is assigned to it through which it can be reached on the public Internet.
 
 ![](../../images/Ingress-Loadbalancer.png)
 
-In this section we will assign a DNS name to this IP address so that the Istio Ingress can be accessed using a URL.
+In this section we will assign a subdomain DNS entry for this IP address so that the Istio Ingress can be accessed using a URL.
 
 ### Automated setup
 
@@ -60,7 +60,7 @@ echo $MYCLUSTER
 ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip <ingressIP>
 ```
 
-The new subdomain will have the form `[cluster name]-[globally unique hash]-[region]-containers.appdomain.cloud`. The output should look like this:
+The new subdomain will have the form `[cluster name]-[globally unique hash]-[sequence].[region].containers.appdomain.cloud`. The output should look like this:
 
 ```sh
 OK
