@@ -4,11 +4,12 @@ In the previous exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain
 
 In this exercise we enable secure HTTPS access via the Istio Ingress gateway on port 443. The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls). There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
-The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate for HTTPS/TLS traffic and it creates a Kubernetes secret containing this certificate. 
+The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate and private key for HTTPS/TLS traffic and it creates a Kubernetes secret of type 'tls' containing this certificate and key. 
 
 ![](../../images/NLB-DNS.png)
 
-But the secret is created in the 'default' namespace. We need to pull the certificate from this secret, change its name, and create a new secret in the istio-system namespace so that the Istio Ingress gateway can use it.
+The secret is created in the 'default' namespace. The Istio Ingress pod is running in the 'istio-system' namespace. The following info is from the Kubernetes documentation: *Secret resources reside in a namespace. Secrets can only be referenced by Pods in that same namespace.*
+Therefore we need to pull certificate and key from the secret in the 'default' namespace, change its name, and create a new secret in the 'istio-system' namespace so that the Istio Ingress gateway can use it.
 
 ![](../../images/Copy-Cert.png)
 
@@ -75,7 +76,7 @@ type: Opaque
 
 ### Step 5: Load and activate the secret with these commands
 
-The second command deletes the Istio Ingress pod to force it to reload the newly created secret.
+Here the second command deletes the Istio Ingress pod to force it to reload and use the the newly created secret.
 
 ```sh
 kubectl apply -f ./mysecret.yaml -n istio-system
