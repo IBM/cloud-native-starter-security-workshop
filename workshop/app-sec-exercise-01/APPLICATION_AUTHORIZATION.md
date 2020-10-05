@@ -8,6 +8,10 @@ Quarkus comes with two great quides that describe how to use Keycloak in web app
 
 The Microservice Articles provides an endpoint `/articles` which only users with the role `user` can access. In application.properties the Keycloak URL is defined as well as the client ID and secret.
 
+The shows the simplified architecture:
+
+![](../../images/architecture-auth.png)
+
 ### Developing protected Endpoints
 
 The service Articles provides an endpoint ‘/articles’ which only users with the role ‘user’ can access. In application.properties the Keycloak URL is defined as well as the client ID and secret.
