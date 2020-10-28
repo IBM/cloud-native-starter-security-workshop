@@ -16,7 +16,7 @@ Here is the local architecture whichs shows the Web-App and the two Microservice
 
 The gif shows the logon to the example application with Keycloak.
 
-![](../../images/application-sample.png)
+![](../../images/application-sample.gif)
 
 ### Step 1: Clone the project to your local machine
 
