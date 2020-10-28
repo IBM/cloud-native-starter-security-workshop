@@ -22,32 +22,92 @@ cd cloud-native-starter/security
 ROOT_FOLDER=$(pwd) 
 ```
 
-### Step 2: Configure articles-secure
+### (Optional) Setup Keycloak locally
 
-Insert your the `auth-server-url` URL of your Keycloak instance in `application.properties` file and save the file.
-Therefore you use the `Keycloak URL` you got during the setup of Keycloak on IBM Cloud. 
+In this part we will setup Keycloak locally. We will run a local Keycloak Docker container and reuse an existing realm configuration.
+
+The image below shows the relevant elements we will use later.
+
+![](images/keycloak-content.png)
+
+---
+
+#### Step 1: Start Keycloak Docker image local
+
+Open a terminal session and enter:
 
 ```sh
-cd $ROOT_FOLDER/articles-secure/src/main/resources
-nano application.properties
+$ docker run -it -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8282:8080 jboss/keycloak:9.0.2
+```
+#### Step 2: Import the existing realm configuration
+
+1. Open the Keycloak in a browser select the Administration Console
+
+Use following URL:
+
+```sh
+http://localhost:8282/
+```
+
+![](images/keycloak-setup-01.png)
+
+2. Login to using the URL in your browser with `user/admin` and `password/admin`
+
+3. Select _Add realm_
+
+![](images/keycloak-setup-02.png)
+
+3. Choose for import _Select file_ and open the `quarkus-realm.json`.
+
+![](images/keycloak-setup-03.png)
+
+
+#### Step 3: Press `view all users`
+
+You should see following users: `admin`, `alice`, `jdoe`
+
+![](images/keycloak-users.png)
+
+#### Step 4: Verify the role mapping
+
+![](images/keycloak-user.png)
+
+### Setup Web-App
+
+#### Step 1: Configure web-app
+
+Now insert `Keycloak URL`/auth in `main.js`.
+
+```sh
+cd $ROOT_FOLDER/web-app/src
+nano main.js
 ```
 
 Example:
 
-```Java
-// When running locally, uncomment the next line, add your Keycloak URL, must end on '/auth/realms/quarkus'
-quarkus.oidc.auth-server-url=https://YOUR_URL/auth/realms/quarkus
-
-quarkus.oidc.client-id=backend-service
-quarkus.oidc.credentials.secret=secret
-
-quarkus.http.port=8082
-quarkus.http.cors=true
-
-resteasy.role.based.security=true
+```JavaScript
+if (currentHostname.indexOf('localhost') > -1) {
+  urls = {
+    api: 'http://localhost:8081/',
+    login: 'https://YOUR_URL/auth' // insert your http or https://<KeycloakURL>/auth
+  }
+  store.commit("setAPIAndLogin", urls);
+}
 ```
 
-### Step 3: Configure web-api-secure
+### Step 2: Run the web-app 
+
+Open a terminal and start the application on port 8080.
+
+```sh
+cd $ROOT_FOLDER/web-app
+yarn install
+yarn serve
+```
+
+### Setup Web-Api
+
+#### Step 1: Configure web-api-secure
 
 Insert your the `auth-server-url` URL of your Keycloak instance in `application.properties` file and save the file.
 
@@ -73,38 +133,7 @@ quarkus.http.cors=true
 resteasy.role.based.security=true
 ```
 
-### Step 4: Configure web-app
-
-Now insert `Keycloak URL`/auth in `main.js`.
-
-```sh
-cd $ROOT_FOLDER/web-app/src
-nano main.js
-```
-
-Example:
-
-```JavaScript
-if (currentHostname.indexOf('localhost') > -1) {
-  urls = {
-    api: 'http://localhost:8081/',
-    login: 'https://YOUR_URL/auth' // insert your http or https://<KeycloakURL>/auth
-  }
-  store.commit("setAPIAndLogin", urls);
-}
-```
-
-### Step 5: Run the web-app 
-
-Open a terminal and start the application on port 8080.
-
-```sh
-cd $ROOT_FOLDER/web-app
-yarn install
-yarn serve
-```
-
-### Step 6: Run the web-api-secure Microservice 
+#### Step 2: Run the web-api-secure Microservice 
 
 Open a second terminal and start the service on port 8081.
 
@@ -113,16 +142,36 @@ cd $ROOT_FOLDER/web-api-secure
 mvn clean package quarkus:dev
 ```
 
-### Step 7: Run the articles-secure Microservice 
+### Setup Articles microservice
 
-Open a third terminal and start the service on port 8082.
+#### Step 1: Configure articles-secure
+
+Insert your the `auth-server-url` URL of your Keycloak instance in `application.properties` file and save the file.
+Therefore you use the `Keycloak URL` you got during the setup of Keycloak on IBM Cloud. 
 
 ```sh
-cd security/articles-secure
-mvn clean package quarkus:dev
+cd $ROOT_FOLDER/articles-secure/src/main/resources
+nano application.properties
 ```
 
-### Step 8: Open the Web-App in your local browser
+Example:
+
+```Java
+// When running locally, uncomment the next line, add your Keycloak URL, must end on '/auth/realms/quarkus'
+quarkus.oidc.auth-server-url=https://YOUR_URL/auth/realms/quarkus
+
+quarkus.oidc.client-id=backend-service
+quarkus.oidc.credentials.secret=secret
+
+quarkus.http.port=8082
+quarkus.http.cors=true
+
+resteasy.role.based.security=true
+```
+
+### Open the Web-App
+
+#### Step 1: Open the Web-App in your local browser
 
 Open the following URL in your browser:
 
