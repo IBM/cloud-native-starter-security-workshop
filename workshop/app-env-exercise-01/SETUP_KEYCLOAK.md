@@ -6,27 +6,19 @@ The instructions go into installing an Ingress for Keycloak. But we have Istio i
 
 Note: This is a "ephemeral" installation of Keycloak, there is no database used for persistance. Sufficient for a workshop but not suitable for production use!
 
-### Step 1: Clone the project to your local machine
-
-```sh
-git clone https://github.com/IBM/cloud-native-starter.git
-cd cloud-native-starter/security
-ROOT_FOLDER=$(pwd) 
-```
-
-### Step 2: Deploy Keycloak
+### Step 1: Deploy Keycloak
 
 ```sh
 kubectl apply -f keycloak.yaml
 ```
 
-### Step 3: Wait until the Keycloak Pod is started
+### Step 2: Wait until the Keycloak Pod is started
 
 ```sh
 kubectl get pods
 ```
 
-### Step 4: Access Keycloak
+### Step 3: Access Keycloak
 
 Get the Keycloak URL and open the URL in your browser:
 
@@ -36,7 +28,7 @@ echo "https://"$INGRESSURL"/auth"
 
 Note: This will work because we created a VirtualService in the previous exercise that maps the '/auth' URI to the Keycloak service.
 
-### Step 5: Try to logon to Keycloak
+### Step 4: Try to logon to Keycloak
 
 * Click on 'Administration Console'. 
 
@@ -46,7 +38,7 @@ Note: This will work because we created a VirtualService in the previous exercis
 
 ![](../../images/keycloak-configure-02.png)
 
-### Step 6: Create realm
+### Step 5: Create realm
 
 For the workshop we need our pre-configured realm, we will create the realm using a bash script. 
 
@@ -73,7 +65,7 @@ Open following link in your browser:
 https://harald-uebele-k8s-fra05-********************-0001/auth/admin/master/console/#/realms/quarkus
 ------------------------------------------------------------------------
 ```
-### Step 7: Verify the newly created realm
+### Step 6: Verify the newly created realm
 
 Try to create an access token, this requires the $INGRESSURL environment variable to be set:
 
