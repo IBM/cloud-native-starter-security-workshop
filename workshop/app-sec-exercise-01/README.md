@@ -28,7 +28,7 @@ ROOT_FOLDER=$(pwd)
 
 ### (Optional) Setup Keycloak locally
 
-If you have your Keycloak running on Kubernetes you just skip to [setup Web-App](app-sec-exercise-01#step-1-configure-web-app). 
+If you have your Keycloak running on Kubernetes you just skip to [setup Web-App](../app-sec-exercise-01#step-1-configure-web-app). 
 
 In this part we will setup Keycloak locally. We will run a local Keycloak Docker container and reuse an existing realm configuration.
 
