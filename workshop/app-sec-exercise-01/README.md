@@ -14,9 +14,16 @@ Here is the local architecture whichs shows the Web-App and the two Microservice
 
 ![](../../images/architecture-local.png)
 
-The gif shows the logon to the example application with Keycloak.
+The gif shows the logon to the example web frontend application. This is the simplifed sequence which happens in the background:
+
+1. When we invoke the web frontend on http://localhost:8080 we will be routed to login dialog provided by the Keyloak server.
+2. After the successfully Keycloak authentication we will be redicreted to the web frontend and the frontend gets a access token.
+3. The access token contains the needed information for the authorization at the Java microservice and the user information.
+4. The web frontend extracts the user name and diplays the name.
+5. Then the web fronted uses the access token to invoke the web-api microservice endpoint to get the articles and displays the Articles.
 
 ![](../../images/application-sample.gif)
+ 
 
 ### Step 1: Clone the project to your local machine
 
