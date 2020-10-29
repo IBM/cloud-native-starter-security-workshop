@@ -16,7 +16,7 @@ Here is the local architecture whichs shows the Web-App and the two Microservice
 
 The gif shows the logon to the example web frontend application. This is the simplified sequence which happens in the background:
 
-1. When we invoke the web frontend on http://localhost:8080 we will be routed to login dialog provided by the Keyloak server.
+1. When we invoke the web frontend on `http://localhost:8080 we will be routed to login dialog provided by the Keyloak server.
 2. After the successfully Keycloak authentication we will be redirected to the web frontend and the frontend gets an access-token.
 3. The access-token contains the needed information for the authorization at the Java microservice Web-API and the user information.
 4. The web frontend extracts and displays the username.
