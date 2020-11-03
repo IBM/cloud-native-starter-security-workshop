@@ -26,7 +26,7 @@ The gif shows the logon to the example web frontend application. This is the sim
  
 ### YouTube video related to the workshop
 
-[![Alt text](https://img.youtube.com/vi/Un8n0VMLsCs/0.jpg)](https://www.youtube.com/watch?v=Un8n0VMLsCs)
+![](https://img.youtube.com/vi/Un8n0VMLsCs/0.jpg)](https://www.youtube.com/watch?v=Un8n0VMLsCs)
 
 ### Step 1: Clone the project to your local machine
 
