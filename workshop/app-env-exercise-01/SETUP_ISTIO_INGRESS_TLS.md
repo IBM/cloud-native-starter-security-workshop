@@ -157,7 +157,7 @@ Here are some questions you may have regarding TLS (HTTPS):
 
 #### **Question 1**: Why can we access our application with TLS `https://...` ?
 
-#### **Answer:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3
+#### **Answer 1:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3
 
 > * We let IBM Cloud create a DNS entry and Let's Encrypt certificate
 > * We added this certificate to the Istio Ingress
@@ -174,7 +174,7 @@ Here are some questions you may have regarding TLS (HTTPS):
 
 #### **Question 2:** We use https in the browser but everything behind the Istio Ingress is http only, unencrypted?
 
-#### **Answer:**
+#### **Answer 2:**
 
 > That is the beauty of Istio! Yes, we make our requests via http which is most obvious with the web-app that is called on port 80.
 >
@@ -186,7 +186,7 @@ Here are some questions you may have regarding TLS (HTTPS):
 
 #### **Question 3:** Is this safe?
 
-#### **Answer: **
+#### **Answer 3:**
 
 > No, at least not not totally. By default, after installation, Istio uses mTLS in PERMISSIVE mode. This allows to test and gradually secure your microservices mesh.
 >
