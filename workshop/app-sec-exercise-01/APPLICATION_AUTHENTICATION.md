@@ -4,7 +4,7 @@ There are several ways to use Keycloak from web applications. The easiest option
 
 The shows the simplified architecture:
 
-![](../../images/architecture-auth.png)
+![](../images/architecture-auth.png)
 
 The Vue.js application triggers the authentication directly when the application is opened. See the file main.js:
 
@@ -49,7 +49,7 @@ In order to use the Keycloak API, three pieces of information are required. The 
 
 As you see in the image below  the `Vuex store` saves `access token`, `id token` and `user name`. When the tokens expire, new tokens are requested via the refresh token und the Vuex store is updated.
 
-![](../../images/authentication-keycloak-vue.png)
+![](../images/authentication-keycloak-vue.png)
 
 ---
 

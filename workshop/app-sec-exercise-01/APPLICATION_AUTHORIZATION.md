@@ -10,7 +10,7 @@ The Microservice Articles provides an endpoint `/articles` which only users with
 
 The shows the simplified architecture:
 
-![](../../images/architecture-auth.png)
+![](../images/architecture-auth.png)
 
 ### Developing protected Endpoints
 
@@ -43,7 +43,7 @@ public Set<Article> getArticles() {
 
 This allows the test user Alice to invoke this endpoint, since she has the role `user.
 
-![](../../images/authorization-keycloak-java-01.png)
+![](../images/authorization-keycloak-java-01.png)
 
 ### Invoking protected Endpoints
 

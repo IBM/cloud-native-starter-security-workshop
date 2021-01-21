@@ -2,7 +2,7 @@
 
 In this exercise we will run the application in your Kubernetes cluster using precompiled container images for our sample application: articles-secure, web-api-secure, and web-app. These container images have been uploaded to [Docker Hub](https://hub.docker.com/u/haraldu).
 
-![](../../images/k8s-architecture.png)
+![](../images/k8s-architecture.png)
 
 When running locally, you will set the Keycloak URL as OpenID Connect (OIDC) provider in application.properties. When running on a Kubernetes cluster we cannot set the OIDC provider (keycloak) in application.properties without recompiling the code, building a new image, and loading this image in a Image repository that is accessible to your Kubernetes cluster. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map.
 
@@ -76,7 +76,7 @@ echo https://$INGRESSURL
 
 * You will see we need to configure the redirect in Keycloak
 
-![](../../images/cns-wrong-redirect-uri.png)
+![](../images/cns-wrong-redirect-uri.png)
 
 * Open Keycloak in a browser and login to Keycloak with `user: admin` and `password: admin`. Get the right URL by display the URL with the following terminal command.
 
@@ -86,7 +86,7 @@ echo https://$INGRESSURL
 
 * Select `Clients` and then `frontend` in Keycloak.
 
-![](../../images/cns-ajust-client-redirect.png)
+![](../images/cns-ajust-client-redirect.png)
 
 * Ajust the client frontend URIs `https://YOUR-URL:auth` with valid redirect URI you get with the command:
 
@@ -96,7 +96,7 @@ echo https://$INGRESSURL
 
 Replace the entries with your value.
 
-![](../../images/cns-ajust-client-redirect-02.png)
+![](../images/cns-ajust-client-redirect-02.png)
 
 ### STEP 4: Open the Cloud Native Starter application in your browser
 
@@ -108,8 +108,8 @@ Replace the entries with your value.
 
 * Login in with `user: alice` and `password: alice`
 
-![](../../images/cns-logon-keycloak.png)
+![](../images/cns-logon-keycloak.png)
 
 * Now you see the entries of the articles
 
-![](../../images/cns-web-app-ui.png)
+![](../images/cns-web-app-ui.png)

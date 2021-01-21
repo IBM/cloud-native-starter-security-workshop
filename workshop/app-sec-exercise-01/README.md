@@ -12,7 +12,7 @@ To run these optional exercises you need to ensure you have installed the follow
 
 Here is the local architecture whichs shows the Web-App and the two Microservices Web-API and Articles are running on your local machine in terminal sessions. Keycloak is running on Kubernetes on IBM Cloud.
 
-![](../../images/architecture-local.png)
+![](../images/architecture-local.png)
 
 The gif shows the logon to the example web frontend application. This is the simplified sequence which happens in the background:
 
@@ -22,7 +22,7 @@ The gif shows the logon to the example web frontend application. This is the sim
 4. The web frontend extracts and displays the username.
 5. Then the web fronted uses the access-token to invoke the Web-API Microservice endpoint to get the articles and displays the Articles.
 
-![](../../images/application-sample.gif)
+![](../images/application-sample.gif)
 
 ### YouTube video related to the workshop
 
@@ -44,7 +44,7 @@ In this part we will setup Keycloak locally. We will run a local Keycloak Docker
 
 The image below shows the relevant elements we will use later.
 
-![](../../images/keycloak-content.png)
+![](../images/keycloak-content.png)
 
 ---
 
@@ -66,27 +66,27 @@ docker run -it -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8282:8080 jb
   http://localhost:8282/
   ```
 
-  ![](../../images/keycloak-setup-01.png)
+  ![](../images/keycloak-setup-01.png)
 
 1. Login to using the URL in your browser with `user/admin` and `password/admin`
 
 1. Select _Add realm_
 
-  ![](../../images/keycloak-setup-02.png)
+  ![](../images/keycloak-setup-02.png)
 
 1. Choose for import _Select file_ and open the `quarkus-realm.json`.
 
-  ![](../../images/keycloak-setup-03.png)
+  ![](../images/keycloak-setup-03.png)
 
 #### Step 3: Press `view all users`
 
 You should see following users: `admin`, `alice`, `jdoe`
 
-![](../../images/keycloak-users.png)
+![](../images/keycloak-users.png)
 
 #### Step 4: Verify the role mapping
 
-![](../../images/keycloak-user.png)
+![](../images/keycloak-user.png)
 
 ### Setup Web-App
 
