@@ -10,13 +10,13 @@ In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. **Ma
 
 This opens a new browser tab with your IBM Cloud Shell session.
 
-![](../../images/cloud-shell-launch.png)
+![](../images/cloud-shell-launch.png)
 
 Note: Your workspace includes 500 MB of temporary storage. This session will close after an hour of inactivity. If you don't have any active sessions for an hour or you reach the 50-hour weekly usage limit, your workspace data is removed.
 
 You should see you personal ID as `Current account: [User]'s Account'`:
 
-![](../../images/cloud-shell.png)
+![](../images/cloud-shell.png)
 
 If you want to perform this workshop locally on your own workstation, you need a local terminal and the following tools:
 
@@ -44,21 +44,21 @@ Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud w
 
 * Switch back to the  **1840867-IBM** account by clicking on the account selection drop down in the top navigation bar.
 
-![](../../images/cluster-ibmaccount.png)
+![](../images/cluster-ibmaccount.png)
 
 * Click on your cluster.
 
-![](../../images/kubernetes-cluster-launch2.png)
+![](../images/kubernetes-cluster-launch2.png)
 
 * Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the given commands.
 
-![](../../images/cluster-access-commands.png)
+![](../images/cluster-access-commands.png)
 
 * Now copy and paste all these commands in sequence in your open IBM Cloud Shell terminal session.
 
 | Browser tab - IBM Cloud web console | Broswer tab - IBM CLoud Shell  |
 | - | - |
-|![](../../images/cluster-access-commands.png)| ![](../../images/cloud-shell.png) |
+|![](../images/cluster-access-commands.png)| ![](../images/cloud-shell.png) |
 
 _Note:_ To access the pre-provisioned IBM Cloud Kubernetes Cluster, select the correct account (1840867-Advowork) during login.
 

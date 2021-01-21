@@ -6,12 +6,12 @@ In this exercise we enable secure HTTPS access via the Istio Ingress gateway on 
 
 The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate and private key for HTTPS/TLS traffic and it creates a Kubernetes secret of type 'tls' containing this certificate and key.
 
-![](../../images/NLB-DNS.png)
+![](../images/NLB-DNS.png)
 
 The secret is created in the 'default' namespace. The Istio Ingress pod is running in the 'istio-system' namespace. The following info is from the Kubernetes documentation: *Secret resources reside in a namespace. Secrets can only be referenced by Pods in that same namespace.*
 Therefore we need to pull certificate and key from the secret in the 'default' namespace, change its name, and create a new secret in the 'istio-system' namespace so that the Istio Ingress gateway can use it.
 
-![](../../images/Copy-Cert.png)
+![](../images/Copy-Cert.png)
 
 ### Step 1: List the DNS subdomains
 
@@ -123,7 +123,7 @@ spec:
 
 This creates 2 Istio objects: Gateway and VirtualService, both in the `default` namespace. The Gateway definition basically allows to direct requests via HTTPS to services in the `default` namespace.
 
-![](../../images/Gateway+VirtualService.png)
+![](../images/Gateway+VirtualService.png)
 
 The VirtualService definition for this Gateway uses matching rules to map specific paths/URIs to services that do not exist at the moment, we will create them later. If you look in the YAML file, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
 

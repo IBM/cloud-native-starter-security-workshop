@@ -32,11 +32,11 @@ Note: This will work because we created a VirtualService in the previous exercis
 
 * Click on 'Administration Console'.
 
-![](../../images/keycloak-configure-01.png)
+![](../images/keycloak-configure-01.png)
 
 * Login In with username 'admin' and password 'admin'.
 
-![](../../images/keycloak-configure-02.png)
+![](../images/keycloak-configure-02.png)
 
 ### Step 5: Create realm
 
@@ -79,18 +79,18 @@ curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client
 
 #### STEP 1: Verify the name `quarkus`of the imported realm
 
-![](../../images/keycloak-config-3.png)
+![](../images/keycloak-config-3.png)
 
 #### STEP 2: Verify the imported realm settings
 
-![](../../images/keycloak-config-4.png)
+![](../images/keycloak-config-4.png)
 
 #### STEP 3: Press `view all users`
 
 You should see following users: `admin`, `alice`, `jdoe`
 
-![](../../images/keycloak-users.png)
+![](../images/keycloak-users.png)
 
 #### STEP 4: Verify the role mapping
 
-![](../../images/keycloak-user.png)
+![](../images/keycloak-user.png)

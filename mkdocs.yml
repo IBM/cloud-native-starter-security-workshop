@@ -1,0 +1,114 @@
+# Project information
+site_name: Java Microservices with Security Workshop
+site_url: https://ibm.github.io/cloud-native-starter-security-workshop
+site_author: IBM Developer
+
+# Repository
+repo_name: cloud-native-starter-security-workshop
+repo_url: https://github.com/ibm/cloud-native-starter-security-workshop
+edit_uri: edit/master/workshop
+docs_dir: workshop
+
+# Navigation
+nav:
+  - About the workshop: README.md
+  - Setup IBM Cloud:
+    - Overview: pre-work/README.md
+    - Access the Cluster: pre-work/CLOUD_ACCOUNT.md
+    - Access IBM Cloud Shell and get the code: pre-work/CLOUD_SHELL.md
+  - Setup Application environment:
+    - Overview: app-env-exercise-01/README.md
+    - Lab 1. Setup Istio: app-env-exercise-01/SETUP_ISTIO.md
+    - Lab 2. Expose Istio Ingress gateway: app-env-exercise-01/SETUP_ISTIO_INGRESS.md
+    - Lab 3. Expose the gateway via DNS with TLS enabled: app-env-exercise-01/SETUP_ISTIO_INGRESS_TLS.md
+    - Lab 4. Setup Keycloak: app-env-exercise-01/SETUP_KEYCLOAK.md
+  - Platform security with mTLS:
+    - Lab 1. Deploy microservices to Kubernetes: p-sec-exercise-01/README.md
+    - Lab 2. Secure microservices using Authentication with mTLS: p-sec-exercise-02/README.md
+    - (Optional Lab 3) Authorization with Istio: p-sec-exercise-03/README.md
+  - Authentication and Authorization with Keycloak and Quarkus:
+    - (Optional Lab 1) Setup the web-application and Microservices locally: app-sec-exercise-01/README.md
+    - Lab 2. Authentication in Vue.js fronted application: app-sec-exercise-01/APPLICATION_AUTHENTICATION.md
+    - Lab 3. Authorization in Quarkus application: app-sec-exercise-01/APPLICATION_AUTHORIZATION.md
+  - Additional Resources:
+    - Blog posts related to security: BLOGS.md
+    - Cloud-Native-Starter project: https://github.com/IBM/cloud-native-starter
+    - Cloud-Native-Starter project security: https://github.com/IBM/cloud-native-starter/security
+    - Cloud-Native-Starter project reactive: https://github.com/IBM/cloud-native-starter/security
+
+## DO NOT CHANGE BELOW THIS LINE
+
+# Copyright
+copyright: Copyright &copy; 2020 IBM Developer
+
+# Theme
+theme:
+  name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  icon:
+    logo: material/library
+  features:
+    # - navigation.tabs
+    - navigation.instant
+    - navigation.expand
+  palette:
+    scheme: default
+    primary: blue
+    accent: blue
+
+# Plugins
+plugins:
+  - search
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ibm
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ibmdeveloper
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/ibm/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/developerworks
+    - icon: fontawesome/brands/dev
+      link: https://dev.to/ibmdeveloper
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

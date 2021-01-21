@@ -6,7 +6,7 @@ This exercise will cover only a part of the Istio security features. The Istio d
 
 Istio provides each Envoy sidecar proxy with a strong (cryptographic) identity, in the form of a certificate created by Istios own Certificate Authority (CA).
 
-![](../../images/Istio-CA.png)
+![](../images/Istio-CA.png)
 
 This identity is based on the microservice's service account and is independent of its specific network location, such as cluster or current IP address. This is called Secure naming. Envoys then use the certificates to identify each other and establish an authenticated and encrypted communication channel between them.
 
@@ -24,7 +24,7 @@ When an application microservice connects to another microservice, the communica
 
 This includes the Istio Ingress for incoming (and the Istio Egress for outgoing) connections. Your Kubernetes cluster may/will have its own ingress but this ingress is not paired with an Envoy sidecar and therefore is not able to directly participate in secure and encrypted communications.
 
-![](../../images/Istio-mTLS.png)
+![](../images/Istio-mTLS.png)
 
 mTLS is enabled by default for the communication between Envoys **but it is enabled in permissive mode**. This means that a microservice outside of the Istio Service Mesh, one without a Envoy proxy, can communicate with a microservice within the Service Mesh. This allows you to bring your microservices into the Service Mesh and then gradually turn on and test security.
 
@@ -139,4 +139,4 @@ If you check the Cloud Native Starter frontend in the browser, nothing should ha
 
 This is the result of your work so far:
 
-![](../../images/IstioSecurityArchitecture.png)
+![](../images/IstioSecurityArchitecture.png)

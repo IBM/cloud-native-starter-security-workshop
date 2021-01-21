@@ -6,7 +6,7 @@ The following procedures are platform specific and work with a **"standard class
 
 When you install Istio on a Kubernetes Cluster on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer -- this is called a Network Load Balancer or NLB on IBM Cloud. A "floating" IP address is assigned to it through which it can be reached on the public Internet.
 
-![](../../images/Ingress-Loadbalancer.png)
+![](../images/Ingress-Loadbalancer.png)
 
 In this section we will assign a subdomain DNS entry for this IP address so that the Istio Ingress can be accessed using a URL.
 

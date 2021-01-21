@@ -17,7 +17,7 @@ The exercises are based on an example application based on our Open Source Githu
 
 The following screenshot shows the web application, you have to logon to see the list of articles.
 
-![architecture](../images/architecture-wep-app-screenshot.png")
+![architecture](images/architecture-wep-app-screenshot.png)
 
 ### Architecture
 
@@ -100,4 +100,4 @@ This workshop has been tested on the following platforms:
 
 [Here](BLOGS.md) are some blogs that describe how this project has been implemented-
 
-The presentation that goes with this workshop is available [here](images/App-Security-Final-V1-20200821.pdf).
+The presentation that goes with this workshop is available [here](https://github.com/IBM/cloud-native-starter-security-workshop/blob/master/workshop/images/App-Security-Final-V1-20201006.pdf).
