@@ -4,7 +4,7 @@ Istio uses *Mutual authentication with Transport Layer Security (mTLS)* to secur
 
 This exercise will cover only a part of the Istio security features. The Istio documentation has a lot more information.
 
-Istio provides each Envoy sidecar proxy with a strong (cryptographic) identity, in the form of a certificate created by Istios own Certificate Authority (CA). 
+Istio provides each Envoy sidecar proxy with a strong (cryptographic) identity, in the form of a certificate created by Istios own Certificate Authority (CA).
 
 ![](../../images/Istio-CA.png)
 
@@ -26,11 +26,11 @@ This includes the Istio Ingress for incoming (and the Istio Egress for outgoing)
 
 ![](../../images/Istio-mTLS.png)
 
-mTLS is enabled by default for the communication between Envoys **but it is enabled in permissive mode**. This means that a microservice outside of the Istio Service Mesh, one without a Envoy proxy, can communicate with a microservice within the Service Mesh. This allows you to bring your microservices into the Service Mesh and then gradually turn on and test security. 
+mTLS is enabled by default for the communication between Envoys **but it is enabled in permissive mode**. This means that a microservice outside of the Istio Service Mesh, one without a Envoy proxy, can communicate with a microservice within the Service Mesh. This allows you to bring your microservices into the Service Mesh and then gradually turn on and test security.
 
 ### TASK 1: Test permissive mode
 
-In this task we access the Web-API service using the services nodeport, the IP address of a worker node, and unencrypted HTTP, effectively bypassing the Istio Ingress This is only possible because Istio is still using mTLS in permissive mode. 
+In this task we access the Web-API service using the services nodeport, the IP address of a worker node, and unencrypted HTTP, effectively bypassing the Istio Ingress This is only possible because Istio is still using mTLS in permissive mode.
 
 #### Step 1: Create a access-token
 
@@ -82,7 +82,7 @@ x-envoy-decorator-operation: web-api.default.svc.cluster.local:8081/*
 [{"authorBlog":"","authorTwitter":"","title":"Blue Cloud Mirror — (Don’t) Open The Doors!","url":"https://haralduebele.blog/2019/02/17/blue-cloud-mirror-dont-open-the-doors/"},{"authorBlog":"","authorTwitter":"","title":"Recent Java Updates from IBM","url":"http://heidloff.net/article/recent-java-updates-from-ibm"},******* "title":"Three awesome TensorFlow.js Models for Visual Recognition","url":"http://heidloff.net/article/tensorflowjs-visual-recognition"},{"authorBlog":"","authorTwitter":""]
 ```
 
-As result of the last command you can see an HTTP status of 200 which means OK and the correct result, a list of blog articles as a JSON object. 
+As result of the last command you can see an HTTP status of 200 which means OK and the correct result, a list of blog articles as a JSON object.
 
 This is not totally unsecure since we needed an access token (JWT) to make the REST call but we were able to access the service using http only on port 80. Somebody with access to the cluster and the required skills could stage a man-in-the-middle attack and read the data because it is not encrypted.
 
@@ -94,7 +94,7 @@ By switching mTLS to strict mode it is impossible for external traffic to bypass
 
 This is the reason why we installed Keycloak into the default namespace: that way it is part of our service mesh and included in the mTLS "dance" automatically. In a real world example you would most likely use a different approach.
 
-#### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace.
+#### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace
 
 ```sh
 cd $ROOT_FOLDER/IKS
@@ -108,25 +108,25 @@ This enforces mTLS in the 'default' namespace. So simple!
 As you will see, you can no longer access the service, even if you know its NodePort and the external IP of a Kubernetess worker node.
 
 * Create access-token
-  
+
   ```sh
-   export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
-   echo $access_token
+  export access_token=$(curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p')
+  echo $access_token
   ```
 
 * Invoke Web-API Microservice
-  
+
   ```sh
   curl -i http://$workerip:$nodeport/articles -H "Authorization: Bearer $access_token"
   ```
-  
-   Example output:
-  
+
+  Example output:
+
   ```sh
   curl: (56) Recv failure: Connection reset by peer
   ```
 
-Now everything is secure. 
+Now everything is secure.
 
 If you check the Cloud Native Starter frontend in the browser, nothing should have changed because it already used enrypted paths:
 
@@ -134,8 +134,8 @@ If you check the Cloud Native Starter frontend in the browser, nothing should ha
 * The (external) Web-App in the browser is accessing the Keycloak server and the Web-API service using https
   * Those requests come in through the Istio Ingress gateway
   * Since the Istio Ingress gateway, Keycloak, and Web-API are all part of the service mesh, communication between them is already encrypted using mTLS
-* REST API calls from Web-API to Articles and from Web-API or Articles to Keycloak use mTLS   
-* Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.  
+* REST API calls from Web-API to Articles and from Web-API or Articles to Keycloak use mTLS
+* Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.
 
 This is the result of your work so far:
 

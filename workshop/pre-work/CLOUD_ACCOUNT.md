@@ -32,7 +32,7 @@ Instructors will provide a URL to a web app. Enter your IBMid (the email you use
 
 ![](../../images/cluster-overview.png)
 
-* Launch the **Kubernetes Dashboard** and have a look around! You can come back to this dashboard throughout your workshop. 
+* Launch the **Kubernetes Dashboard** and have a look around! You can come back to this dashboard throughout your workshop.
 
 ![](../../images/cluster-kubernetes-dashboard.png)
 

@@ -4,7 +4,7 @@ In this exercise we will run the application in your Kubernetes cluster using pr
 
 ![](../../images/k8s-architecture.png)
 
-When running locally, you will set the Keycloak URL as OpenID Connect (OIDC) provider in application.properties. When running on a Kubernetes cluster we cannot set the OIDC provider (keycloak) in application.properties without recompiling the code, building a new image, and loading this image in a Image repository that is accessible to your Kubernetes cluster. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map. 
+When running locally, you will set the Keycloak URL as OpenID Connect (OIDC) provider in application.properties. When running on a Kubernetes cluster we cannot set the OIDC provider (keycloak) in application.properties without recompiling the code, building a new image, and loading this image in a Image repository that is accessible to your Kubernetes cluster. So for this example, we specify the Quarkus OIDC property as environment variable during deployment. The environment variable is read from a config map.
 
 ### STEP 1: Apply configmap
 
@@ -27,7 +27,7 @@ Our Keycloak service runs in the same namespace as the rest of the application, 
 kubectl apply -f configmap.yaml
 ```
 
-### STEP 2: Now deploy the 3 services:
+### STEP 2: Now deploy the 3 services
 
 * Deploy Articles Microservice
 
@@ -66,7 +66,7 @@ web-api-5c9698b875-kz82k    2/2     Running                 0          3h35m
 web-app-659c4676d9-pw6f8    2/2     Running                      0          3h34m
 ```
 
-### STEP 3: Adjust the redirect, admin, web origins URLs in Keycloak:
+### STEP 3: Adjust the redirect, admin, web origins URLs in Keycloak
 
 * Try to open the Cloud-Native-Starter application in a browser. Use the `$INGRESSURL` of your cluster, which is the URL to the frontend application `Web_APP` you deployed before.
 
