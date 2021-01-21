@@ -1,12 +1,14 @@
-## Workshop: Get started with security for your Java Microservices application
+# Workshop: Get started with security for your Java Microservices application
 
 As a developer you should ask yourself: *"How can I make my application (more) secure?"*
 
 In this workshop you will learn how to get started with Application Security from two perspectives:
+
 * Platform security
 * Authentication and Authorization implementation
 
 We will show you with an example application:
+
 * How to secure external access to a Kubernetes cluster with TLS
 * How to secure communication between Microservices with Istio and mTLS
 * How to implement authorization and authentication with the Open Source Identity and Access Management system Keycloak and JSON Web Tokens (JWT)
@@ -15,15 +17,15 @@ The exercises are based on an example application based on our Open Source Githu
 
 The following screenshot shows the web application, you have to logon to see the list of articles.
 
-<kbd><img src="../images/architecture-wep-app-screenshot.png"/></kbd>
+![architecture](../images/architecture-wep-app-screenshot.png")
 
 ### Architecture
 
-The following diagram shows the architecture of the sample application. There is a Web-App service that serves the Javascript/Vue.js code to the browser. The Web-App code running in the browser invokes a REST API of the Web-API microservice. The Web-API microservice in turn invokes a REST API of the Articles microservice. 
+The following diagram shows the architecture of the sample application. There is a Web-App service that serves the Javascript/Vue.js code to the browser. The Web-App code running in the browser invokes a REST API of the Web-API microservice. The Web-API microservice in turn invokes a REST API of the Articles microservice.
 
-To see the results in the web application, users need to be authenticated and they need to have the role `user`. 
+To see the results in the web application, users need to be authenticated and they need to have the role `user`.
 
-<kbd><img src="../images/architecture-diagram.png"/></kbd>
+![architecture](images/architecture-diagram.png)
 
 ### Estimated time and level
 
@@ -36,10 +38,12 @@ To see the results in the web application, users need to be authenticated and th
 After you complete this workshop, you'll understand the following [application security](https://en.wikipedia.org/wiki/Application_security) related topics:
 
 **Application security provided by the platform**
+
 * [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)/[HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 * [mTLS](https://en.wikipedia.org/wiki/Mutual_authentication)
 
 **Application security with Keycloak and Quarkus**
+
 * [Authentication with Keycloak](https://en.wikipedia.org/wiki/Authentication) on the Web Fronted
 * [Authorization in Quarkus](https://en.wikipedia.org/wiki/Authorization) for specific Microservices in the backend
 
@@ -59,10 +63,10 @@ After you complete this workshop, you'll understand the following [application s
 
 These are the sections of this workshop, go through all of them in sequence, start with `1. Setup the IBM Cloud Environment` :
 
- 1. [Setup the IBM Cloud Environment](pre-work/README.md) 
- 2. [Setup the IBM Cloud application environment](app-env-exercise-01/README.md) 
- 3. [Platform security with mTLS](p-sec-exercise-01/README.md) 
- 4. [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md) 
+ 1. [Setup the IBM Cloud Environment](pre-work/README.md)
+ 2. [Setup the IBM Cloud application environment](app-env-exercise-01/README.md)
+ 3. [Platform security with mTLS](p-sec-exercise-01/README.md)
+ 4. [Application security with Keycloak and Quarkus](app-sec-exercise-01/README.md)
 
 ### Compatibility
 
@@ -97,5 +101,3 @@ This workshop has been tested on the following platforms:
 [Here](BLOGS.md) are some blogs that describe how this project has been implemented-
 
 The presentation that goes with this workshop is available [here](images/App-Security-Final-V1-20200821.pdf).
-
-

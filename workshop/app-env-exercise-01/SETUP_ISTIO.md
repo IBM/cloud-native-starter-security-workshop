@@ -1,6 +1,6 @@
 # Setup Istio
 
-Normally in a production size Kubernetes cluster on IBM Cloud we would install Istio as an Add-On. There are 5 Kubernetes add-ons available: Istio, Knative, Kubernetes Terminal, Diagnostic and Debug Tools, and Static Route. 
+Normally in a production size Kubernetes cluster on IBM Cloud we would install Istio as an Add-On. There are 5 Kubernetes add-ons available: Istio, Knative, Kubernetes Terminal, Diagnostic and Debug Tools, and Static Route.
 
 Istio installed via the add-on is a managed service. It creates a production grade Istio instance and it requires a cluster with at least 3 worker nodes with 4 CPUs and 16 GB of memory which our lab Kubernetes cluster doesn't have.
 
@@ -80,26 +80,30 @@ Label namespace 'default' for auto injection
 
 The following steps show the manual steps of the automated setup. This is just for your information, you don't need to run them!
 
-### Step 1: Setup Istio with an operator 
+### Step 1: Setup Istio with an operator
 
 The following commands do install the Istio operator, create a namespace for the Istio backplane, and start to installation of the Istio backplane.
 
 * Operator
+
 ```sh
 istioctl operator init
 ```
 
 * Namespace
+
 ```sh
 kubectl create ns istio-system
 ```
 
 * Istio deployment
+
 ```sh
 kubectl apply -f istio.yaml
 ```
 
 * Label 'default' namespace for Istio pod auto-injection
+
 ```sh
 kubectl label namespace default istio-injection=enabled
 ```
@@ -122,4 +126,3 @@ NAME                                    READY   STATUS    RESTARTS   AGE
  kiali-696bb665-8rrhr                    1/1     Running   0          3m12s
  prometheus-564768879c-2r87j             2/2     Running   0          3m12s
 ```
-

@@ -1,6 +1,6 @@
 # Overview: Setup Istio and Keycloak
 
-We need Keycloak for authentication and authorization. And we need Istio to secure access to our services. 
+We need Keycloak for authentication and authorization. And we need Istio to secure access to our services.
 
 In the following exercises we will:
 

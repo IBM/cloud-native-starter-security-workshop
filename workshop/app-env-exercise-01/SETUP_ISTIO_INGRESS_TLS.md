@@ -1,10 +1,10 @@
 # Expose the Istio Ingress gateway via DNS with TLS enabled
 
-In the previous exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) entry for the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). 
+In the previous exercise we created a [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) entry for the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 In this exercise we enable secure HTTPS access via the Istio Ingress gateway on port 443. The procedure we will use in this exercise is documented in the IBM Cloud documentation [here](https://cloud.ibm.com/docs/containers?topic=containers-istio-mesh#istio_expose_bookinfo_tls). There is also generic documentation about [Secure Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/) available in the Istio documentation.
 
-The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate and private key for HTTPS/TLS traffic and it creates a Kubernetes secret of type 'tls' containing this certificate and key. 
+The Istio Ingress gateway on the IBM Cloud is of type LoadBalancer and in the last exercise we created a DNS entry for it. In the background this also automatically generates a "Let's encrypt" certificate and private key for HTTPS/TLS traffic and it creates a Kubernetes secret of type 'tls' containing this certificate and key.
 
 ![](../../images/NLB-DNS.png)
 
@@ -12,7 +12,6 @@ The secret is created in the 'default' namespace. The Istio Ingress pod is runni
 Therefore we need to pull certificate and key from the secret in the 'default' namespace, change its name, and create a new secret in the 'istio-system' namespace so that the Istio Ingress gateway can use it.
 
 ![](../../images/Copy-Cert.png)
-
 
 ### Step 1: List the DNS subdomains
 
@@ -24,14 +23,14 @@ ibmcloud ks nlb-dns ls --cluster $MYCLUSTER
 Example output:
 
 ```sh
-Hostname                                                                                            IP(s)                       Health Monitor   SSL Cert Status   SSL Cert Secret Name                                            Secret Namespace   
-harald-uebele-k8s-fra05-********************-0000.us-south.containers.appdomain.cloud   169.46.52.50,169.48.97.58   enabled          created           harald-uebele-k8s-fra05-********************-0000   default   
+Hostname                                                                                            IP(s)                       Health Monitor   SSL Cert Status   SSL Cert Secret Name                                            Secret Namespace
+harald-uebele-k8s-fra05-********************-0000.us-south.containers.appdomain.cloud   169.46.52.50,169.48.97.58   enabled          created           harald-uebele-k8s-fra05-********************-0000   default
 harald-uebele-k8s-fra05-********************-0001.us-south.containers.appdomain.cloud   169.48.97.62                None             created           harald-uebele-k8s-fra05-********************-0001   default
 ```
 
 ### Step 2: Save Ingress secret
 
-You should see 2 entries, the first is for the Kubernetes Ingress that is created for you when the cluster is created. The second is the Istio Ingress subdomain you created in the last exercise. 
+You should see 2 entries, the first is for the Kubernetes Ingress that is created for you when the cluster is created. The second is the Istio Ingress subdomain you created in the last exercise.
 
 Copy the "SSL Cert Secret Name" (should end on -0001) and paste it into another environment variable:
 
@@ -83,7 +82,7 @@ kubectl apply -f ./mysecret.yaml -n istio-system
 kubectl delete pod -n istio-system -l istio=ingressgateway
 ```
 
-### Step 6: Get the `$INGRESSURL` you obtained in the last exercise and copy or note the value.
+### Step 6: Get the `$INGRESSURL` you obtained in the last exercise and copy or note the value
 
 ```sh
 echo $INGRESSURL
@@ -91,13 +90,13 @@ echo $INGRESSURL
 
 ### Step 7: Edit the file `istio-ingress-tls.yaml`
 
-Edit the file istio-ingress-tls.yaml: 
+Edit the file istio-ingress-tls.yaml:
 
 ```sh
 nano istio-ingress-tls.yaml
 ```
 
-Replace the 2 occurances of wildcard "*", one in the Gateway definition, one in the VirtualService definition and save the file. 
+Replace the 2 occurances of wildcard "*", one in the Gateway definition, one in the VirtualService definition and save the file.
 Watch out for the correct indents, this is YAML!
 
 ```yml
@@ -122,23 +121,21 @@ spec:
 ...
 ```
 
-This creates 2 Istio objects: Gateway and VirtualService, both in the `default` namespace. The Gateway definition basically allows to direct requests via HTTPS to services in the `default` namespace. 
+This creates 2 Istio objects: Gateway and VirtualService, both in the `default` namespace. The Gateway definition basically allows to direct requests via HTTPS to services in the `default` namespace.
 
 ![](../../images/Gateway+VirtualService.png)
 
 The VirtualService definition for this Gateway uses matching rules to map specific paths/URIs to services that do not exist at the moment, we will create them later. If you look in the YAML file, you can see 3 "match" rules, they are all based on the "hosts" definition which is the Ingress URL:
-* "https://INGRESSURL/auth" routes to the Keycloak service on port 8080
-* "https://INGRESSURL/articles" routes to the Web-API service on port 8081
-* "https://INGRESSURL", the root ('/') without a path, routes to the Web-App on port 80, this is the service that delivers the frontend app to the browser
 
-
+* `https://INGRESSURL/auth` routes to the Keycloak service on port 8080
+* `https://INGRESSURL/articles` routes to the Web-API service on port 8081
+* `https://INGRESSURL`, the root ('/') without a path, routes to the Web-App on port 80, this is the service that delivers the frontend app to the browser
 
 ### Step 8: Apply the change
 
 This last step, replacing the wildcard host "*" with the correct DNS name, is not really necessary. The Ingress Gateway would work with the wildcard, too, but now you have a correct configuration that is more secure. And this is what this workshop is about, isn't it?
 
-`istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate we stored in a Kubernetes secret before. 
-
+`istio-ingress-tls.yaml` creates an Istio Gateway configuration using the TLS certificate we stored in a Kubernetes secret before.
 
 ```sh
 kubectl apply -f istio-ingress-tls.yaml
@@ -157,24 +154,27 @@ This blog also contains an important piece of information regarding the Let's En
 Here are some questions you may have regarding TLS (HTTPS):
 
 ---
-#### **Question 1**: Why can we access our application with TLS (https://...) ?
-#### **Answer:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3.
+
+#### **Question 1**: Why can we access our application with TLS `https://...` ?
+
+#### **Answer:** We prepared this during the setup of the IBM Cloud Application Environment in exercise 3
 
 > * We let IBM Cloud create a DNS entry and Let's Encrypt certificate
 > * We added this certificate to the Istio Ingress
 > * We added the DNS name (host) to the Istio Ingress Gateway definition
 > * We added it also to the VirtualService definition that configures the Gateway and here is our secret, look at [IKS/istio-ingress-tls.yaml](https://cloud-native-starter/blob/master/security/IKS/istio-ingress-tls.yaml):
 >
->   The Gateway definition specifies HTTPS only and points to the location of the TLS certificates.
->    The VirtualService definition specifies 3 rules:
->    * If call the DNS entry / Ingress URL with '/auth' it will direct to keycloak.
->   * With '/articles' it will direct to the web-api
->   * Without an path it directs to the web-app itself.
+> The Gateway definition specifies HTTPS only and points to the location of the TLS certificates. The VirtualService definition specifies 3 rules:
+>
+> * If call the DNS entry / Ingress URL with '/auth' it will direct to keycloak.
+> * With '/articles' it will direct to the web-api
+> * Without an path it directs to the web-app itself.
 
 ---
 
 #### **Question 2:** We use https in the browser but everything behind the Istio Ingress is http only, unencrypted?
-#### **Answer:** 
+
+#### **Answer:**
 
 > That is the beauty of Istio! Yes, we make our requests via http which is most obvious with the web-app that is called on port 80.
 >
@@ -185,9 +185,9 @@ Here are some questions you may have regarding TLS (HTTPS):
 ---
 
 #### **Question 3:** Is this safe?
-#### **Answer:** 
+
+#### **Answer: **
 
 > No, at least not not totally. By default, after installation, Istio uses mTLS in PERMISSIVE mode. This allows to test and gradually secure your microservices mesh.
-
+>
 > In the later exercise `Secure microservices with strict mTLS` you will see how to change that.
-

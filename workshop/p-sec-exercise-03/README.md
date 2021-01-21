@@ -3,6 +3,7 @@
 **This is an optional lab, run through it if time permits.**
 
 Besides authentication using mTLS, Istio can also provide authorization services:
+
 * End-user to workload
 * Workload to workload
 
@@ -43,14 +44,14 @@ The articles pod indeed uses the 'default' service account.
 
 ### Step 1: Modify deployments to use service accounts
 
-First we create 2 service accounts (sa) for our 2 services 
+First we create 2 service accounts (sa) for our 2 services
 
 ```sh
 kubectl create sa articles
 kubectl create sa web-api
 ```
 
-Then we replace the deployment descriptions to use the service accounts we just created: 
+Then we replace the deployment descriptions to use the service accounts we just created:
 
 ```sh
 kubectl replace -f $ROOT_FOLDER/articles-secure/deployment/articles-sa.yaml
@@ -63,9 +64,10 @@ This will recreate the articles and web-api pods. Check with:
 kc get pod
 kc get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
 ```
+
 Result:
 
-```
+```json
 "serviceAccount": "articles",
 "serviceAccountName": "articles"
 ```
@@ -100,9 +102,9 @@ kubectl apply -f IKS/authorization.yaml
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see this error in the browser:
 
-```
- Articles could not be read
- Error: Request failed with status code 500
+```ini
+Articles could not be read
+Error: Request failed with status code 500
 ```
 
 Now we use a correct authorization poliy. It looks like this:
@@ -123,17 +125,15 @@ spec:
         principals: ["cluster.local/ns/default/sa/web-api"]
     to:
     - operation:
-        methods: ["GET", "POST"]    
-```        
+        methods: ["GET", "POST"]
+```
 
-It allows 'GET' and 'POST' access to the articles service for the service account (sa) 'web-api' in namespace (ns) 'default'. 
+It allows 'GET' and 'POST' access to the articles service for the service account (sa) 'web-api' in namespace (ns) 'default'.
 
 Apply with:
-
 
 ```sh
 kubectl apply -f authorization-w-rule.yaml
 ```
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see that the application works.
-

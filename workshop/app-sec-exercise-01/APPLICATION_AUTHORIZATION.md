@@ -36,7 +36,7 @@ Once you’ve configured your Quarkus application, implementing the endpoint is 
 @Produces(MediaType.APPLICATION_JSON)
 @RolesAllowed("user")
 @NoCache
-public Set<Article> getArticles() {  
+public Set<Article> getArticles() {
    return articles;
 }
 ```
@@ -64,16 +64,16 @@ The last line (6) is important again. This allows forwarding the authorization h
 
 ```Java
 private ArticlesService articlesService;
- 
+
 @PostConstruct
 void initialize() {
-   URI apiV1 = UriBuilder.fromUri("http://{host}:{port}/articles").build(articlesHost, articlesPort);     
+   URI apiV1 = UriBuilder.fromUri("http://{host}:{port}/articles").build(articlesHost, articlesPort);
    articlesService = RestClientBuilder.newBuilder()
       .baseUri(apiV1)
       .register(ExceptionMapperArticles.class)
-      .build(ArticlesService.class);        
+      .build(ArticlesService.class);
 }
- 
+
 public List<CoreArticle> getArticles(int amount) throws NoConnectivity {
    try {
       return articlesService.getArticlesFromService(amount);

@@ -8,7 +8,7 @@ When using the IBM Cloud Shell, no client side setup is required for this worksh
 
 In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. **Make sure you select your own account** in the account list at the top, then click on the IBM Cloud Shell icon.
 
-This opens a new browser tab with your IBM Cloud Shell session. 
+This opens a new browser tab with your IBM Cloud Shell session.
 
 ![](../../images/cloud-shell-launch.png)
 
@@ -18,7 +18,7 @@ You should see you personal ID as `Current account: [User]'s Account'`:
 
 ![](../../images/cloud-shell.png)
 
-If you want to perform this workshop locally on your own workstation, you need a local terminal and the following tools: 
+If you want to perform this workshop locally on your own workstation, you need a local terminal and the following tools:
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [curl](https://curl.haxx.se/download.html)
@@ -32,10 +32,10 @@ If you want to perform this workshop locally on your own workstation, you need a
 
 In the IBM Cloud Shell execute the following command:
 
-```
+```bash
 git clone https://github.com/IBM/cloud-native-starter.git
 cd cloud-native-starter/security
-ROOT_FOLDER=$(pwd)  
+ROOT_FOLDER=$(pwd)
 ```
 
 ### Step 3. Get Access to Kubernetes
@@ -82,7 +82,7 @@ ibmcloud ks cluster ls
 Example output:
 
 ```sh
-Name                               ID                     State      Created        Workers   Location    Version                   Resource Group Name   Provider   
+Name                               ID                     State      Created        Workers   Location    Version                   Resource Group Name   Provider
 mycluster-ams03-b3c.4x16         bsk19dhd0efh3hp3b05g   normal     1 day ago      2         Dallas      1.17.9_1534               default               classic
 ```
 
