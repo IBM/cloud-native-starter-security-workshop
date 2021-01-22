@@ -6,6 +6,7 @@ To run these optional exercises you need to ensure you have installed the follow
 * [yarn 1.22.4 or higher](https://yarnpkg.com)
 * [Node.js v14.6.0 or higher](https://nodejs.org/en/)
 * [Apache Maven 3.6.3](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
+* [Docker 3.0.4 or higher](https://www.docker.com/products/docker-desktop) (running Keycloak locally)
 * Java 9 or higher
 
 ### Architecture
