@@ -70,7 +70,7 @@ These are the sections of this workshop, go through all of them in sequence, sta
 
 ### Compatibility
 
-The workshop with his two major parts, has been tested on the following platforms:
+The workshop with his two major parts, has been tested on the following platforms and local installations:
 
 1. Platform security
 
