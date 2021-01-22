@@ -73,10 +73,12 @@ These are the sections of this workshop, go through all of them in sequence, sta
 The workshop with his two major parts, has been tested on the following platforms:
 
 **Platform security**
+
 * **IBM Cloud Kubernetes Service**: Kubernetes Version 1.17, Istio Version 1.5 on IBM Cloud (pre-provisioned for the workshop or a paid cluster)
 * **IBM Cloud Shell**: Version 1.0.2
 
 **Authorization and authentication implementation**
+
 * git 2.24.1
 * yarn 1.22.4
 * Node.js v14.6.0
