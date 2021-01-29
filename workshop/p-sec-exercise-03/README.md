@@ -133,7 +133,7 @@ It allows 'GET' and 'POST' access to the articles service for the service accoun
 Apply with:
 
 ```sh
-kubectl apply -f authorization-w-rule.yaml
+kubectl apply -f IKS/authorization-w-rule.yaml
 ```
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see that the application works.
@@ -147,7 +147,7 @@ Check the application in the browser again. It may take a while for the policy t
 
 ```sh
 cd $ROOT_FOLDER/IKS
-bash keycloak-create-realm.sh
+bash istio-setup-telemetry.sh
 ```
 
 2. Open a second IBM Cloud Shell terminal session
