@@ -21,7 +21,7 @@ Get the full name of the articles pod from the resulting list:
 
 ```sh
 NAME                        READY   STATUS    RESTARTS   AGE
-articles-5df77c46b4-h4jgv   2/2     Running   0          3d23h
+articles-xxxxxxxxxx-yyyyy   2/2     Running   0          3d23h
 keycloak-77cffb978-nbmjj    2/2     Running   0          3d23h
 web-api-5c9698b875-c8vrt    2/2     Running   0          3d23h
 web-app-79499c4b99-dv2hs    2/2     Running   0          3d23h
@@ -30,7 +30,7 @@ web-app-79499c4b99-dv2hs    2/2     Running   0          3d23h
 Now display the details for the pod in YAML format and search for the term 'serviceAccount':
 
 ```sh
-kubectl get pod articles-5df77c46b4-h4jgv -o json | grep serviceAccount
+kubectl get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
 ```
 
 Result:
@@ -61,8 +61,8 @@ kubectl replace -f $ROOT_FOLDER/web-api-secure/deployment/web-api-sa.yaml
 This will recreate the articles and web-api pods. Check with:
 
 ```sh
-kc get pod
-kc get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
+kubectl get pod
+kubectl get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
 ```
 
 Result:
@@ -137,3 +137,39 @@ kubectl apply -f authorization-w-rule.yaml
 ```
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see that the application works.
+
+
+### Step 3: Setup telemetry to inspect dependencies of the Microservices in [Kiali](https://kiali.io)
+
+"Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh."
+
+1. Execute following script to setup telemetry
+
+```sh
+cd $ROOT_FOLDER/IKS
+bash keycloak-create-realm.sh
+```
+
+2. Open a second IBM Cloud Shell terminal session
+
+3. Execute the port-forward command in the new terminal session:
+
+   ```
+   kubectl port-forward svc/kiali 3000:20001 -n istio-system
+   ```
+
+   Result should indicate forwarding from port 3000 to port 20001.
+
+4. Click on the "Eye" icon in the upper right corner of Cloud Shell and select port 3000.
+
+   ![port forward](../images/port-forward.png)
+
+   This will open a new browser tab with the Kiali dashboard.
+   
+5. Log in with 'admin/admin'.
+
+6. Open the 'Graph' tab, in 'Namespaces' select all namespaces and in display ensure you have selected 'security'
+
+    ![kiali](../images/kiali.png)
+
+This graph shows the components of your microservices architecture. Explore the other tabs.
