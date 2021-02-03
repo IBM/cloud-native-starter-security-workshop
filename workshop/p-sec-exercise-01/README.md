@@ -24,6 +24,7 @@ Our Keycloak service runs in the same namespace as the rest of the application, 
 * Apply the `configmap.yaml`
 
 ```sh
+cd $ROOT_FOLDER/IKS
 kubectl apply -f configmap.yaml
 ```
 
