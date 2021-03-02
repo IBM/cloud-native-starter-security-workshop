@@ -32,7 +32,7 @@ ibmcloud ks cluster ls
 export MYCLUSTER=your_pre_provisioned_clustername
 ```
 
-#### Step 1: Execute following script
+#### Step 2: Execute following script
 
 ```sh
   cd $ROOT_FOLDER
