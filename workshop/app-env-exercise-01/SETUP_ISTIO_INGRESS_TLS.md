@@ -23,9 +23,9 @@ ibmcloud ks nlb-dns ls --cluster $MYCLUSTER
 Example output:
 
 ```sh
-Hostname                                     IP(s)                       Health Monitor   SSL Cert Status   SSL Cert Secret Name                                   Secret Namespace
+Hostname                                     IP(s)                       Health Monitor   SSL Cert Status   SSL Cert Secret Name                Secret Namespace
 harald-uebele-k8s-fra05-***-0000.***.cloud   169.46.52.50,169.48.97.58   enabled          created           harald-uebele-k8s-fra05-****-0000   default
-harald-uebele-k8s-fra05-*****-0001.us-south.containers.appdomain.cloud   169.48.97.62                None             created           harald-uebele-k8s-fra05-*****-0001   default
+harald-uebele-k8s-fra05-***-0001.***.cloud   169.48.97.62                None             created           harald-uebele-k8s-fra05-****-0001   default
 ```
 
 ### Step 2: Save Ingress secret
