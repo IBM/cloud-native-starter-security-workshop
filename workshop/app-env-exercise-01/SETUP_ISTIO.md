@@ -80,7 +80,7 @@ Label namespace 'default' for auto injection
 
 The following steps show the manual steps of the automated setup. This is just for your information, you don't need to run them!
 
-### Step 1: Setup Istio with an operator
+#### Step 1: Setup Istio with an operator
 
 The following commands do install the Istio operator, create a namespace for the Istio backplane, and start to installation of the Istio backplane.
 
@@ -108,7 +108,7 @@ kubectl apply -f istio.yaml
 kubectl label namespace default istio-injection=enabled
 ```
 
-### Step 2: Check the status of Istio deployment
+#### Step 2: Check the status of Istio deployment
 
 ```sh
 kubectl get pod -n istio-system

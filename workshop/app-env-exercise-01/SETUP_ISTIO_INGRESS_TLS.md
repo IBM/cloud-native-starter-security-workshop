@@ -48,13 +48,15 @@ kubectl get secret $INGRESSSECRET --namespace default --export -o yaml > mysecre
 
 The secret was created in the 'default' namespace. In order to use it with Istio, we want to modify the name and place it in the 'istio-system' namespace.
 
-Open the mysecret.yaml file in an editor, e.g. `nano`, change the value of the secret name from something like `name: [your-clustername]-******-0001` to `name: istio-ingressgateway-certs` and save the file.
+![](../images/Copy-Cert-01.png)
+
+Open the `mysecret.yaml` file in an editor, e.g. `nano`, change the value of the secret name from something like `name: [your-clustername]-******-0001` to `name: istio-ingressgateway-certs` and save the file.
 
 ```sh
 nano mysecret.yaml
 ```
 
-Your changed file should look similar to this example, the changed line is line 12:
+Your changed file should look similar to this example, the changed line is line 12 (`istio-ingressgateway-certs):
 
 ```yml
 apiVersion: v1
@@ -85,6 +87,13 @@ kubectl delete pod -n istio-system -l istio=ingressgateway
 ### Step 6: Get the `$INGRESSURL` you obtained in the last exercise and copy or note the value
 
 ```sh
+echo $INGRESSURL
+```
+
+_Note:_ In case you did the automated setup and you don't have the $INGRESSURL use this command:
+
+```sh
+export INGRESSURL=$(ibmcloud ks nlb-dns ls --cluster $MYCLUSTER | awk '/-0001./ {print $1}')
 echo $INGRESSURL
 ```
 
