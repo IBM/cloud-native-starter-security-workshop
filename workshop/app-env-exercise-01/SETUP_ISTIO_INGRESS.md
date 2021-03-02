@@ -35,7 +35,7 @@ Cluster Name: harald-uebele-k8s-fra05
 
 The following steps show the manual steps of the automated setup. This is just for your information, you don't need to run them!
 
-### Step 1: Get public IP
+#### Step 1: Get public IP
 
 When we install Istio on our pre-provisioned Kubernetes Clusters on IBM Cloud, the Istio Ingress is created with a Kubernetes service of type LoadBalancer and is assigned a "floating" IP address through which it can be reached on the public Internet. You can determine this address with the following command:
 
@@ -50,15 +50,21 @@ Output for example:
 istio-ingressgateway   LoadBalancer  172.21.213.52  149.***.131.***   15020:31754/TCP,...
 ```
 
+#### Step 2: Save public IP address 
+
 Our Ingress gateway is in fact of type LoadBalancer, the second IP address of the example `149.***.131.***` is the external (public) IP address. We need this public IP address in the next command.
 
-### Step 2: Create a DNS subdomain
+```sh
+export INGRESSGATEWAYIP=149.***.131.***  
+```
+
+#### Step 3: Create a DNS subdomain
 
 To create a DNS subdomain -- a URL -- for the Ingress gateway use the following command:
 
 ```sh
 echo $MYCLUSTER
-ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip <ingressIP>
+ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip $INGRESSGATEWAYIP
 ```
 
 The new subdomain will have the form `[cluster name]-[globally unique hash]-[sequence].[region].containers.appdomain.cloud`. The output should look like this:
@@ -67,6 +73,8 @@ The new subdomain will have the form `[cluster name]-[globally unique hash]-[seq
 OK
 NLB hostname was created as harald-uebele-k8s-fra05-********************-0001.eu-de.containers.appdomain.cloud
 ```
+
+#### Step 4: Save DNS subdomain as $INGRESSURL
 
 This will be the URL we will use later to access Keycloak and our sample application. Copy the URL and paste it into an environment variable:
 
