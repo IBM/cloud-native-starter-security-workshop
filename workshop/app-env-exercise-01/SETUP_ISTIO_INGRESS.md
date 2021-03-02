@@ -12,7 +12,7 @@ In this section we will assign a subdomain DNS entry for this IP address so that
 
 ### Automated setup
 
-#### Step 1: Ensure you create the `$MYCLUSTER` variable
+#### Step 1: Ensure you exported the `$MYCLUSTER` variable
 
 ```sh
 echo $MYCLUSTER
