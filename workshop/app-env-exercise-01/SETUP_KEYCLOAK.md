@@ -9,6 +9,7 @@ Note: This is a "ephemeral" installation of Keycloak, there is no database used 
 ### Step 1: Deploy Keycloak
 
 ```sh
+cd $ROOT_FOLDER/IKS
 kubectl apply -f keycloak.yaml
 ```
 

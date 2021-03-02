@@ -75,6 +75,12 @@ metadata:
 type: Opaque
 ```
 
+_Optional:_ You can verfiy the reult also in the Kubernetes Dashboard
+
+| Default Namespae | Istio-System Namespace |
+|---|---|
+| ![](../images/secret-kube-dashboard-01.png)| ![](../images/secret-kube-dashboard-02.png) |
+
 ### Step 5: Load and activate the secret with these commands
 
 Here the second command deletes the Istio Ingress pod to force it to reload and use the the newly created secret.
