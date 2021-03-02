@@ -35,7 +35,7 @@ You should see 2 entries, the first is for the Kubernetes Ingress that is create
 Copy the "SSL Cert Secret Name" (should end on -0001) and paste it into another environment variable:
 
 ```sh
-export INGRESSSECRET=harald-uebele-k8s-fra05-********************-0001
+export INGRESSSECRET=harald-uebele-k8s-fra05-***-0001
 ```
 
 ### Step 3: Pull the secret and save it into a file 'mysecret.yaml'
