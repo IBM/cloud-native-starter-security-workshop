@@ -75,7 +75,7 @@ metadata:
 type: Opaque
 ```
 
-_Optional:_ You can verfiy the reult also in the Kubernetes Dashboard
+_Optional:_ You can verfiy the result also in the Kubernetes Dashboard
 
 | Default Namespae | Istio-System Namespace |
 |---|---|
