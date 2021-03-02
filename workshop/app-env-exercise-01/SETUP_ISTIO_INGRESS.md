@@ -12,7 +12,7 @@ In this section we will assign a subdomain DNS entry for this IP address so that
 
 ### Automated setup
 
-### Step 1: Execute following script
+#### Step 1: Execute following script
 
 ```sh
   cd $ROOT_FOLDER
@@ -60,7 +60,7 @@ export INGRESSGATEWAYIP=149.***.131.***
 
 #### Step 3: Create a DNS subdomain
 
-To create a DNS subdomain -- a URL -- for the Ingress gateway use the following command:
+To create a DNS subdomain -- `a URL` -- for the Ingress gateway use the following command:
 
 ```sh
 echo $MYCLUSTER

@@ -8,7 +8,7 @@ Instead, in this lab we will install the Istio demo profile ourselves using `ist
 
 ### Automated setup
 
-### Step 1: Execute following script
+#### Step 1: Execute following script
 
 ```sh
   cd $ROOT_FOLDER
