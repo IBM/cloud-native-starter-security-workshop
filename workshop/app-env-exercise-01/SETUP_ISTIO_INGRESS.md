@@ -67,6 +67,8 @@ echo $MYCLUSTER
 ibmcloud ks nlb-dns create classic --cluster $MYCLUSTER --ip $INGRESSGATEWAYIP
 ```
 
+![](../images/NLB-DNS-01.png)
+
 The new subdomain will have the form `[cluster name]-[globally unique hash]-[sequence].[region].containers.appdomain.cloud`. The output should look like this:
 
 ```sh
