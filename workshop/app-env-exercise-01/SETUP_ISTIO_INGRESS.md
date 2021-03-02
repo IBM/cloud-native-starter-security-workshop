@@ -12,6 +12,26 @@ In this section we will assign a subdomain DNS entry for this IP address so that
 
 ### Automated setup
 
+#### Step 1: Ensure you create the `$MYCLUSTER` variable
+
+```sh
+echo $MYCLUSTER
+```
+
+If this isn`t the case run, following commands:
+
+* Copy your cluster name from the output
+
+```sh
+ibmcloud ks cluster ls
+```
+
+* Export the `$MYCLUSTER` variable
+
+```sh
+export MYCLUSTER=your_pre_provisioned_clustername
+```
+
 #### Step 1: Execute following script
 
 ```sh
