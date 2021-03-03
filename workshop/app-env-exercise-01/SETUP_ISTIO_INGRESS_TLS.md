@@ -38,13 +38,13 @@ Copy the "SSL Cert Secret Name" (should end on -0001) and paste it into another 
 export INGRESSSECRET=harald-uebele-k8s-fra05-***-0001
 ```
 
-### Step 3: Pull the secret and save it into a file 'mysecret.yaml'
+### Step 3: Pull the secret and save it into a file `mysecret.yaml`
 
 ```sh
 kubectl get secret $INGRESSSECRET --namespace default --export -o yaml > mysecret.yaml
 ```
 
-### Step 4: Edit the 'mysecret.yaml'
+### Step 4: Edit the `mysecret.yaml`
 
 The secret was created in the 'default' namespace. In order to use it with Istio, we want to modify the name and place it in the 'istio-system' namespace.
 
@@ -96,7 +96,7 @@ kubectl delete pod -n istio-system -l istio=ingressgateway
 echo $INGRESSURL
 ```
 
-_Note:_ In case you did the automated setup and you don't have the $INGRESSURL use this command:
+_Note:_ In case you did the automated setup and you don't have the `$INGRESSURL` use this command to get the URL:
 
 ```sh
 export INGRESSURL=$(ibmcloud ks nlb-dns ls --cluster $MYCLUSTER | awk '/-0001./ {print $1}')
