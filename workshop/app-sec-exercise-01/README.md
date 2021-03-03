@@ -37,7 +37,7 @@ cd cloud-native-starter/security
 ROOT_FOLDER=$(pwd)
 ```
 
-### (Optional) Setup Keycloak locally
+### **(Optional) Setup Keycloak locally**
 
 If you have your Keycloak running on Kubernetes you just skip to [setup Web-App](#step-1-configure-web-app).
 
@@ -89,7 +89,7 @@ You should see following users: `admin`, `alice`, `jdoe`
 
 ![](../images/keycloak-user.png)
 
-### Setup Web-App
+### **Setup Web-App**
 
 #### Step 1: Configure web-app
 
@@ -122,7 +122,7 @@ yarn install
 yarn serve
 ```
 
-### Setup Web-Api
+### **Setup Web-Api**
 
 #### Step 1: Configure web-api-secure
 
@@ -159,7 +159,7 @@ cd $ROOT_FOLDER/web-api-secure
 mvn clean package quarkus:dev
 ```
 
-### Setup Articles microservice
+### **Setup Articles microservice**
 
 #### Step 1: Configure articles-secure
 
