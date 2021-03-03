@@ -82,7 +82,7 @@ ibmcloud ks cluster ls
 Example output:
 
 ```sh
-Name                               ID                     State      Created        Workers   Location    Version                   Resource Group Name   Provider
+Name                             ID                     State      Created        Workers   Location    Version                   Resource Group Name   Provider
 mycluster-ams03-b3c.4x16         bsk19dhd0efh3hp3b05g   normal     1 day ago      2         Dallas      1.17.9_1534               default               classic
 ```
 
