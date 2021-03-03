@@ -31,6 +31,7 @@ nav:
     - Lab 2. Authentication in Vue.js fronted application: app-sec-exercise-01/APPLICATION_AUTHENTICATION.md
     - Lab 3. Authorization in Quarkus application: app-sec-exercise-01/APPLICATION_AUTHORIZATION.md
   - Additional Resources:
+    - Known issues: additional/additional.md
     - Blog posts related to security: BLOGS.md
     - Cloud-Native-Starter project: https://github.com/IBM/cloud-native-starter
     - Cloud-Native-Starter project security: https://github.com/IBM/cloud-native-starter/security
