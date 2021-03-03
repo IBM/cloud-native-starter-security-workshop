@@ -130,12 +130,12 @@ Now everything is secure.
 
 If you check the Cloud Native Starter frontend in the browser, nothing should have changed because it already used enrypted paths:
 
-* Access to the Web-App (service) is through the Istio Ingress gateway using https (loading the JavaScript/Vue.js code into the browser)
-* The (external) Web-App in the browser is accessing the Keycloak server and the Web-API service using https
+* Access to the `Web-App` (service) is through the Istio Ingress gateway using https (loading the JavaScript/Vue.js code into the browser)
+* The (external) `Web-App` in the browser is accessing the `Keycloak` server and the Web-API service using https
   * Those requests come in through the Istio Ingress gateway
-  * Since the Istio Ingress gateway, Keycloak, and Web-API are all part of the service mesh, communication between them is already encrypted using mTLS
-* REST API calls from Web-API to Articles and from Web-API or Articles to Keycloak use mTLS
-* Access from outside into the applications/services running in the `default` namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.
+  * Since the `Istio Ingress gateway`, `Keycloak`, and `Web-API` are all part of the service mesh, communication between them is already encrypted using `mTLS`
+* REST API calls from `Web-API` to `Articles` and from `Web-API` or `Articles` to `Keycloak` use `mTLS`
+* Access from outside into the applications/services running in the `default` namespace is prohibited now by enforcing strict `mTLS`. You can only access the services through the Istio Ingress.
 
 This is the result of your work so far:
 
