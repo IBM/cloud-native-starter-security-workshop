@@ -28,7 +28,7 @@ This includes the Istio Ingress for incoming (and the Istio Egress for outgoing)
 
 mTLS is enabled by default for the communication between Envoys **but it is enabled in permissive mode**. This means that a microservice outside of the Istio Service Mesh, one without a Envoy proxy, can communicate with a microservice within the Service Mesh. This allows you to bring your microservices into the Service Mesh and then gradually turn on and test security.
 
-### TASK 1: Test permissive mode
+### **TASK 1: Test permissive mode**
 
 In this task we access the Web-API service using the services nodeport, the IP address of a worker node, and unencrypted HTTP, effectively bypassing the Istio Ingress This is only possible because Istio is still using mTLS in permissive mode.
 
@@ -88,7 +88,7 @@ This is not totally unsecure since we needed an access token (JWT) to make the R
 
 We are going to change this in the next step.
 
-### TASK 2: Set mTLS to strict in default namespace and for services
+### **TASK 2: Set mTLS to strict in default namespace and for services**
 
 By switching mTLS to strict mode it is impossible for external traffic to bypass the Istio Ingress. External traffic means external to the Kubernetes cluster (coming from the outside) or external to the default namespace, i.e. not being part of the servie mesh.
 
@@ -140,3 +140,5 @@ If you check the Cloud Native Starter frontend in the browser, nothing should ha
 This is the result of your work so far:
 
 ![](../images/IstioSecurityArchitecture.png)
+
+> Congratulations, you have successfully completed this lab and reached the end of the `Platform security with mTLS` section of the workshop. Congratulations :star:
