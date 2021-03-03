@@ -14,7 +14,7 @@ In this exercise we will learn how to apply authorization policies to further se
 When you create a pod, if you do not specify a service account, it is automatically assigned the `default` service account in the same namespace. You can check this for the `articles` service:
 
 ```sh
-kubectl get pod
+kubectl get pods
 ```
 
 Get the full name of the articles pod from the resulting list:
@@ -59,13 +59,19 @@ Then we replace the deployment descriptions to use the service accounts we just 
 
 ```sh
 kubectl replace -f $ROOT_FOLDER/articles-secure/deployment/articles-sa.yaml
+```
+
+```sh
 kubectl replace -f $ROOT_FOLDER/web-api-secure/deployment/web-api-sa.yaml
 ```
 
 This will recreate the articles and web-api pods. Check with:
 
 ```sh
-kubectl get pod
+kubectl get pods
+```
+
+```sh
 kubectl get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
 ```
 
@@ -110,6 +116,8 @@ Check the application in the browser again. It may take a while for the policy t
 Articles could not be read
 Error: Request failed with status code 500
 ```
+
+![](../images/istio-auth-02.png)
 
 Now we use a correct authorization poliy. It looks like this:
 
