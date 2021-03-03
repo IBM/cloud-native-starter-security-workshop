@@ -78,7 +78,7 @@ curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client
 
 ---
 
-> Congratulations, you have successfully completed this the `Setup Application environment`. Awesome :star:
+> Congratulations, you have successfully completed  the `Setup Application environment`. Awesome :star:
 
 ### Optional steps to verify the configuration
 
