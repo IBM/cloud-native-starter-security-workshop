@@ -40,7 +40,7 @@ export INGRESSSECRET=export INGRESSSECRET=$(ibmcloud ks nlb-dns ls --cluster $MY
 echo $INGRESSSECRET
 ```
 
-* `INGRESSURL` you use to access the example application and Keycloak
+* `INGRESSURL` we use to access for example the `Cloud Native Starter` application and `Keycloak`
 
 ```sh
 export INGRESSURL=$(ibmcloud ks nlb-dns ls --cluster $MYCLUSTER | awk '/-0001./ {print $1}')
