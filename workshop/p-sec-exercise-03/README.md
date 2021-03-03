@@ -150,6 +150,8 @@ kubectl apply -f IKS/authorization-w-rule.yaml
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see that the application works.
 
+Now we using `Istio` and `Keycloak` at the same time.
+
 > _Note:_ The image shows you in Kiali there is `AuthorizationPolicy` defined _This is not a part of your hands-on tasks._
 
 ![](../images/istio-auth-03.png)
