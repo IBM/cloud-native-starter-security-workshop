@@ -51,6 +51,10 @@ kubectl create sa articles
 kubectl create sa web-api
 ```
 
+> _Note:_ The image shows you in the `Kubernetes Dashboard` the two new service accounts. _This is not a part of your hands-on tasks._
+
+![](../images/istio-auth-01.png)
+
 Then we replace the deployment descriptions to use the service accounts we just created:
 
 ```sh
