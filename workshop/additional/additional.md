@@ -12,6 +12,14 @@ Now select `Access` on the left-hand side, here you see all steps to access your
 
 #### Step 2: Setup needed variable you maybe need in your lab
 
+* `ROOT_FOLDER` of your project
+
+```sh
+git clone https://github.com/IBM/cloud-native-starter.git
+cd cloud-native-starter/security
+ROOT_FOLDER=$(pwd)
+```
+
 * `MYCLUSTER` your cluster name
 
 ```sh
