@@ -150,8 +150,11 @@ kubectl apply -f IKS/authorization-w-rule.yaml
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see that the application works.
 
+> _Note:_ The image shows you in Kiali there is `AuthorizationPolicy` defined _This is not a part of your hands-on tasks._
 
-### Step 3: Setup telemetry to inspect dependencies of the Microservices in [Kiali](https://kiali.io)
+![](../images/istio-auth-03.png)
+
+### Optional: Setup telemetry to inspect dependencies of the Microservices in [Kiali](https://kiali.io)
 
 "Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh."
 
