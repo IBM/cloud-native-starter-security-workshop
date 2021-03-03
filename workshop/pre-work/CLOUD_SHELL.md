@@ -91,3 +91,7 @@ mycluster-ams03-b3c.4x16         bsk19dhd0efh3hp3b05g   normal     1 day ago    
 ```sh
 export MYCLUSTER=your_pre_provisioned_clustername
 ```
+
+---
+
+> Congratulations, you have successfully completed this the setup. Awesome :star:

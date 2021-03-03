@@ -141,4 +141,4 @@ This is the result of your work so far:
 
 ![](../images/IstioSecurityArchitecture.png)
 
-> Congratulations, you have successfully completed this lab and reached the end of the `Platform security with mTLS` section of the workshop. Congratulations :star:
+> Congratulations, you have successfully completed this lab and reached the end of the `Platform security with mTLS` section of the workshop. Awesome :star:

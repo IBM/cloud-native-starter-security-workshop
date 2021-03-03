@@ -174,4 +174,6 @@ bash istio-setup-telemetry.sh
 
 This graph shows the components of your microservices architecture. Explore the other tabs.
 
-> Congratulations, you have successfully completed this optional lab and you did the extra mile for `Platform security with mTLS` section of the workshop. Congratulations :star:
+---
+
+> Congratulations, you have successfully completed this optional lab and you did the extra mile for `Platform security with mTLS` section of the workshop. Awesome :star:

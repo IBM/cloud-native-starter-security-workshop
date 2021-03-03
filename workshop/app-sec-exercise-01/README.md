@@ -207,4 +207,6 @@ http://localhost:8080
 
 #### Step 2: Log in with the test user: alice, password: alice
 
-> Congratulations, you have successfully completed this optional hands-on lab tasks for `uthentication and Authorization with Keycloak and Quarkus` section of the workshop. Congratulations :star:
+---
+
+> Congratulations, you have successfully completed this optional hands-on lab tasks for `uthentication and Authorization with Keycloak and Quarkus` section of the workshop. Awesome :star:
