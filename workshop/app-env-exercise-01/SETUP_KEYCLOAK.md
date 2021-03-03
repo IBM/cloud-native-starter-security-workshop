@@ -76,6 +76,10 @@ Try to create an access token, this requires the $INGRESSURL environment variabl
 curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p'
 ```
 
+---
+
+> Congratulations, you have successfully completed this the `Setup Application environment`. Awesome :star:
+
 ### Optional steps to verify the configuration
 
 #### STEP 1: Verify the name `quarkus`of the imported realm
@@ -95,3 +99,5 @@ You should see following users: `admin`, `alice`, `jdoe`
 #### STEP 4: Verify the role mapping
 
 ![](../images/keycloak-user.png)
+
+
