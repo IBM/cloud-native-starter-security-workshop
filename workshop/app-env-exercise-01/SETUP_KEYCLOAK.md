@@ -76,6 +76,10 @@ Try to create an access token, this requires the $INGRESSURL environment variabl
 curl -d "username=alice" -d "password=alice" -d "grant_type=password" -d "client_id=frontend" https://$INGRESSURL/auth/realms/quarkus/protocol/openid-connect/token  | sed -n 's|.*"access_token":"\([^"]*\)".*|\1|p'
 ```
 
+_Note:_ The image shows you in Kiali that we access Keycloak throuh our `istio-ingressgateway`. _This is not a part of your hands-on tasks._
+
+![](../images/kiali-ingress-keycloak.png)
+
 ---
 
 > Congratulations, you have successfully completed  the `Setup Application environment`. Awesome :star:

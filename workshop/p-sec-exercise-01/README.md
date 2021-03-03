@@ -114,3 +114,14 @@ Replace the entries with your value.
 * Now you see the entries of the articles
 
 ![](../images/cns-web-app-ui.png)
+
+* The images shows you in Kiali the running applications. These are the simplified step you see in the image.
+
+  1. The `web-app` will be requested buy our URL to be loaded in a webbrowser.
+  2. The `web-app` in the webbrowser does connect to `Keycloak` for Authentication.
+  3. The `web-app` in the webbrowser does connect to the `web-api` to get the Articles information.
+  4. The `web-api` in does validated the authorization with `Keyloak`.
+  5. The `web-api` in the webbrowser does connect to the `articles` to get the Articles information.
+  6. The `articles` in does validated the authorization with `Keyloak`.
+
+![](../images/kiali-ingress-application-setup.png)
