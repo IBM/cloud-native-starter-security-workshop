@@ -141,4 +141,10 @@ This is the result of your work so far:
 
 ![](../images/IstioSecurityArchitecture.png)
 
+> _Note:_ The image shows you in Kiali `mTLS` is enabled on the http connections. _This is not a part of your hands-on tasks._
+
+![](../images/kiali-ingress-mtls.png)
+
+---
+
 > Congratulations, you have successfully completed this lab and reached the end of the `Platform security with mTLS` section of the workshop. Awesome :star:

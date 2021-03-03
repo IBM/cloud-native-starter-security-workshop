@@ -115,7 +115,7 @@ Replace the entries with your value.
 
 ![](../images/cns-web-app-ui.png)
 
-> Note: The images shows you in Kiali the running applications. These are the simplified steps you see in the image. This is not a part of your hands-on tasks.
+> Note: The image shows you in Kiali the running applications. These are the simplified steps you see in the image. This is not a part of your hands-on tasks.
 
     * 1: The `web-app` will be requested buy our URL to be loaded in a webbrowser.
     * 2: The `web-app` in the webbrowser does connect to `Keycloak` for Authentication.
