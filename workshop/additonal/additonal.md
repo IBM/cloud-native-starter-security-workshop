@@ -2,7 +2,7 @@
 
 Here you find additional help, something went wrong or known issues.
 
-### In case your Cloud Shell session was closed
+### In case your `Cloud Shell session was closed
 
 #### Step 1: Go back to the open browser tab the open Kubernetes Cluster in the IBM Cloud web console. 
 
