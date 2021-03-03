@@ -144,7 +144,7 @@ The VirtualService definition for this Gateway uses matching rules to map specif
 
 * `https://INGRESSURL/auth` routes to the Keycloak service on port 8080
 * `https://INGRESSURL/articles` routes to the Web-API service on port 8081
-* `https://INGRESSURL`, the root ('/') without a path, routes to the Web-App on port 80, this is the service that delivers the frontend app to the browser
+* `https://INGRESSURL`, the root (`/`) without a path, routes to the Web-App on port 80, this is the service that delivers the frontend app to the browser
 
 ### Step 8: Apply the change
 
@@ -181,8 +181,8 @@ Here are some questions you may have regarding TLS (HTTPS):
 >
 > The Gateway definition specifies HTTPS only and points to the location of the TLS certificates. The VirtualService definition specifies 3 rules:
 >
-> * If call the DNS entry / Ingress URL with '/auth' it will direct to keycloak.
-> * With '/articles' it will direct to the web-api
+> * If call the DNS entry / Ingress URL with `/auth` it will direct to keycloak.
+> * With `/articles` it will direct to the web-api
 > * Without an path it directs to the web-app itself.
 
 ---

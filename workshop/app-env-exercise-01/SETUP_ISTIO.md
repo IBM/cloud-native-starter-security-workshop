@@ -102,7 +102,7 @@ kubectl create ns istio-system
 kubectl apply -f istio.yaml
 ```
 
-* Label 'default' namespace for Istio pod auto-injection
+* Label `default` namespace for Istio pod auto-injection
 
 ```sh
 kubectl label namespace default istio-injection=enabled

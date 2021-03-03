@@ -94,14 +94,14 @@ By switching mTLS to strict mode it is impossible for external traffic to bypass
 
 This is the reason why we installed Keycloak into the default namespace: that way it is part of our service mesh and included in the mTLS "dance" automatically. In a real world example you would most likely use a different approach.
 
-#### Step 1: The following command creates a PeerAuthentication policy for the 'default' namespace
+#### Step 1: The following command creates a PeerAuthentication policy for the `default` namespace
 
 ```sh
 cd $ROOT_FOLDER/IKS
 kubectl apply -f mtls.yaml
 ```
 
-This enforces mTLS in the 'default' namespace. So simple!
+This enforces mTLS in the `default` namespace. So simple!
 
 #### Step 2: Create a new access-token and invoke the Web-API Microservice with `HTTP` again
 
@@ -135,7 +135,7 @@ If you check the Cloud Native Starter frontend in the browser, nothing should ha
   * Those requests come in through the Istio Ingress gateway
   * Since the Istio Ingress gateway, Keycloak, and Web-API are all part of the service mesh, communication between them is already encrypted using mTLS
 * REST API calls from Web-API to Articles and from Web-API or Articles to Keycloak use mTLS
-* Access from outside into the applications/services running in the 'default' namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.
+* Access from outside into the applications/services running in the `default` namespace is prohibited now by enforcing strict mTLS. You can only access the services through the Istio Ingress.
 
 This is the result of your work so far:
 

@@ -27,15 +27,15 @@ Get the Keycloak URL and open the URL in your browser:
 echo "https://"$INGRESSURL"/auth"
 ```
 
-Note: This will work because we created a VirtualService in the previous exercise that maps the '/auth' URI to the Keycloak service.
+Note: This will work because we created a VirtualService in the previous exercise that maps the `/auth` URI to the Keycloak service.
 
 ### Step 4: Try to logon to Keycloak
 
-* Click on 'Administration Console'.
+* Click on `Administration Console`.
 
 ![](../images/keycloak-configure-01.png)
 
-* Login In with username 'admin' and password 'admin'.
+* Login In with username `admin` and password `admin`.
 
 ![](../images/keycloak-configure-02.png)
 
