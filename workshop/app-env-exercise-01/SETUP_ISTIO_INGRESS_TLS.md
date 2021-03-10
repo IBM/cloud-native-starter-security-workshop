@@ -28,6 +28,12 @@ harald-uebele-k8s-fra05-***-0000.***.cloud   169.46.52.50,169.48.97.58   enabled
 harald-uebele-k8s-fra05-***-0001.***.cloud   169.48.97.62                None             created           harald-uebele-k8s-fra05-****-0001   default
 ```
 
+> _Note:_ IBM Cloud does create for your a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates. For more details please visit the [additional section](../additional/additional.md).
+
+
+* Copy your cluster ID
+
+
 ### Step 2: Save Ingress secret
 
 You should see 2 entries, the first is for the Kubernetes Ingress that is created for you when the cluster is created. The second is the Istio Ingress subdomain you created in the last exercise.

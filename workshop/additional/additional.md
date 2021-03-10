@@ -1,6 +1,6 @@
 # Additional Information
 
-Here you find additional help, something went wrong or known issues.
+Here you find additional help, something went wrong, known issues or just get some information.
 
 ### In case your `Cloud Shell session was closed
 
@@ -46,4 +46,19 @@ echo $INGRESSSECRET
 export INGRESSURL=$(ibmcloud ks nlb-dns ls --cluster $MYCLUSTER | awk '/-0001./ {print $1}')
 echo $INGRESSURL
 ```
+### Find the Certificate Manager of your cluster
+
+IBM Cloud does create for your a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates. 
+
+#### Step 1: Copy the cluster ID
+
+![](../images/certificate-manager-01.png)
+
+#### Step 2: Find the resources related to this cluster ID
+
+![](../images/certificate-manager-02.png)
+
+#### Step 3: Inspect the given certificates
+
+![](../images/certificate-manager-03.png)
 
