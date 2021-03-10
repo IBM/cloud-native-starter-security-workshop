@@ -32,6 +32,7 @@
 
 ### Additional Resources
 
+* [Known issues](additional/additional.md)
 * [Blog posts related to security](BLOGS.md)
 * [Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter)
 * [Cloud-Native-Starter project security](https://github.com/IBM/cloud-native-starter/security)
