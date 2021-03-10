@@ -48,7 +48,7 @@ echo $INGRESSURL
 ```
 ### Find the Certificate Manager of your cluster
 
-IBM Cloud does create for your a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates. 
+IBM Cloud does create for you a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates for your Kubernetes cluster. 
 
 #### Step 1: Copy the cluster ID
 
