@@ -51,11 +51,18 @@ The image below shows the relevant elements we will use later.
 
 #### Step 1: Start Keycloak Docker image local
 
-Open the first terminal session and enter:
+Open the first terminal session and enter following command:
 
 ```sh
 docker run -it -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8282:8080 jboss/keycloak:9.0.2
 ```
+
+_Note:_ We use here
+
+  * `KEYCLOAK_USER=admin`
+  * `KEYCLOAK_PASSWORD=admin`
+  * `8282:8080` port forwarding
+  * `keycloak:9.0.2` container image
 
 #### Step 2: Import the existing realm configuration
 
