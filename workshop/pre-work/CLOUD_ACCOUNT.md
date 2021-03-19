@@ -12,7 +12,7 @@ OR
 
 ### Step 2: Accessing the Cluster
 
-Instructors will provide a URL to a web app. Enter your IBMid (the email you used to sign up) and the workshop key (also provided by the instructor).
+Instructors will provide a URL to a web app. Enter your IBMid (the email you used to sign up) and the workshop key (also provided by the instructor ([link](https://thomassuedbroecker.github.io/workshop-instructions/))).
 
 ![](../images/cluster-get.png)
 
