@@ -96,10 +96,13 @@ The workshop with his two major parts, has been tested on the following platform
 * [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 * [Istio](https://https://istio.io)
 * [Vue.js](https://vuejs.org/)
+* [NGINX](https://www.nginx.com/)
+* [Kubernetes](https://kubernetes.io/)
 * [git 2.24.1 or higher](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [yarn 1.22.4 or higher](https://yarnpkg.com)
 * [Node.js v14.6.0 or higher](https://nodejs.org/en/)
 * [Apache Maven 3.6.3](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
+
 
 ### Credits
 
