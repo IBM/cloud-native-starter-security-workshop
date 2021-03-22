@@ -2,7 +2,11 @@
 
 Here you find additional help, something went wrong, known issues or just get some information.
 
-### In case your `Cloud Shell session was closed
+### In case your `Cloud Shell` session was closed
+
+Setup the major environment variables we need in the workshop.
+
+* **Solution**: Follow these steps to setup the major environment variables we need in the workshop.
 
 #### Step 1: Go back to the open browser tab the open Kubernetes Cluster in the IBM Cloud web console. 
 
@@ -47,7 +51,26 @@ echo $INGRESSSECRET
 export INGRESSURL=$(ibmcloud ks nlb-dns ls --cluster $MYCLUSTER | awk '/-0001./ {print $1}')
 echo $INGRESSURL
 ```
-### Find the Certificate Manager of your cluster
+
+### (Issue 2) You can't access the Kubernetes Dashboard
+
+When you open up your Kubernetes Dashboard from your cluster from the IBM Cloud WebConsole
+
+![](../images/issue-2-01.png)
+
+and you get following error message:
+
+![](../images/issue-2-02.png)
+
+It cloud be that you are logged on to two different `IBM Cloud Accounts` (your `IBM Cloud account` and the `IBM Cloud workshop account`) in different browser tabs.
+
+* **Solution**:
+
+Just ensure that you are logged on to the IBM Cloud workshop account.
+
+![](../images/cluster-ibmaccount.png)
+
+### (Hide) Find the Certificate Manager of your cluster
 
 IBM Cloud does create for you a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates for your Kubernetes cluster. 
 
