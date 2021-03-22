@@ -50,15 +50,19 @@ theme:
     text: IBM Plex Sans
     code: IBM Plex Mono
   icon:
-    logo: material/library
+    logo: ibm_8bar_reverse_2
   features:
     # - navigation.tabs
     - navigation.instant
     # - navigation.expand
   palette:
     scheme: default
-    primary: blue
+    primary: black
     accent: blue
+  # palette:
+  #  scheme: default
+  #  primary: blue
+  #  accent: blue
 
 # Plugins
 plugins:
