@@ -70,9 +70,19 @@ Just ensure that you are logged on to the IBM Cloud workshop account.
 
 ![](../images/cluster-ibmaccount.png)
 
+### **(Issue 3) Problems with your `IBM Cloud Account`**
+
+If you have problems with your `IBM Cloud Account` please visit the FAQ page from the [IBM Cloud support](https://cloud.ibm.com/docs/account?topic=account-accountfaqs).
+
+For questions like:
+
+* How do I resolve errors that occur when creating my account?
+* Can I sign up for a free trial?
+and more many ...
+
 ### **(Note) Find the Certificate Manager of your cluster**
 
-IBM Cloud does create for you a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates for your Kubernetes cluster. 
+IBM Cloud does create for you a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance to manage the certificates for your Kubernetes cluster. 
 
 #### Step 1: Copy the cluster ID
 
