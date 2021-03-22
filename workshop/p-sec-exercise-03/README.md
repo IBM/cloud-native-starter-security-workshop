@@ -11,13 +11,17 @@ The `end-user to workload` authentication we handle in our example in the applic
 
 In this exercise we will learn how to apply authorization policies to further secure communication within the service mesh, workload to workload. In our example we will use [Kubernetes Service Accounts](https://v1-16.docs.kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) to perform the authorization.
 
+### Review the existing deployment
+
 When you create a pod, if you do not specify a service account, it is automatically assigned the `default` service account in the same namespace. You can check this for the `articles` service:
+
+#### STEP 1:  Get the full name of the articles pod from the resulting list:
 
 ```sh
 kubectl get pods
 ```
 
-Get the full name of the articles pod from the resulting list:
+Example output:
 
 ```sh
 NAME                        READY   STATUS    RESTARTS   AGE
@@ -27,7 +31,7 @@ web-api-5c9698b875-c8vrt    2/2     Running   0          3d23h
 web-app-79499c4b99-dv2hs    2/2     Running   0          3d23h
 ```
 
-Now display the details for the pod in YAML format and search for the term `serviceAccount`:
+#### STEP 2: Now display the details for the pod in YAML format and search for the term `serviceAccount`:
 
 ```sh
 kubectl get pod articles-xxxxxxxxxx-yyyyy -o json | grep serviceAccount
@@ -42,9 +46,9 @@ Result:
 
 The articles pod indeed uses the `default` service account.
 
-### Step 1: Modify deployments to use service accounts
+### Modify deployments to use service accounts
 
-First we create 2 service accounts (sa) for our 2 services
+#### Step 1: First we create 2 service accounts (sa) for our 2 services
 
 ```sh
 kubectl create sa articles
@@ -55,7 +59,7 @@ kubectl create sa web-api
 
 ![](../images/istio-auth-01.png)
 
-Then we replace the deployment descriptions to use the service accounts we just created:
+#### Step 2: Then we replace the deployment descriptions to use the service accounts we just created:
 
 ```sh
 kubectl replace -f $ROOT_FOLDER/articles-secure/deployment/articles-sa.yaml
@@ -65,7 +69,7 @@ kubectl replace -f $ROOT_FOLDER/articles-secure/deployment/articles-sa.yaml
 kubectl replace -f $ROOT_FOLDER/web-api-secure/deployment/web-api-sa.yaml
 ```
 
-This will recreate the articles and web-api pods. Check with:
+#### Step 3: This will recreate the articles and web-api pods. Check with:
 
 ```sh
 kubectl get pods
@@ -84,7 +88,9 @@ Result:
 
 If you test the application in the browser it should work exactly the same as before.
 
-### Step 2: Authorization Policy
+### Authorization Policy
+
+#### Step 1: Verify the authorization policy
 
 First we apply an incomplete authorization policy to the articles service. It looks like this:
 
@@ -104,13 +110,15 @@ Istio documentation specifies: *If any allow policies are applied to a workload,
 
 We have an "ALLOW" policy but no rule is specified which makes it effectively a "DENY ALL" rule.
 
-Apply with:
+#### Step 2: Apply with rule
 
 ```sh
 kubectl apply -f IKS/authorization.yaml
 ```
 
-Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see this error in the browser:
+#### Step 3: Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see this error in the browser:
+
+Example output: 
 
 ```ini
 Articles could not be read
@@ -118,6 +126,8 @@ Error: Request failed with status code 500
 ```
 
 ![](../images/istio-auth-02.png)
+
+#### Step 4: Verify `AuthorizationPolicy`
 
 Now we use a correct authorization poliy. It looks like this:
 
@@ -142,11 +152,15 @@ spec:
 
 It allows `GET` and `POST` access to the articles service for the service account (sa) `web-api` in namespace (ns) `default`.
 
+#### Step 5: Apply rule
+
 Apply with:
 
 ```sh
 kubectl apply -f IKS/authorization-w-rule.yaml
 ```
+
+#### Step 5: Verify the access
 
 Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see that the application works.
 
