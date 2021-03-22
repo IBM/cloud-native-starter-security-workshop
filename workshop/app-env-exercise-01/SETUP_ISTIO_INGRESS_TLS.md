@@ -13,7 +13,12 @@ Therefore we need to pull certificate and key from the secret in the 'default' n
 
 ![](../images/Copy-Cert.png)
 
-### Step 1: List the DNS subdomains
+### Step 1: Verify clustername 
+
+```sh
+echo $MYCLUSTER
+```
+### Step 2: List the DNS subdomains
 
 ```sh
 cd $ROOT_FOLDER/IKS
@@ -30,7 +35,7 @@ harald-uebele-k8s-fra05-***-0001.***.cloud   169.48.97.62                None   
 
 > _Note:_ IBM Cloud does create for you a free [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager) service instance, to manage the certificates for your Kubernetes cluster. For more details please visit the [additional section](../additional/additional.md).
 
-### Step 2: Save Ingress secret
+### Step 3: Save Ingress secret
 
 You should see 2 entries, the first is for the Kubernetes Ingress that is created for you when the cluster is created. The second is the Istio Ingress subdomain you created in the last exercise.
 
@@ -52,13 +57,15 @@ The secret was created in the 'default' namespace. In order to use it with Istio
 
 ![](../images/Copy-Cert-01.png)
 
-Open the `mysecret.yaml` file in an editor, e.g. `nano`, change the value of the secret name from something like `name: [your-clustername]-******-0001` to `name: istio-ingressgateway-certs` and save the file.
+Open the `mysecret.yaml` file in an editor, e.g. `nano`, change the value of the secret name from 
+* something like `name: [your-clustername]-******-0001` 
+* to `name: istio-ingressgateway-certs` and save the file.
 
 ```sh
 nano mysecret.yaml
 ```
 
-Your changed file should look similar to this example, the changed line is line 12 (`istio-ingressgateway-certs):
+Your changed file should look similar to this example, the changed line is line 12 (`istio-ingressgateway-certs`):
 
 ```yml
 apiVersion: v1
@@ -77,20 +84,21 @@ metadata:
 type: Opaque
 ```
 
-_Optional:_ You can verfiy the result also in the Kubernetes Dashboard
-
-| Default Namespae | Istio-System Namespace |
-|---|---|
-| ![](../images/secret-kube-dashboard-01.png)| ![](../images/secret-kube-dashboard-02.png) |
-
 ### Step 5: Load and activate the secret with these commands
 
-Here the second command deletes the Istio Ingress pod to force it to reload and use the the newly created secret.
+Here the second command deletes the Istio Ingress pod to force it to reload and use the the newly created secret `istio-ingressgateway-certs.
 
 ```sh
 kubectl apply -f ./mysecret.yaml -n istio-system
 kubectl delete pod -n istio-system -l istio=ingressgateway
 ```
+
+_Optional:_ You can verfiy the result also in the Kubernetes Dashboard. Here you can see our newly created secret
+
+| Default Namespae | Istio-System Namespace |
+|---|---|
+| ![](../images/secret-kube-dashboard-01.png)| ![](../images/secret-kube-dashboard-02.png) |
+
 
 ### Step 6: Get the `$INGRESSURL` you obtained in the last exercise and copy or note the value
 

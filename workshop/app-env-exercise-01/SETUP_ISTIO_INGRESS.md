@@ -51,6 +51,15 @@ Cluster Name: harald-uebele-k8s-fra05
 ...
 ```
 
+#### Step 3: Create a `$INGRESSURL` variable for later usage
+
+Insert your `YOUR_INGRESSURL` value.
+
+```sh
+export INGRESSURL=YOUR_INGRESSURL
+echo $INGRESSURL
+```
+
 ### FYI: Manual setup
 
 The following steps show the manual steps of the automated setup. This is just for your information, you don't need to run them!
