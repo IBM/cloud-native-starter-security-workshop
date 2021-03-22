@@ -118,6 +118,7 @@ echo $INGRESSURL
 Edit the file istio-ingress-tls.yaml:
 
 ```sh
+cd $ROOT_FOLDER/IKS
 nano istio-ingress-tls.yaml
 ```
 

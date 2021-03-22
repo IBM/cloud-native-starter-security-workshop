@@ -113,7 +113,7 @@ We have an "ALLOW" policy but no rule is specified which makes it effectively a 
 #### Step 2: Apply with rule
 
 ```sh
-kubectl apply -f IKS/authorization.yaml
+kubectl apply -f $ROOT_FOLDER/IKS/authorization.yaml
 ```
 
 #### Step 3: Check the application in the browser again. It may take a while for the policy to propagate to the Envoy but eventually you will see this error in the browser:
@@ -157,7 +157,7 @@ It allows `GET` and `POST` access to the articles service for the service accoun
 Apply with:
 
 ```sh
-kubectl apply -f IKS/authorization-w-rule.yaml
+kubectl apply -f $ROOT_FOLDER/IKS/authorization-w-rule.yaml
 ```
 
 #### Step 5: Verify the access
