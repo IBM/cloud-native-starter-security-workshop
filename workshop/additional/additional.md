@@ -18,6 +18,7 @@ Now select `Access` on the left-hand side, here you see all steps to access your
 git clone https://github.com/IBM/cloud-native-starter.git
 cd cloud-native-starter/security
 ROOT_FOLDER=$(pwd)
+echo $ROOT_FOLDER
 ```
 
 * `MYCLUSTER` your cluster name

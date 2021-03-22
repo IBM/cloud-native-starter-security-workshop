@@ -36,6 +36,7 @@ In the IBM Cloud Shell execute the following command:
 git clone https://github.com/IBM/cloud-native-starter.git
 cd cloud-native-starter/security
 ROOT_FOLDER=$(pwd)
+echo $ROOT_FOLDER
 ```
 
 ### Step 3. Get Access to Kubernetes
