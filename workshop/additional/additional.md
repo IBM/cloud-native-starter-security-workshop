@@ -78,7 +78,7 @@ For questions like:
 
 * How do I resolve errors that occur when creating my account?
 * Can I sign up for a free trial?
-and more many ...
+and many more ...
 
 ### **(Note) Find the Certificate Manager of your cluster**
 
