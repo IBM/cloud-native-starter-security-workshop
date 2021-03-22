@@ -66,7 +66,8 @@ It cloud be that you are logged on to two different `IBM Cloud Accounts` (your `
 
 * **Solution**:
 
-Just ensure that you are logged on to the IBM Cloud workshop account.
+Just make sure you are signed in to the IBM Cloud Workshop account.
+To ensure this, just reload the tab on your browser and check the account. Then if you use the correct account it should work.
 
 ![](../images/cluster-ibmaccount.png)
 
