@@ -57,9 +57,13 @@ The secret was created in the 'default' namespace. In order to use it with Istio
 
 ![](../images/Copy-Cert-01.png)
 
-Open the `mysecret.yaml` file in an editor, e.g. `nano`, change the value of the secret name from 
+Open the `mysecret.yaml` file in an editor, e.g. `nano`, change the value of the secret name from ... 
+
 * something like `name: [your-clustername]-******-0001` 
-* to `name: istio-ingressgateway-certs` and save the file.
+
+to ...
+
+* `name: istio-ingressgateway-certs` and save the file.
 
 ```sh
 nano mysecret.yaml
