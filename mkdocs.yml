@@ -63,6 +63,7 @@ theme:
   #  scheme: default
   #  primary: blue
   #  accent: blue
+  custom_dir: overrides
 
 # Plugins
 plugins:
