@@ -10,9 +10,13 @@ Setup the major environment variables we need in the workshop.
 
 #### Step 1: Go back to the open browser tab the open Kubernetes Cluster in the IBM Cloud web console. 
 
-Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands. We will use these commands later to access the Kubernetes cluster in the IBM Cloud Shell.
+1. Now select `Actions->Connect via CLI` on the right-hand side.
 
-![](../images/cluster-access-commands.png)
+![](../images/cluster-access-new-01.png)
+
+2. In the new window you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands. We will use these commands later to access the Kubernetes cluster in the IBM Cloud Shell.
+
+![](../images/cluster-access-new-02.png)
 
 #### Step 2: Setup needed variable you maybe need in your lab
 
