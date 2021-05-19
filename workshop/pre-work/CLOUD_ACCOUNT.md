@@ -36,6 +36,14 @@ Instructors will provide a URL to a web app. Enter your IBMid (the email you use
 
 ![](../images/cluster-kubernetes-dashboard.png)
 
-* Go back to the open browser tab the open Kubernetes Cluster in the IBM Cloud web console. Now select `Access` on the left-hand side, here you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands. We will use these commands later to access the Kubernetes cluster in the IBM Cloud Shell.
+* Go back to the open browser tab the open Kubernetes Cluster in the IBM Cloud web console. 
 
-![](../images/cluster-access-commands.png)
+    1. Now select `Actions->Connect via CLI` on the right-hand side.
+
+    ![](../images/cluster-access-new-01.png)
+
+    2. In the new window you see all steps to access your Kubernetes Cluster in a terminal session. You can easily copy and paste the commands. We will use these commands later to access the Kubernetes cluster in the IBM Cloud Shell.
+
+    ![](../images/cluster-access-new-02.png)
+
+    ![](../images/cluster-access-commands.png)
