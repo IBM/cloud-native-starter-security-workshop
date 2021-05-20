@@ -46,4 +46,3 @@ Instructors will provide a URL to a web app. Enter your IBMid (the email you use
 
     ![](../images/cluster-access-new-02.png)
 
-    ![](../images/cluster-access-commands.png)
