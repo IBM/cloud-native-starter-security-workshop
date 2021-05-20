@@ -55,11 +55,18 @@ Open provided Kubernetes cluster again in your browser tab, with the IBM Cloud w
 
 ![](../images/cluster-access-commands.png)
 
+* Go back to the open browser tab the open Kubernetes Cluster in the IBM Cloud web console. 
+
+    1. Now select `Actions->Connect via CLI` on the right-hand side.
+
+    ![](../images/cluster-access-new-01.png)
+
+
 * Now copy and paste all these commands in sequence in your open IBM Cloud Shell terminal session.
 
 | Browser tab - IBM Cloud web console | Broswer tab - IBM CLoud Shell  |
 | - | - |
-|![](../images/cluster-access-commands.png)| ![](../images/cloud-shell.png) |
+|![](../images/cluster-access-new-02.png)| ![](../images/cloud-shell.png) |
 
 _Note:_ To access the pre-provisioned IBM Cloud Kubernetes Cluster, select the correct account (1840867-Advowork) during login.
 
