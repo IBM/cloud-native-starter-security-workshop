@@ -100,7 +100,7 @@ You should see following users: `admin`, `alice`, `jdoe`
 
 #### Step 1: Configure web-app
 
-Now insert `Keycloak URL`/auth in `main.js` (`http://localhost:8282) and save the changes.
+Now insert `Keycloak URL`/auth in `main.js` (`http://localhost:8282`) and save the changes.
 
 ```sh
 cd $ROOT_FOLDER/web-app/src
